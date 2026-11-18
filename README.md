@@ -23,6 +23,15 @@ scripts/
 .github/workflows/      提交检查（check.yml）和 Pages 发布（deploy.yml）
 ```
 
+## 内置组件镜像
+
+`src/` 里有 57 个组件是从 WinWidget 自带的 `assets/widgets/` 复制过来的，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
+
+- **id 去掉保留前缀**：`winwidget.agenda` → `agenda`。客户端安装时会拒绝 `winwidget.` 开头的 id（`src/market/packages.rs` 的 `reject_reserved`），所以不能原样发。`fullwidget.perpetual` 不占用保留前缀，id 和文件夹名都保持原样。
+- **补 `date` 字段**：取原仓库里该组件最后一次提交的日期（`git log -1 --format=%cs -- assets/widgets/<名>`）。不写死日期的话，`build.mjs` 会退回到 git 提交日期，CI 重建清单时就和本地产物对不上。
+
+这些组件在客户端里同时是内置组件（内置 id 是 `winwidget.*`），从市场装到桌面后会以市场 id 再出现一份，内置那份不受影响。
+
 ## 加一个组件
 
 1. 在 `src/` 下新建文件夹，**文件夹名必须是新组件的 id**，规则：小写字母、数字、点、横线、下划线，2–64 个字符，以字母或数字开头；不能用 `winwidget.` 和 `user.` 开头（客户端保留）。建议 `<作者名>.<组件名>`，例如 `demon.coin`。

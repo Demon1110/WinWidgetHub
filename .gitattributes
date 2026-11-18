@@ -1,0 +1,10 @@
+# 源码要按字节打进 .fwz，换行不能被平台改写，否则 CI 重算的 sha256 会和清单对不上。
+* text=auto eol=lf
+*.fwz binary
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
