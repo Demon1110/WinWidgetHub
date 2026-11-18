@@ -14,6 +14,7 @@ src/                    每个组件一个文件夹，文件夹名就是组件 i
       instrument.zh-CN.png
 widgets/                构建产物：<id>-<version>.fwz，提交进仓库
 widgets.json            构建产物：组件清单，提交进仓库
+index.html              Pages 首页：网页版组件市场，直接读 widgets.json
 .nojekyll               让 GitHub Pages 原样发文件，不走 Jekyll
 scripts/
   build.mjs             源码 → .fwz + widgets.json
@@ -114,9 +115,20 @@ https://demon1110.github.io/WinWidgetHub/widgets.json
 
 客户端那边：`src/market/client.rs` 的 `DEFAULT_LIST` 现在读的是 raw 清单 `https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/widgets.json`；Pages 生效后可以把它或设置文件的 `market_url` 换成上面的 Pages 清单地址。`DEFAULT_SITE` 是同仓库的 GitHub 主页，控制中心「在网站上看」会用这个。
 
+## 网页版市场（index.html）
+
+打开 `https://demon1110.github.io/WinWidgetHub/` 就是网页版市场，布局和控制中心「添加组件 → 线上」一致：卡片带预览图、名称、作者与版本、介绍、权限、体积、更新日期，底部是「下载 .fwz」和「源码」。
+
+- 数据：页面读同目录的 `widgets.json`，字段和客户端完全同一份，没有额外接口；读取失败会回退到 Pages 绝对地址，并提供「重试」。
+- 检索：搜索框同时匹配 `id`、`name`、`description`、`author`，多个空格分隔的词按「全部包含」处理。
+- 排序：「最近更新」（默认，`updated` 倒序）、「名称 A→Z」、「体积从大到小」、「版本从新到旧」。
+- 筛选：分类胶囊（时间/天气/系统/效率/资讯/媒体/其他）带计数，不认识的分类归到「其他」。
+- 主题：跟随系统，右上角可切换深浅色，选择记在 `localStorage`。
+- 纯静态单文件，无外部依赖、无构建步骤；改样式直接改 `index.html`。
+
 几点要注意：
 
-- Pages 用 Actions 发布（`.github/workflows/deploy.yml`）：仓库 → Settings → Pages → Source 选「GitHub Actions」，之后每次推 main 都会先跑 `check.mjs`，再把 `widgets.json`、`widgets/`、`src/` 复制到 `_site` 上传发布。第一次配置完可以在 Actions 里手动 Run workflow。
+- Pages 用 Actions 发布（`.github/workflows/deploy.yml`）：仓库 → Settings → Pages → Source 选「GitHub Actions」，之后每次推 main 都会先跑 `check.mjs`，再把 `index.html`、`widgets.json`、`widgets/`、`src/` 复制到 `_site` 上传发布。第一次配置完可以在 Actions 里手动 Run workflow。
 - 要临时用 raw 地址（比如 Pages 还没生效）时：`HUB_BASE_URL=https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/ node scripts/build.mjs`，再提交清单。
 - 更新只认 `version`：**同一个 id 的版本只能往上加**，`build.mjs` 会拦住倒退。
 - 客户端会把清单缓存到本地，十分钟内不重复拉取；改完清单想立刻看到，控制中心点「重新整理」。
