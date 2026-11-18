@@ -14,6 +14,7 @@ src/                    每个组件一个文件夹，文件夹名就是组件 i
       instrument.zh-CN.png
 widgets/                构建产物：<id>-<version>.fwz，提交进仓库
 widgets.json            构建产物：组件清单，提交进仓库
+.nojekyll               让 GitHub Pages 原样发文件，不走 Jekyll
 scripts/
   build.mjs             源码 → .fwz + widgets.json
   check.mjs             投稿检查（PR 和本地都能跑）
@@ -102,17 +103,21 @@ scripts/
 
 WinWidget 的市场地址来自设置文件的 `market_url`（环境变量 `WINWIDGET_MARKET` 也可以）。地址以 `.json` 结尾时直接当清单用，否则会拼上 `/widgets.json`。
 
-本仓库默认地址：
+本仓库用 GitHub Pages 发布，站点和清单地址：
 
 ```
-https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/widgets.json
+https://demon1110.github.io/WinWidgetHub/
+https://demon1110.github.io/WinWidgetHub/widgets.json
 ```
 
-客户端里 `src/market/client.rs` 的 `DEFAULT_LIST` 已默认指向它（`DEFAULT_SITE` 是同仓库的 GitHub 主页，控制中心「在网站上看」会用这个）。仓库推上去之前，「线上」会显示连不上，这是正常的。
+`build.mjs` 默认就用这个前缀拼下载、图标和预览图地址（`HUB_BASE_URL` 可以临时改成别的）。根目录的 `.nojekyll` 让 Pages 原样发文件，不走 Jekyll。
+
+客户端那边：`src/market/client.rs` 的 `DEFAULT_LIST` 现在读的是 raw 清单 `https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/widgets.json`；Pages 生效后可以把它或设置文件的 `market_url` 换成上面的 Pages 清单地址。`DEFAULT_SITE` 是同仓库的 GitHub 主页，控制中心「在网站上看」会用这个。
 
 几点要注意：
 
-- `raw.githubusercontent.com` 在部分网络下不稳定。要更稳，可以开 GitHub Pages 指向本仓库，然后把 `market_url` 换成 Pages 地址；构建时的下载/预览地址前缀用 `HUB_BASE_URL` 切换，例如 `HUB_BASE_URL=https://demon1110.github.io/WinWidgetHub/ node scripts/build.mjs`。
+- Pages 第一次开启：仓库 → Settings → Pages → Source 选「Deploy from a branch」→ main / 根目录，部署 1–2 分钟。之后每次推 main 都会重新发布。
+- 要临时用 raw 地址（比如 Pages 还没生效）时：`HUB_BASE_URL=https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/ node scripts/build.mjs`，再提交清单。
 - 更新只认 `version`：**同一个 id 的版本只能往上加**，`build.mjs` 会拦住倒退。
 - 客户端会把清单缓存到本地，十分钟内不重复拉取；改完清单想立刻看到，控制中心点「重新整理」。
 

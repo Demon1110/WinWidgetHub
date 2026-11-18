@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repo": "https://github.com/Demon1110/WinWidgetHub",
-  "base": "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/",
+  "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-18",
   "count": 1,
   "widgets": [
@@ -13,23 +13,23 @@
       "author": "Demon1110",
       "category": "other",
       "updated": "2026-11-18",
-      "icon": "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/icon.svg",
-      "preview": "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/{theme}.{lang}.png",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/demon.coin/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/{theme}.{lang}.png",
       "previews": [
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/instrument.en.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/instrument.zh-CN.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/instrument.zh-TW.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/paper.en.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/paper.zh-CN.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/paper.zh-TW.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/type.en.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/type.zh-CN.png",
-        "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/src/demon.coin/preview/type.zh-TW.png"
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/instrument.en.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/instrument.zh-CN.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/instrument.zh-TW.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/paper.en.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/paper.zh-CN.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/paper.zh-TW.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/type.en.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/type.zh-CN.png",
+        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/type.zh-TW.png"
       ],
       "permissions": [],
       "bytes": 549777,
       "sha256": "48d773fd0e5695594b7ee975519070979a15022e6f96ce1fb254edcf6799c43d",
-      "download": "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/widgets/demon.coin-1.0.0.fwz",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/demon.coin-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/demon.coin"
     }
   ]

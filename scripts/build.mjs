@@ -16,10 +16,8 @@ const OUT = path.join(ROOT, "widgets");
 const LIST = path.join(ROOT, "widgets.json");
 
 // 清单和下载地址都按这个前缀拼绝对网址：客户端只接受 http(s) 的下载地址。
-const BASE = (process.env.HUB_BASE_URL || "https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/").replace(
-  /\/?$/,
-  "/",
-);
+// 默认走 GitHub Pages；本地测试别的站点时用 HUB_BASE_URL 覆盖。
+const BASE = (process.env.HUB_BASE_URL || "https://demon1110.github.io/WinWidgetHub/").replace(/\/?$/, "/");
 const REPO = (process.env.HUB_REPO_URL || "https://github.com/Demon1110/WinWidgetHub").replace(/\/$/, "");
 const CHECK_ONLY = process.argv.includes("--check");
 
