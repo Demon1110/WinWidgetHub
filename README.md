@@ -19,7 +19,7 @@ scripts/
   build.mjs             源码 → .fwz + widgets.json
   check.mjs             投稿检查（PR 和本地都能跑）
   lib/                  zip 写入、源码扫描与校验
-.github/workflows/      每次 PR / 推到 main 自动跑 check.mjs
+.github/workflows/      提交检查（check.yml）和 Pages 发布（deploy.yml）
 ```
 
 ## 加一个组件
@@ -116,7 +116,7 @@ https://demon1110.github.io/WinWidgetHub/widgets.json
 
 几点要注意：
 
-- Pages 第一次开启：仓库 → Settings → Pages → Source 选「Deploy from a branch」→ main / 根目录，部署 1–2 分钟。之后每次推 main 都会重新发布。
+- Pages 用 Actions 发布（`.github/workflows/deploy.yml`）：仓库 → Settings → Pages → Source 选「GitHub Actions」，之后每次推 main 都会先跑 `check.mjs`，再把 `widgets.json`、`widgets/`、`src/` 复制到 `_site` 上传发布。第一次配置完可以在 Actions 里手动 Run workflow。
 - 要临时用 raw 地址（比如 Pages 还没生效）时：`HUB_BASE_URL=https://raw.githubusercontent.com/Demon1110/WinWidgetHub/main/ node scripts/build.mjs`，再提交清单。
 - 更新只认 `version`：**同一个 id 的版本只能往上加**，`build.mjs` 会拦住倒退。
 - 客户端会把清单缓存到本地，十分钟内不重复拉取；改完清单想立刻看到，控制中心点「重新整理」。
