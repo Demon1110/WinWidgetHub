@@ -1,0 +1,25 @@
+{
+  "id": "demon.coin",
+  "name": { "zh-TW": "擲硬幣", "zh-CN": "掷硬币", "en": "Coin Flip" },
+  "description": {
+    "zh-TW": "拋一次硬幣，替你做決定",
+    "zh-CN": "抛一次硬币，替你做决定",
+    "en": "Flip a coin and let it decide"
+  },
+  "version": "1.0.0",
+  "author": "Demon1110",
+  "date": "2026-11-18",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "size": { "width": 260, "height": 180, "minWidth": 160, "minHeight": 120, "grow": 1 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "animate",
+      "type": "toggle",
+      "label": { "zh-TW": "翻轉動畫", "zh-CN": "翻转动画", "en": "Flip animation" },
+      "default": true
+    }
+  ]
+}

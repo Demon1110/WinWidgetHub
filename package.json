@@ -1,0 +1,13 @@
+{
+  "name": "winwidget-hub",
+  "private": true,
+  "type": "module",
+  "description": "WinWidget 第三方组件仓库：源码在 src/，打包好的 .fwz 在 widgets/",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

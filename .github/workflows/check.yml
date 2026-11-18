@@ -1,0 +1,28 @@
+name: 检查组件
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "widgets/**"
+      - "widgets.json"
+      - ".github/workflows/check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 组件日期取自 git log，浅克隆会拿不到
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 检查源码和打包产物
+        run: node scripts/check.mjs
