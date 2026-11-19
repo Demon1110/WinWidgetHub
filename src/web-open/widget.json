@@ -1,0 +1,31 @@
+{
+  "id": "web-open",
+  "name": { "zh-TW": "網頁快開", "zh-CN": "网页快开", "en": "Web Quick Open" },
+  "description": {
+    "zh-TW": "像啟動程式一樣打開常用網頁：一次打開多個、為每個網站指定瀏覽器，還能把文字或檔案送到 AI 助手。",
+    "zh-CN": "像启动程序一样打开常用网页：一次打开多个、为每个网站指定浏览器，还能把文字或文件送到 AI 助手。",
+    "en": "Open the pages you use like apps: several at once, each in its own browser, and send text or files to an AI assistant."
+  },
+  "version": "1.0.0",
+  "date": "2026-11-19",
+  "author": "Demon1110",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "preview": "preview/preview.webp",
+  "size": { "width": 380, "height": 340, "minWidth": 300, "minHeight": 260, "maxWidth": 760, "maxHeight": 760, "resizable": true, "grow": 0.6 },
+  "permissions": ["shell.open", "shell.launch", "clipboard", "shell.drop"],
+  "settings": [
+    {
+      "key": "autoCopy",
+      "type": "toggle",
+      "label": { "zh-TW": "AI 快開時自動複製", "zh-CN": "AI 快开时自动复制", "en": "Copy before opening AI" },
+      "description": {
+        "zh-TW": "把輸入的文字或拖入的檔案放進剪貼簿，打開後直接 Ctrl+V。",
+        "zh-CN": "把输入的文字或拖入的文件放进剪贴板，打开后直接 Ctrl+V。",
+        "en": "Put the text or dropped files on the clipboard so you can paste right away."
+      },
+      "default": true
+    }
+  ]
+}

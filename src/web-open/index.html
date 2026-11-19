@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wo">
+    <header class="top">
+      <div class="brand">
+        <span class="brandmark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M3.9 12h16.2M12 3.8c2.2 2.2 3.4 5 3.4 8.2s-1.2 6-3.4 8.2c-2.2-2.2-3.4-5-3.4-8.2S9.8 6 12 3.8z"/><path class="arrow" d="M17 15.2l2.3-2.3 1.7 1.7-4 4-2.4-2.4z"/></svg>
+        </span>
+        <span class="titles">
+          <span class="title" id="title"></span>
+          <span class="sub" id="sub"></span>
+        </span>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab" id="tabWeb" role="tab" aria-selected="true"></button>
+        <button class="tab" id="tabAi" role="tab" aria-selected="false"></button>
+      </div>
+      <button class="icon-btn" id="browsersBtn" type="button" title="浏览器设置" aria-label="浏览器设置">
+        <svg viewBox="0 0 24 24"><path d="M12 8.3a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4z"/><path d="M19.4 13a7.8 7.8 0 0 0 0-2l2-1.5-2-3.4-2.3.9a7.6 7.6 0 0 0-1.7-1L15 3.3h-4l-.4 2.7a7.6 7.6 0 0 0-1.7 1L6.6 6 4.6 9.4 6.6 11a7.8 7.8 0 0 0 0 2l-2 1.5 2 3.4 2.3-.9a7.6 7.6 0 0 0 1.7 1l.4 2.7h4l.4-2.7a7.6 7.6 0 0 0 1.7-1l2.3.9 2-3.4-2-1.5z"/></svg>
+      </button>
+    </header>
+
+    <section class="pane webpane" id="webPane" aria-labelledby="tabWeb">
+      <div class="toolbar">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.6"/><path d="M14.7 14.7L20 20"/></svg>
+          <input id="search" type="search" autocomplete="off" spellcheck="false">
+        </label>
+        <button class="tool" id="editBtn" type="button" title="编辑站点" aria-label="编辑站点">
+          <svg viewBox="0 0 24 24"><path d="M4 20h4.2L19 9.2 14.8 5 4 15.8V20z"/><path d="M12.8 7l4.2 4.2"/></svg>
+        </button>
+        <button class="tool add" id="addBtn" type="button" title="添加网站" aria-label="添加网站">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+      <div class="list" id="siteList"></div>
+      <div class="empty" id="emptyWeb" hidden></div>
+    </section>
+
+    <section class="pane aipane" id="aiPane" hidden aria-labelledby="tabAi">
+      <div class="ai-head">
+        <span id="aiHint"></span>
+        <button class="tool" id="clipImageBtn" type="button" title="读取剪贴板图片" aria-label="读取剪贴板图片">
+          <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 16l4.5-4.5 3.5 3.5 3-3L20 17"/><circle cx="16.5" cy="9.5" r="1.2"/></svg>
+        </button>
+      </div>
+      <div class="assistants" id="aiList"></div>
+      <div class="compose">
+        <textarea id="aiText" rows="2" spellcheck="false"></textarea>
+        <div class="clipbar" id="clipBar" hidden>
+          <span class="clipicon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 4h10v3H7zM5 7h14v14H5z"/><path d="M9 12h6M9 16h6"/></svg>
+          </span>
+          <span id="clipText"></span>
+          <button class="linkbtn" id="clearClip" type="button"></button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom">
+      <span class="status" id="status"></span>
+      <button class="w-btn is-primary" id="openSelected" type="button"></button>
+    </footer>
+
+    <section class="sheet" id="siteSheet" hidden>
+      <header>
+        <strong id="siteSheetTitle"></strong>
+        <button class="icon-btn" id="siteClose" type="button" aria-label="关闭">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <div class="form">
+        <label><span id="lblName"></span><input id="siteName" maxlength="60" autocomplete="off"></label>
+        <label><span id="lblUrl"></span><input id="siteUrl" maxlength="500" autocomplete="off" spellcheck="false"></label>
+        <div class="two">
+          <label><span id="lblGroup"></span><select id="siteGroup"></select></label>
+          <label><span id="lblBrowser"></span><select id="siteBrowser"></select></label>
+        </div>
+      </div>
+      <footer>
+        <span class="formmsg" id="siteMsg"></span>
+        <button class="w-btn" id="siteCancel" type="button"></button>
+        <button class="w-btn is-primary" id="siteSave" type="button"></button>
+      </footer>
+    </section>
+
+    <section class="sheet" id="browserSheet" hidden>
+      <header>
+        <strong id="browserSheetTitle"></strong>
+        <button class="icon-btn" id="browserClose" type="button" aria-label="关闭">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <p class="sheetnote" id="browserNote"></p>
+      <div class="browserlist" id="browserList"></div>
+      <footer>
+        <span class="formmsg" id="browserMsg"></span>
+        <button class="w-btn" id="browserAdd" type="button"></button>
+      </footer>
+    </section>
+
+    <div class="toast" id="toast" hidden></div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
+

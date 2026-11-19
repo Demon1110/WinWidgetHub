@@ -1,5 +1,5 @@
 {
-  "id": "fullwidget.perpetual",
+  "id": "perpetual",
   "name": { "zh-TW": "萬年曆", "zh-CN": "万年历", "en": "Perpetual calendar" },
   "description": {
     "zh-TW": "可跳到任一年月的月曆，附農曆、節氣、建除十二神與宜忌",

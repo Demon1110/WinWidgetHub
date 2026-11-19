@@ -1,5 +1,5 @@
 {
-  "id": "demon.coin",
+  "id": "coin",
   "name": { "zh-TW": "擲硬幣", "zh-CN": "掷硬币", "en": "Coin Flip" },
   "description": {
     "zh-TW": "拋一次硬幣，替你做決定",

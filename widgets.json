@@ -2,9 +2,56 @@
   "schema": 1,
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
-  "updated": "2026-11-18",
-  "count": 58,
+  "updated": "2026-11-19",
+  "count": 60,
   "widgets": [
+    {
+      "id": "batch-rename",
+      "name": "批量重命名",
+      "description": "工业级批量重命名：前后缀、查找替换、编号、大小写与扩展名规则，先预览再执行，支持撤销。",
+      "version": "1.0.0",
+      "author": "Demon1110",
+      "category": "productivity",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/batch-rename/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/batch-rename/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/batch-rename/preview/preview.webp"
+      ],
+      "permissions": [
+        "shell.launch",
+        "shell.drop",
+        "clipboard"
+      ],
+      "bytes": 75278,
+      "sha256": "ac505f3b3b2b8db574018c607ea425b5b005469bb8473750340dfa2b31eab8df",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/batch-rename-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/batch-rename"
+    },
+    {
+      "id": "web-open",
+      "name": "网页快开",
+      "description": "像启动程序一样打开常用网页：一次打开多个、为每个网站指定浏览器，还能把文字或文件送到 AI 助手。",
+      "version": "1.0.0",
+      "author": "Demon1110",
+      "category": "productivity",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/web-open/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/web-open/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/web-open/preview/preview.webp"
+      ],
+      "permissions": [
+        "shell.open",
+        "shell.launch",
+        "clipboard",
+        "shell.drop"
+      ],
+      "bytes": 62825,
+      "sha256": "508f210ba2715b825d02a8ee3cdf8ba834d83a2dbf4fdcb7794ae1feead61881",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/web-open-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/web-open"
+    },
     {
       "id": "agenda",
       "name": "议程计时器",
@@ -94,6 +141,33 @@
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/chargeguard"
     },
     {
+      "id": "coin",
+      "name": "掷硬币",
+      "description": "抛一次硬币，替你做决定",
+      "version": "1.0.0",
+      "author": "Demon1110",
+      "category": "other",
+      "updated": "2026-11-18",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/coin/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/coin/preview/{theme}.{lang}.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/instrument.en.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/instrument.zh-CN.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/instrument.zh-TW.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/paper.en.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/paper.zh-CN.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/paper.zh-TW.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/type.en.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/type.zh-CN.png",
+        "https://demon1110.github.io/WinWidgetHub/src/coin/preview/type.zh-TW.png"
+      ],
+      "permissions": [],
+      "bytes": 549606,
+      "sha256": "56698cfc66afb88bf3d3caf12504865dd1db9cb7fb339cde949a5f1ba3756d51",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/coin-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/coin"
+    },
+    {
       "id": "dataplan",
       "name": "流量月账",
       "description": "把网卡上下行累计换算成本月用量，对着配额看还剩多少、够不够撑到月底。",
@@ -121,33 +195,6 @@
       "sha256": "e69c205bb66b15e082aedf7b839eab6753a352d44151cfdd43ccf6209f5d862f",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/dataplan-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/dataplan"
-    },
-    {
-      "id": "demon.coin",
-      "name": "掷硬币",
-      "description": "抛一次硬币，替你做决定",
-      "version": "1.0.0",
-      "author": "Demon1110",
-      "category": "other",
-      "updated": "2026-11-18",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/demon.coin/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/{theme}.{lang}.png",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/instrument.en.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/instrument.zh-CN.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/instrument.zh-TW.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/paper.en.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/paper.zh-CN.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/paper.zh-TW.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/type.en.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/type.zh-CN.png",
-        "https://demon1110.github.io/WinWidgetHub/src/demon.coin/preview/type.zh-TW.png"
-      ],
-      "permissions": [],
-      "bytes": 549777,
-      "sha256": "48d773fd0e5695594b7ee975519070979a15022e6f96ce1fb254edcf6799c43d",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/demon.coin-1.0.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/demon.coin"
     },
     {
       "id": "droptray",
@@ -206,33 +253,6 @@
       "sha256": "2789a9aa7ff85a346adf9c6498f66c6518c64dd14d9bc0327b5738e3be783426",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/focus-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/focus"
-    },
-    {
-      "id": "fullwidget.perpetual",
-      "name": "万年历",
-      "description": "可跳到任一年月的月历，附农历、节气、建除十二神与宜忌",
-      "version": "1.0.0",
-      "author": "FullWidget",
-      "category": "time",
-      "updated": "2026-11-18",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/fullwidget.perpetual/preview/type.zh-TW.webp"
-      ],
-      "permissions": [],
-      "bytes": 135141,
-      "sha256": "2a23eab6b8fe342b97f8cbd52c78b2e092207c7ce1a060854fc44da8017de891",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/fullwidget.perpetual-1.0.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/fullwidget.perpetual"
     },
     {
       "id": "github",
@@ -401,6 +421,33 @@
       "sha256": "19fa75ceba517ee640b9070cf78e6f740d3df5c3b5df3b548f3f3cec37ae7e8d",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/passgen-1.2.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/passgen"
+    },
+    {
+      "id": "perpetual",
+      "name": "万年历",
+      "description": "可跳到任一年月的月历，附农历、节气、建除十二神与宜忌",
+      "version": "1.0.0",
+      "author": "FullWidget",
+      "category": "time",
+      "updated": "2026-11-18",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/perpetual/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/{theme}.{lang}.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/instrument.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/instrument.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/instrument.zh-TW.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/paper.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/paper.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/paper.zh-TW.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/type.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/type.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/perpetual/preview/type.zh-TW.webp"
+      ],
+      "permissions": [],
+      "bytes": 134821,
+      "sha256": "0493bc758544138c9dca6cf682cc9281feb01b4a0a81665aa2f7932ff0730531",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/perpetual-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/perpetual"
     },
     {
       "id": "poem",

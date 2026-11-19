@@ -4,7 +4,7 @@ WinWidget 的第三方组件仓库。组件源码在 `src/`，打包好的 `.fwz
 
 ```
 src/                    每个组件一个文件夹，文件夹名就是组件 id
-  demon.coin/
+  coin/
     widget.json         组件说明（名称、版本、权限、尺寸……）
     index.html
     main.js
@@ -28,19 +28,19 @@ scripts/
 
 `src/` 里有 57 个组件是从 WinWidget 自带的 `assets/widgets/` 复制过来的，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
 
-- **id 去掉保留前缀**：`winwidget.agenda` → `agenda`。客户端安装时会拒绝 `winwidget.` 开头的 id（`src/market/packages.rs` 的 `reject_reserved`），所以不能原样发。`fullwidget.perpetual` 不占用保留前缀，id 和文件夹名都保持原样。
+- **id 去掉前缀，统一用唯一短名**：`winwidget.agenda` → `agenda`，`fullwidget.perpetual` → `perpetual`，`demon.batch-rename` → `batch-rename`，`demon.web-open` → `web-open`，`demon.coin` → `coin`。客户端安装时会拒绝 `winwidget.` / `user.` 开头的 id（`src/market/packages.rs` 的 `reject_reserved`）；本仓库也不再给组件加作者或项目前缀。
 - **补 `date` 字段**：取原仓库里该组件最后一次提交的日期（`git log -1 --format=%cs -- assets/widgets/<名>`）。不写死日期的话，`build.mjs` 会退回到 git 提交日期，CI 重建清单时就和本地产物对不上。
 
 这些组件在客户端里同时是内置组件（内置 id 是 `winwidget.*`），从市场装到桌面后会以市场 id 再出现一份，内置那份不受影响。
 
 ## 加一个组件
 
-1. 在 `src/` 下新建文件夹，**文件夹名必须是新组件的 id**，规则：小写字母、数字、点、横线、下划线，2–64 个字符，以字母或数字开头；不能用 `winwidget.` 和 `user.` 开头（客户端保留）。建议 `<作者名>.<组件名>`，例如 `demon.coin`。
+1. 在 `src/` 下新建文件夹，**文件夹名必须是新组件的 id**，规则：小写字母、数字、横线、下划线，2–64 个字符，以字母或数字开头；不要带 `demon.`、`fullwidget.` 这类作者/项目前缀，也不要用点号，直接取一个唯一短名，例如 `coin`、`batch-rename`。不能用 `winwidget.` 和 `user.` 开头（客户端保留）。
 2. 写 `widget.json`。除 `id` 必须和文件夹同名外，其余字段与 WinWidget 组件一致：
 
    ```json
    {
-     "id": "demon.coin",
+     "id": "coin",
      "name": { "zh-TW": "擲硬幣", "zh-CN": "掷硬币", "en": "Coin Flip" },
      "description": { "zh-TW": "…", "zh-CN": "…", "en": "…" },
      "version": "1.0.0",
@@ -83,21 +83,21 @@ scripts/
   "count": 1,
   "widgets": [
     {
-      "id": "demon.coin",
+      "id": "coin",
       "name": "掷硬币",
       "description": "抛一次硬币，替你做决定",
       "version": "1.0.0",
       "author": "Demon1110",
       "category": "other",
       "updated": "2026-11-18",
-      "icon": "https://…/src/demon.coin/icon.svg",
-      "preview": "https://…/src/demon.coin/preview/preview.webp",
-      "previews": ["https://…/src/demon.coin/preview/preview.webp"],
+      "icon": "https://…/src/coin/icon.svg",
+      "preview": "https://…/src/coin/preview/preview.webp",
+      "previews": ["https://…/src/coin/preview/preview.webp"],
       "permissions": [],
       "bytes": 3287,
       "sha256": "a4df30…",
-      "download": "https://…/widgets/demon.coin-1.0.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/demon.coin"
+      "download": "https://…/widgets/coin-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/coin"
     }
   ]
 }
@@ -155,4 +155,4 @@ https://demon1110.github.io/WinWidgetHub/widgets.json
 
 ## 示例组件
 
-`src/demon.coin`（掷硬币）是最小示例：一个设置项、一次本地存储、三种语言的文案、三套主题下的样式差异，没有申请任何权限。可以照着它写，写完后删掉也行。
+`src/coin`（掷硬币）是最小示例：一个设置项、一次本地存储、三种语言的文案、三套主题下的样式差异，没有申请任何权限。可以照着它写，写完后删掉也行。
