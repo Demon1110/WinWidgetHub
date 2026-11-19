@@ -697,6 +697,26 @@
       trash: (path) => call("shell.trash", { path }),
     }),
 
+    /**
+     * Third-party CLI tools declared in widget.json "tools". The host downloads the https URL
+     * into the widget's bin folder, checks the SHA-256 and runs it without a shell.
+     * Needs "tool.exec" and the matching "network:<host>" permission.
+     */
+    tool: Object.freeze({
+      list: () => call("tool.list"),
+      status: (name) => call("tool.status", { name }),
+      ensure: (name, options) => call("tool.ensure", { name, force: !!(options && options.force) }),
+      run: (name, options) =>
+        call("tool.run", {
+          name,
+          args: options && Array.isArray(options.args) ? [...options.args] : [],
+          stdin: options && options.stdin,
+          timeout: options && options.timeout,
+          cwd: options && options.cwd,
+        }),
+      remove: (name) => call("tool.remove", { name }),
+    }),
+
     /** The Windows clipboard; needs the "clipboard" permission. */
     clipboard: Object.freeze({
       /** The copied text, or null when the clipboard holds no text. */

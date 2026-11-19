@@ -20,6 +20,7 @@ export const KNOWN_PERMISSIONS = [
   "shell.open",
   "shell.launch",
   "shell.drop",
+  "tool.exec",
 ];
 
 /** 客户端会把不认识的分类归到 other，这里只允许它认识的六个加上 other。 */
@@ -271,7 +272,7 @@ export function discover(root) {
       const known = KNOWN_PERMISSIONS.includes(perm) || (perm.startsWith("network:") && perm.length > "network:".length);
       if (!known) problems.push(`「${id}」用了客户端不认识的权限「${perm}」`);
       if (perm === "network:*") warnings.push(`「${id}」要连到任何网站（network:*），审核时要说明用途`);
-      if (perm === "shell.launch" || perm === "clipboard" || perm === "screen") {
+      if (perm === "shell.launch" || perm === "clipboard" || perm === "screen" || perm === "tool.exec") {
         warnings.push(`「${id}」要「${perm}」权限，属于敏感权限，审核时要说明用途`);
       }
     }

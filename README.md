@@ -55,7 +55,7 @@ scripts/
    }
    ```
 
-   `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 13 个（`system`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`）和 `network:<域名>`。
+   `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 14 个（`system`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`、`tool.exec`）和 `network:<域名>`。声明了 `tools`（第三方 CLI 工具）就必须同时声明 `tool.exec` 和下载网站的 `network:<域名>`。
 3. 预览图放 `preview/`，**优先一张透明背景的 `preview.webp`**（宽 300–700 像素即可）。只有确实需要按主题/语言分别展示时，才按 `<主题>.<语言>.webp` 命名，例如 `instrument.zh-CN.webp`、`paper.en.webp`；这时清单会存成模板，客户端按当前全局主题和语言挑一张。没有 WebP 时客户端会回退到同名 `.png` / `.jpg` / `.jpeg`；也可以直接把 `preview` 指向 PNG。批量把 PNG 转成 WebP：
    ```powershell
    pwsh -File scripts/preview-to-webp.ps1 -Path src/<id>/preview
@@ -151,7 +151,7 @@ https://demon1110.github.io/WinWidgetHub/widgets.json
 `scripts/check.mjs` 只读文件，不执行组件代码：
 
 - 必须能过：id 合法且与文件夹同名、没用保留前缀；`name` 不为空；`version` 是三段数字；版本没倒退；入口文件和 `icon` 存在；权限都认识；没有 `.exe`/`.dll`/`.bat`/`.ps1` 这类可执行文件、没有符号链接；单组件不超过 5 MB、300 个文件。
-- 只提醒、不拦：`network:*`、`shell.launch`、`clipboard`、`screen` 等敏感权限；代码里用了 `eval`、从网上加载 js；没有预览图；分类不认识。
+- 只提醒、不拦：`network:*`、`shell.launch`、`clipboard`、`screen`、`tool.exec` 等敏感权限；代码里用了 `eval`、从网上加载 js；没有预览图；分类不认识。
 
 ## 示例组件
 

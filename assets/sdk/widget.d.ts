@@ -16,7 +16,7 @@ declare namespace WinWidget {
   type Layer = "desktop" | "normal" | "top";
 
   /** Declared in widget.json "permissions"; third-party widgets also need the user's OK. */
-  type Permission = "system" | "notify" | "audio" | "media" | "shell.open" | "shell.launch" | `network:${string}`;
+  type Permission = "system" | "notify" | "audio" | "media" | "shell.open" | "shell.launch" | "tool.exec" | `network:${string}`;
 
   interface PathInfo {
     path: string;
@@ -26,6 +26,42 @@ declare namespace WinWidget {
     kind: "app" | "folder" | "file" | "missing";
     /** The icon Explorer shows, as a PNG data: URL (null if there is none). */
     icon: string | null;
+  }
+
+  /** A third-party CLI program declared in widget.json "tools". Needs "tool.exec". */
+  interface ToolInfo {
+    name: string;
+    filename: string;
+    url: string;
+    sha256: string;
+    size: number | null;
+    path: string;
+    cached: boolean;
+    downloaded: boolean;
+    bytes: number;
+  }
+
+  interface ToolRunOptions {
+    args?: string[];
+    stdin?: string;
+    /** Milliseconds, 1 000–300 000. Default: the tool's timeout, or 30 000. */
+    timeout?: number;
+    /** A folder inside the widget; the widget folder by default. */
+    cwd?: string;
+  }
+
+  interface ToolRunResult {
+    name: string;
+    path: string;
+    downloaded: boolean;
+    code: number;
+    ok: boolean;
+    timedOut: boolean;
+    durationMs: number;
+    stdout: string;
+    stderr: string;
+    stdoutTruncated: boolean;
+    stderrTruncated: boolean;
   }
 
   /** Where the widget is listed in the widget library. */
@@ -436,6 +472,15 @@ declare namespace WinWidget {
        *   document.addEventListener("drop", async e => { e.preventDefault(); add(await widget.shell.paths(e.dataTransfer.files)); });
        */
       paths(files: FileList | File[]): Promise<string[]>;
+    };
+
+    /** Third-party CLI tools declared in widget.json "tools". Needs "tool.exec". */
+    tool: {
+      list(): Promise<ToolInfo[]>;
+      status(name: string): Promise<ToolInfo>;
+      ensure(name: string, options?: { force?: boolean }): Promise<{ name: string; path: string; downloaded: boolean; size: number }>;
+      run(name: string, options?: ToolRunOptions): Promise<ToolRunResult>;
+      remove(name: string): Promise<{ name: string; removed: boolean }>;
     };
 
     /** The Windows clipboard. Needs the "clipboard" permission. */
