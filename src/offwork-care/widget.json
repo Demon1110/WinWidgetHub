@@ -1,0 +1,33 @@
+{
+  "id": "offwork-care",
+  "name": { "zh-TW": "下班關懷", "zh-CN": "下班关怀", "en": "Off-work care" },
+  "description": {
+    "zh-TW": "結合即時天氣、今日黃曆與一句暖話，提醒你該下班了；雨、雪、雷雨、霧、晴、多雲都有對應的桌面特效。",
+    "zh-CN": "结合实时天气、今日黄历与一句暖话，提醒你该下班了；雨、雪、雷雨、雾、晴、多云都有对应的桌面特效。",
+    "en": "A warm end-of-day card with live weather, the Chinese almanac and a gentle nudge to leave on time."
+  },
+  "version": "1.0.0",
+  "date": "2026-11-19",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "preview": "preview/preview.png",
+  "size": {
+    "width": 400,
+    "height": 620,
+    "minWidth": 360,
+    "minHeight": 500,
+    "maxWidth": 620,
+    "maxHeight": 900,
+    "resizable": true,
+    "grow": 0.4
+  },
+  "permissions": [
+    "network:api.open-meteo.com",
+    "network:geocoding-api.open-meteo.com",
+    "schedule",
+    "screen"
+  ],
+  "settings": []
+}

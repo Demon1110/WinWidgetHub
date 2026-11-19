@@ -1,0 +1,28 @@
+{
+  "id": "desktop-reminder",
+  "name": { "zh-TW": "桌面提醒", "zh-CN": "桌面提醒", "en": "Desktop reminders" },
+  "description": {
+    "zh-TW": "把待辦放在桌面右側，時間一到就提醒；支援每天、工作日、每週與每月重複。",
+    "zh-CN": "把待办放在桌面右侧，时间一到就提醒；支持每天、工作日、每周与每月重复。",
+    "en": "Keep todos on the right edge of the desktop and get notified on time, with daily, weekday, weekly and monthly repeats."
+  },
+  "version": "1.0.0",
+  "date": "2026-11-19",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "preview": "preview/preview.png",
+  "size": {
+    "width": 360,
+    "height": 560,
+    "minWidth": 320,
+    "minHeight": 430,
+    "maxWidth": 560,
+    "maxHeight": 820,
+    "resizable": true,
+    "grow": 0.35
+  },
+  "permissions": ["notify", "schedule", "screen"],
+  "settings": []
+}

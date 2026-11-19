@@ -3,7 +3,7 @@
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-19",
-  "count": 60,
+  "count": 63,
   "widgets": [
     {
       "id": "batch-rename",
@@ -27,6 +27,74 @@
       "sha256": "ac505f3b3b2b8db574018c607ea425b5b005469bb8473750340dfa2b31eab8df",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/batch-rename-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/batch-rename"
+    },
+    {
+      "id": "desktop-reminder",
+      "name": "桌面提醒",
+      "description": "把待办放在桌面右侧，时间一到就提醒；支持每天、工作日、每周与每月重复。",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/desktop-reminder/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/desktop-reminder/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/desktop-reminder/preview/preview.png"
+      ],
+      "permissions": [
+        "notify",
+        "schedule",
+        "screen"
+      ],
+      "bytes": 79520,
+      "sha256": "ce5f1acf9cbcfd4be5134f9165b6ca02c23cafadbde949c41ebae6e396cdc745",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/desktop-reminder-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/desktop-reminder"
+    },
+    {
+      "id": "offwork-care",
+      "name": "下班关怀",
+      "description": "结合实时天气、今日黄历与一句暖话，提醒你该下班了；雨、雪、雷雨、雾、晴、多云都有对应的桌面特效。",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/offwork-care/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/offwork-care/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/offwork-care/preview/preview.png"
+      ],
+      "permissions": [
+        "network:api.open-meteo.com",
+        "network:geocoding-api.open-meteo.com",
+        "schedule",
+        "screen"
+      ],
+      "bytes": 130304,
+      "sha256": "d34609fa1341b22368feda7730f90018a65624c096ea1876dabcff2ee47bdefe",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-care-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/offwork-care"
+    },
+    {
+      "id": "screen-hide",
+      "name": "隐屏",
+      "description": "一键隐藏桌面图标，只留壁纸与任务栏；再按一次就回来。",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "system",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/screen-hide/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/screen-hide/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/screen-hide/preview/preview.png"
+      ],
+      "permissions": [
+        "shell.launch"
+      ],
+      "bytes": 61643,
+      "sha256": "594f59a3b8156ebe33d719aa108f3ded52ce1d28d2784e0290b7e4407c0a3013",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/screen-hide-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/screen-hide"
     },
     {
       "id": "web-open",

@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="care-widget">
+    <header>
+      <div>
+        <div class="eyebrow" id="eyebrow">今天也辛苦了</div>
+        <h1 id="title">下班关怀</h1>
+      </div>
+      <button class="reminder-toggle" id="reminderToggle" data-no-drag>
+        <span class="dot" id="reminderDot"></span>
+        <span id="reminderText">下班提醒</span>
+      </button>
+    </header>
+
+    <section class="weather-card">
+      <div class="weather-top">
+        <div>
+          <div class="city" id="cityName">北京</div>
+          <div class="condition" id="weatherText">正在读取天气…</div>
+        </div>
+        <div class="temp" id="temperature">--<span>°</span></div>
+      </div>
+      <div class="weather-meta" id="weatherMeta"></div>
+      <div class="greeting" id="greeting">晚上好</div>
+      <div class="warm" id="warm">今天辛苦了</div>
+    </section>
+
+    <section class="settings">
+      <div class="section-head">
+        <span id="settingsTitle">下班设置</span>
+        <button class="link" id="refresh" type="button" data-no-drag>刷新</button>
+      </div>
+      <div class="settings-row">
+        <label class="field-wrap">
+          <span class="field-label" id="offworkLabel">下班时间</span>
+          <input class="field" id="offWorkTime" type="time" value="18:00">
+        </label>
+        <label class="field-wrap grow">
+          <span class="field-label" id="cityLabel">城市</span>
+          <div class="city-line">
+            <input class="field" id="cityInput" autocomplete="off" placeholder="搜索城市">
+            <button class="search" id="citySearch" type="button" data-no-drag>查找</button>
+          </div>
+        </label>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="effectToggle">
+        <span id="effectLabel">天气特效</span>
+      </label>
+      <div class="city-results" id="cityResults" hidden></div>
+    </section>
+
+    <section class="almanac">
+      <div class="section-head">
+        <span id="almanacTitle">今日黄历</span>
+        <span class="almanac-date" id="almanacDate"></span>
+      </div>
+      <div class="almanac-main">
+        <div class="almanac-badge" id="almanacBadge">定日</div>
+        <div class="almanac-copy">
+          <div class="almanac-line" id="almanacGz"></div>
+          <div class="almanac-line muted" id="almanacChong"></div>
+        </div>
+      </div>
+      <div class="yj">
+        <div><b>宜</b><span id="almanacYi"></span></div>
+        <div><b class="ji">忌</b><span id="almanacJi"></span></div>
+      </div>
+    </section>
+
+    <section class="tips" id="tips"></section>
+
+    <div class="actions">
+      <button class="preview" id="preview" type="button" data-no-drag>预览下班问候</button>
+      <button class="ghost" id="hide" type="button" data-no-drag>收起</button>
+    </div>
+
+    <footer>
+      <span id="status">天气来自 Open-Meteo；黄历按建除十二神推算。</span>
+    </footer>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

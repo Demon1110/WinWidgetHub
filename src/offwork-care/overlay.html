@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>下班问候</title>
+  <link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+  <div id="card">
+    <div id="glow"></div>
+    <canvas id="scene"></canvas>
+    <div id="flash"></div>
+    <div id="content">
+      <div id="meta" class="rv" style="--d:80ms"></div>
+      <div id="title" class="rv" style="--d:170ms"></div>
+      <div id="warm" class="rv" style="--d:250ms"></div>
+      <div id="weather" class="rv" style="--d:330ms"></div>
+      <div id="tips"></div>
+      <div id="divider" class="rv" style="--d:640ms"></div>
+      <div id="wish" class="rv" style="--d:720ms">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 20s-7-4.3-7-9a4.2 4.2 0 0 1 7-3.1A4.2 4.2 0 0 1 19 11c0 4.7-7 9-7 9z"/>
+        </svg>
+        <span id="wishText"></span>
+      </div>
+    </div>
+    <div id="footer">
+      <span id="footNote"></span>
+      <span id="bar"><i id="barFill"></i></span>
+    </div>
+  </div>
+  <script src="effects.js"></script>
+  <script src="overlay.js"></script>
+</body>
+</html>

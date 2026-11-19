@@ -1,0 +1,28 @@
+{
+  "id": "screen-hide",
+  "name": { "zh-TW": "隱屏", "zh-CN": "隐屏", "en": "Hide desktop icons" },
+  "description": {
+    "zh-TW": "一鍵隱藏桌面圖示，只留桌布與工作列；再按一次就回來。",
+    "zh-CN": "一键隐藏桌面图标，只留壁纸与任务栏；再按一次就回来。",
+    "en": "Hide every desktop icon in one click and bring them back the same way."
+  },
+  "version": "1.0.0",
+  "date": "2026-11-19",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "preview": "preview/preview.png",
+  "size": {
+    "width": 320,
+    "height": 300,
+    "minWidth": 280,
+    "minHeight": 260,
+    "maxWidth": 520,
+    "maxHeight": 420,
+    "resizable": true,
+    "grow": 0.3
+  },
+  "permissions": ["shell.launch"],
+  "settings": []
+}

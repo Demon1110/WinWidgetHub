@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shield">
+    <div class="scene" aria-hidden="true">
+      <div class="monitor">
+        <div class="screen">
+          <div class="icons">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="empty-hint" id="emptyHint">仅保留壁纸</div>
+        </div>
+        <div class="stand"></div>
+      </div>
+    </div>
+
+    <header>
+      <div>
+        <div class="eyebrow" id="eyebrow">桌面整理</div>
+        <h1 id="title">隐屏</h1>
+      </div>
+      <span class="status" id="status">读取中</span>
+    </header>
+
+    <p class="desc" id="desc">隐藏桌面上的所有图标，把桌面还给壁纸。再次点击即可恢复。</p>
+
+    <button class="action" id="action" data-no-drag>
+      <span class="action-icon" id="actionIcon">◍</span>
+      <span id="actionText">隐藏桌面图标</span>
+    </button>
+
+    <p class="hint" id="hint">状态会同步 Windows 的桌面图标设置，重启资源管理器后仍然有效。</p>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

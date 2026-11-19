@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="reminder-widget">
+    <header>
+      <div class="headline">
+        <div class="eyebrow" id="eyebrow">桌面上的下一件事</div>
+        <h1 id="title">桌面提醒</h1>
+      </div>
+      <button class="float-toggle" id="floatToggle" data-no-drag title="显示/隐藏桌面悬浮窗">
+        <span class="float-dot" id="floatDot"></span>
+        <span id="floatText">桌面悬浮</span>
+      </button>
+    </header>
+
+    <section class="list-wrap">
+      <div class="list-head">
+        <span id="listLabel">待办</span>
+        <span class="count" id="count">0</span>
+      </div>
+      <ul class="list" id="list"></ul>
+      <div class="empty" id="empty">
+        <div class="empty-mark">✓</div>
+        <p id="emptyText">还没有提醒。加一件接下来要做的小事。</p>
+      </div>
+    </section>
+
+    <form class="editor" id="editor">
+      <div class="editor-title" id="editorTitle">新增提醒</div>
+      <input class="field" id="reminderTitle" maxlength="80" autocomplete="off" placeholder="要提醒什么？" required>
+      <textarea class="field note" id="reminderNote" maxlength="240" rows="2" placeholder="备注（可选）"></textarea>
+      <div class="row two">
+        <label class="field-wrap">
+          <span class="field-label" id="timeLabel">提醒时间</span>
+          <input class="field" id="reminderTime" type="datetime-local" required>
+        </label>
+        <label class="field-wrap">
+          <span class="field-label" id="repeatLabel">重复</span>
+          <select class="field" id="reminderRepeat">
+            <option value="none">不重复</option>
+            <option value="daily">每天</option>
+            <option value="weekdays">工作日</option>
+            <option value="weekly">每周</option>
+            <option value="monthly">每月</option>
+          </select>
+        </label>
+      </div>
+      <button class="add" id="add" type="submit">
+        <span>＋</span><span id="addText">加入提醒</span>
+      </button>
+    </form>
+
+    <footer>
+      <span id="status">提醒会保存在本组件的数据目录里。</span>
+    </footer>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
