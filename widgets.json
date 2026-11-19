@@ -32,7 +32,7 @@
       "id": "desktop-reminder",
       "name": "桌面提醒",
       "description": "把待办放在桌面右侧，时间一到就提醒；支持每天、工作日、每周与每月重复。",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "WinWidget",
       "category": "productivity",
       "updated": "2026-11-19",
@@ -46,16 +46,16 @@
         "schedule",
         "screen"
       ],
-      "bytes": 79520,
-      "sha256": "ce5f1acf9cbcfd4be5134f9165b6ca02c23cafadbde949c41ebae6e396cdc745",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/desktop-reminder-1.0.0.fwz",
+      "bytes": 79510,
+      "sha256": "2d917d2f6624a40e4b7286251371e9f82a5949c974ec7c8e74e80b1ec86293c8",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/desktop-reminder-1.0.1.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/desktop-reminder"
     },
     {
       "id": "offwork-care",
       "name": "下班关怀",
       "description": "结合实时天气、今日黄历与一句暖话，提醒你该下班了；雨、雪、雷雨、雾、晴、多云都有对应的桌面特效。",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "WinWidget",
       "category": "productivity",
       "updated": "2026-11-19",
@@ -67,19 +67,22 @@
       "permissions": [
         "network:api.open-meteo.com",
         "network:geocoding-api.open-meteo.com",
+        "network:get.geojs.io",
+        "network:ipapi.co",
+        "network:ipwho.is",
         "schedule",
         "screen"
       ],
-      "bytes": 130304,
-      "sha256": "d34609fa1341b22368feda7730f90018a65624c096ea1876dabcff2ee47bdefe",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-care-1.0.0.fwz",
+      "bytes": 131445,
+      "sha256": "6a4a240996503a9d46988379272066b6521b93fcce6c53a30d8a1dc81c485d37",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-care-1.0.1.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/offwork-care"
     },
     {
       "id": "screen-hide",
       "name": "隐屏",
       "description": "一键隐藏桌面图标，只留壁纸与任务栏；再按一次就回来。",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "WinWidget",
       "category": "system",
       "updated": "2026-11-19",
@@ -91,9 +94,9 @@
       "permissions": [
         "shell.launch"
       ],
-      "bytes": 61643,
-      "sha256": "594f59a3b8156ebe33d719aa108f3ded52ce1d28d2784e0290b7e4407c0a3013",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/screen-hide-1.0.0.fwz",
+      "bytes": 61729,
+      "sha256": "0a4e78279798eda223aba202cf71f7673ef5cda6aaed0b8221b1df44b0b4b351",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/screen-hide-1.0.1.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/screen-hide"
     },
     {

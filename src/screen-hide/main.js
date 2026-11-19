@@ -113,13 +113,15 @@ async function toggle() {
   }
 }
 
-widget.onPluginReady(async () => {
+widget.on("ready", async () => {
   labels();
   await refresh();
 });
 
-widget.onPluginEnter((enter) => {
-  if (enter && enter.from === "hotkey" && supported && visible !== null && !busy) {
+// The host reports why a card became visible; a hotkey summon toggles the icons,
+// while startup, tray and control-center shows only refresh the status.
+widget.on("show", (payload) => {
+  if (payload && payload.from === "hotkey" && supported && visible !== null && !busy) {
     toggle();
   }
 });

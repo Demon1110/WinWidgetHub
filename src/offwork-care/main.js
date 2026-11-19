@@ -6,6 +6,7 @@ const t = (cn, tw, en) => (zh ? (hans ? cn : tw) : en);
 const SETTINGS_KEY = "offwork/settings";
 const SCHEDULE_CODE = "offwork-daily";
 const DAY_MS = 86400000;
+const DEFAULT_OVERLAY_SECONDS = 14;
 const DEFAULT_CITY = {
   name: "北京",
   admin1: "北京市",
@@ -13,6 +14,35 @@ const DEFAULT_CITY = {
   latitude: 39.9075,
   longitude: 116.39723,
 };
+const IP_LOOKUPS = [
+  {
+    url: "https://get.geojs.io/v1/ip/geo.json",
+    city: "city",
+    admin1: "region",
+    country: "country",
+    latitude: "latitude",
+    longitude: "longitude",
+    failed: (data) => !data || !data.city,
+  },
+  {
+    url: "https://ipapi.co/json/",
+    city: "city",
+    admin1: "region",
+    country: "country_name",
+    latitude: "latitude",
+    longitude: "longitude",
+    failed: (data) => data && data.error === true,
+  },
+  {
+    url: "https://ipwho.is/",
+    city: "city",
+    admin1: "region",
+    country: "country",
+    latitude: "latitude",
+    longitude: "longitude",
+    failed: (data) => data && data.success === false,
+  },
+];
 
 const el = {
   eyebrow: $("eyebrow"),
@@ -35,6 +65,8 @@ const el = {
   cityResults: $("cityResults"),
   effectToggle: $("effectToggle"),
   effectLabel: $("effectLabel"),
+  stayLabel: $("stayLabel"),
+  overlaySeconds: $("overlaySeconds"),
   almanacTitle: $("almanacTitle"),
   almanacDate: $("almanacDate"),
   almanacBadge: $("almanacBadge"),
@@ -52,12 +84,20 @@ const el = {
 let settings = {
   offWorkTime: "18:00",
   city: { ...DEFAULT_CITY },
+  cityAuto: true,
   reminderEnabled: true,
   rainEffectEnabled: true,
+  overlaySeconds: DEFAULT_OVERLAY_SECONDS,
 };
 let weather = null;
 let overlayWinId = null;
 let busy = false;
+
+function clampOverlaySeconds(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return DEFAULT_OVERLAY_SECONDS;
+  return Math.min(60, Math.max(3, Math.round(n)));
+}
 
 // ── 黄历：节气、干支、建除、宜忌 ─────────────────────────────────────
 const RAD = Math.PI / 180;
@@ -415,6 +455,7 @@ function buildPayload() {
     encouragement: encouragement(now),
     effect: settings.rainEffectEnabled ? w.effect : "none",
     timeText: settings.offWorkTime || "18:00",
+    durationMs: clampOverlaySeconds(settings.overlaySeconds) * 1000,
   };
 }
 
@@ -445,7 +486,6 @@ async function showOverlay() {
     const x = area ? Math.round(area.x + area.width - width - 20) : undefined;
     const y = area ? Math.round(area.y + area.height - height - 20) : undefined;
     const options = {
-      title: data.title,
       width,
       height,
       x,
@@ -478,7 +518,7 @@ async function showOverlay() {
     await widget.call("win.showInactive", { win: id });
     setTimeout(() => {
       overlayWinId = null;
-    }, 14500);
+    }, data.durationMs + 1800);
   } catch (err) {
     setStatus(String(err && err.message ? err.message : err), true);
   } finally {
@@ -511,11 +551,18 @@ function parseSettings(raw) {
           longitude: Number(s.city.longitude),
         }
       : { ...DEFAULT_CITY };
+  const isDefaultCity =
+    city.name === DEFAULT_CITY.name &&
+    Math.abs(city.latitude - DEFAULT_CITY.latitude) < 0.01 &&
+    Math.abs(city.longitude - DEFAULT_CITY.longitude) < 0.01;
   return {
     offWorkTime: /^\d{2}:\d{2}$/.test(s.offWorkTime) ? s.offWorkTime : "18:00",
     city,
+    // Keep a manually chosen city; fresh installs and untouched defaults locate automatically.
+    cityAuto: typeof s.cityAuto === "boolean" ? s.cityAuto : isDefaultCity,
     reminderEnabled: s.reminderEnabled !== false,
     rainEffectEnabled: s.rainEffectEnabled !== false,
+    overlaySeconds: clampOverlaySeconds(s.overlaySeconds),
   };
 }
 
@@ -528,6 +575,7 @@ async function loadSettings() {
   el.offWorkTime.value = settings.offWorkTime;
   el.cityInput.value = settings.city.name;
   el.effectToggle.checked = settings.rainEffectEnabled;
+  el.overlaySeconds.value = String(settings.overlaySeconds);
   renderReminderToggle();
 }
 
@@ -579,6 +627,7 @@ async function searchCity() {
           latitude: Number(c.latitude),
           longitude: Number(c.longitude),
         };
+        settings.cityAuto = false;
         el.cityInput.value = settings.city.name;
         el.cityResults.hidden = true;
         await saveSettings();
@@ -592,6 +641,72 @@ async function searchCity() {
   } finally {
     el.citySearch.disabled = false;
   }
+}
+
+async function findCityByName(name) {
+  try {
+    const url =
+      "https://geocoding-api.open-meteo.com/v1/search?name=" +
+      encodeURIComponent(name) +
+      "&count=1&language=zh&format=json";
+    const res = await widget.fetch(url);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const c = (data.results || [])[0];
+    if (!c || !Number.isFinite(Number(c.latitude)) || !Number.isFinite(Number(c.longitude))) return null;
+    return {
+      name: String(c.name || name),
+      admin1: String(c.admin1 || ""),
+      country: String(c.country || ""),
+      latitude: Number(c.latitude),
+      longitude: Number(c.longitude),
+    };
+  } catch (err) {
+    console.warn("city lookup failed", err);
+    return null;
+  }
+}
+
+async function locateCityByIp() {
+  for (const source of IP_LOOKUPS) {
+    try {
+      const res = await widget.fetch(source.url);
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (source.failed(data)) continue;
+      const city = String(data[source.city] || "").trim();
+      if (!city) continue;
+
+      const localized = await findCityByName(city);
+      if (localized) return localized;
+
+      const latitude = Number(data[source.latitude]);
+      const longitude = Number(data[source.longitude]);
+      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) continue;
+      return {
+        name: city,
+        admin1: String(data[source.admin1] || ""),
+        country: String(data[source.country] || ""),
+        latitude,
+        longitude,
+      };
+    } catch (err) {
+      console.warn("ip location failed", source.url, err);
+    }
+  }
+  return null;
+}
+
+async function autoLocateCity() {
+  if (!settings.cityAuto) return;
+  const city = await locateCityByIp();
+  if (!city) return;
+  settings.city = city;
+  el.cityInput.value = city.name;
+  await saveSettings();
+  setStatus(
+    t(`已根据网络位置定位到 ${city.name}`, `已依網路位置定位到 ${city.name}`, `Located ${city.name} from your network`)
+  );
 }
 
 function setStatus(text, warn) {
@@ -609,6 +724,7 @@ function labels() {
   el.cityInput.placeholder = t("搜索城市", "搜尋城市", "Search a city");
   el.citySearch.textContent = t("查找", "尋找", "Find");
   el.effectLabel.textContent = t("天气特效", "天氣特效", "Weather effect");
+  el.stayLabel.textContent = t("问候停留", "問候停留", "Greeting dwell");
   el.preview.textContent = t("预览下班问候", "預覽下班問候", "Preview the greeting");
   el.hide.textContent = t("收起", "收起", "Hide");
   el.refresh.textContent = t("刷新", "重新整理", "Refresh");
@@ -628,6 +744,15 @@ el.offWorkTime.addEventListener("change", async () => {
   await saveSettings();
   await syncSchedule().catch((err) => setStatus(String(err && err.message ? err.message : err), true));
   setStatus(t("下班时间已保存", "下班時間已儲存", "Off-work time saved"));
+});
+
+el.overlaySeconds.addEventListener("change", async () => {
+  settings.overlaySeconds = clampOverlaySeconds(el.overlaySeconds.value);
+  el.overlaySeconds.value = String(settings.overlaySeconds);
+  await saveSettings();
+  setStatus(
+    t(`问候停留在 ${settings.overlaySeconds} 秒`, `問候停留在 ${settings.overlaySeconds} 秒`, `Greeting stays ${settings.overlaySeconds}s`)
+  );
 });
 
 el.citySearch.addEventListener("click", searchCity);
@@ -651,14 +776,15 @@ el.refresh.addEventListener("click", async () => {
 el.preview.addEventListener("click", showOverlay);
 el.hide.addEventListener("click", () => widget.window.hide().catch(() => {}));
 
-widget.onScheduleTrigger(async (action) => {
+widget.schedule.onTrigger(async (action) => {
   if (!action || action.code !== SCHEDULE_CODE) return;
   await showOverlay();
 });
 
-widget.onPluginReady(async () => {
+widget.on("ready", async () => {
   labels();
   await loadSettings();
+  if (settings.cityAuto) await autoLocateCity();
   renderAlmanac();
   await fetchWeather().catch((err) => {
     setStatus(String(err && err.message ? err.message : err), true);

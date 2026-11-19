@@ -118,7 +118,7 @@ el.open.addEventListener("click", () => {
   utools.sendToParent("reminder-action", { type: "open-main" });
 });
 
-widget.onPluginReady(async () => {
+widget.on("ready", async () => {
   labels();
   await load();
   setInterval(load, 20000);

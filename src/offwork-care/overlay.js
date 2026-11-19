@@ -69,6 +69,7 @@ function render(data) {
   document.getElementById("footNote").textContent = (data.timeText || "18:00") + " 下班";
 
   const fill = document.getElementById("barFill");
+  const duration = Math.max(3000, Number(data.durationMs) || 13000);
   const fx =
     type === "none"
       ? { stop() {} }
@@ -80,7 +81,7 @@ function render(data) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       card.classList.add("ready");
-      fill.style.transition = "width 13000ms linear";
+      fill.style.transition = `width ${duration}ms linear`;
       setTimeout(() => {
         fill.style.width = "0%";
       }, 40);
@@ -91,7 +92,7 @@ function render(data) {
     fx.stop();
     card.classList.add("leaving");
     setTimeout(() => window.close(), 680);
-  }, 13000);
+  }, duration);
 }
 
 const data = parseData();

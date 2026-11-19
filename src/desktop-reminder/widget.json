@@ -6,7 +6,7 @@
     "zh-CN": "把待办放在桌面右侧，时间一到就提醒；支持每天、工作日、每周与每月重复。",
     "en": "Keep todos on the right edge of the desktop and get notified on time, with daily, weekday, weekly and monthly repeats."
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "2026-11-19",
   "author": "WinWidget",
   "entry": "index.html",

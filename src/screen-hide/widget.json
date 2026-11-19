@@ -6,7 +6,7 @@
     "zh-CN": "一键隐藏桌面图标，只留壁纸与任务栏；再按一次就回来。",
     "en": "Hide every desktop icon in one click and bring them back the same way."
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "2026-11-19",
   "author": "WinWidget",
   "entry": "index.html",

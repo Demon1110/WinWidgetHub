@@ -405,7 +405,7 @@ ipcRenderer.on("reminder-action", async (_, action) => {
   }
 });
 
-widget.onScheduleTrigger(async (action) => {
+widget.schedule.onTrigger(async (action) => {
   const code = String(action && action.code ? action.code : "");
   if (!code.startsWith(PREFIX)) return;
   const id = code.slice(PREFIX.length);
@@ -420,7 +420,7 @@ widget.onScheduleTrigger(async (action) => {
   sendFloatUpdate();
 });
 
-widget.onPluginReady(async () => {
+widget.on("ready", async () => {
   labels();
   el.timeInput.value = defaultTime();
   el.repeatInput.value = "none";

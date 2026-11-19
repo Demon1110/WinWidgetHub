@@ -151,9 +151,13 @@ h1 {
 }
 
 .settings-row { display: flex; gap: 0.45rem; align-items: flex-end; }
+.settings-row + .settings-row { margin-top: 0.42rem; }
 .field-wrap { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
 .field-wrap.grow { flex: 1; }
+.field-wrap.stay { width: 86px; }
 .field-label { font-size: 0.63rem; color: var(--w-fg-muted); }
+.stay-line { display: flex; align-items: center; gap: 0.28rem; }
+.stay-unit { flex: none; font-size: 0.68rem; color: var(--w-fg-muted); }
 
 .field {
   width: 100%;
