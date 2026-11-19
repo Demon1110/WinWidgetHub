@@ -55,7 +55,7 @@
       "id": "offwork-care",
       "name": "下班关怀",
       "description": "结合实时天气、今日黄历与一句暖话，提醒你该下班了；雨、雪、雷雨、雾、晴、多云都有对应的桌面特效。",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "WinWidget",
       "category": "productivity",
       "updated": "2026-11-19",
@@ -73,9 +73,9 @@
         "schedule",
         "screen"
       ],
-      "bytes": 131445,
-      "sha256": "6a4a240996503a9d46988379272066b6521b93fcce6c53a30d8a1dc81c485d37",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-care-1.0.1.fwz",
+      "bytes": 132113,
+      "sha256": "c686c3cde7ac58fb99fffcb6749b4435733ee46e6dff0ed04259af566e9b4469",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-care-1.0.2.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/offwork-care"
     },
     {

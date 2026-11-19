@@ -14,12 +14,11 @@ html, body {
 
 #card {
   position: absolute;
-  inset: 14px;
+  inset: 0;
   border-radius: 18px;
   overflow: hidden;
   color: #eef2fb;
   background: var(--sky);
-  box-shadow: 0 10px 24px rgba(6, 10, 20, 0.4), inset 0 1px rgba(255, 255, 255, 0.14);
   opacity: 0;
   transform: translateY(18px) scale(0.965);
   transition: opacity 0.6s, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);

@@ -7,6 +7,17 @@ const SETTINGS_KEY = "offwork/settings";
 const SCHEDULE_CODE = "offwork-daily";
 const DAY_MS = 86400000;
 const DEFAULT_OVERLAY_SECONDS = 14;
+const DEFAULT_OVERLAY_POSITION = "bottom-right";
+const OVERLAY_POSITIONS = [
+  "bottom-left",
+  "bottom-right",
+  "top-left",
+  "top-right",
+  "bottom-center",
+  "top-center",
+  "right-center",
+  "left-center",
+];
 const DEFAULT_CITY = {
   name: "北京",
   admin1: "北京市",
@@ -67,6 +78,8 @@ const el = {
   effectLabel: $("effectLabel"),
   stayLabel: $("stayLabel"),
   overlaySeconds: $("overlaySeconds"),
+  positionLabel: $("positionLabel"),
+  overlayPosition: $("overlayPosition"),
   almanacTitle: $("almanacTitle"),
   almanacDate: $("almanacDate"),
   almanacBadge: $("almanacBadge"),
@@ -88,6 +101,7 @@ let settings = {
   reminderEnabled: true,
   rainEffectEnabled: true,
   overlaySeconds: DEFAULT_OVERLAY_SECONDS,
+  overlayPosition: DEFAULT_OVERLAY_POSITION,
 };
 let weather = null;
 let overlayWinId = null;
@@ -97,6 +111,10 @@ function clampOverlaySeconds(value) {
   const n = Number(value);
   if (!Number.isFinite(n)) return DEFAULT_OVERLAY_SECONDS;
   return Math.min(60, Math.max(3, Math.round(n)));
+}
+
+function normalizeOverlayPosition(value) {
+  return OVERLAY_POSITIONS.includes(value) ? value : DEFAULT_OVERLAY_POSITION;
 }
 
 // ── 黄历：节气、干支、建除、宜忌 ─────────────────────────────────────
@@ -483,8 +501,48 @@ async function showOverlay() {
     const width = 384;
     const height = 332;
     const area = await displayArea();
-    const x = area ? Math.round(area.x + area.width - width - 20) : undefined;
-    const y = area ? Math.round(area.y + area.height - height - 20) : undefined;
+    const gap = 20;
+    const left = area ? Math.round(area.x + gap) : undefined;
+    const right = area ? Math.round(area.x + area.width - width - gap) : undefined;
+    const top = area ? Math.round(area.y + gap) : undefined;
+    const bottom = area ? Math.round(area.y + area.height - height - gap) : undefined;
+    const centerX = area ? Math.round(area.x + (area.width - width) / 2) : undefined;
+    const centerY = area ? Math.round(area.y + (area.height - height) / 2) : undefined;
+    let x = right;
+    let y = bottom;
+    switch (settings.overlayPosition) {
+      case "bottom-left":
+        x = left;
+        y = bottom;
+        break;
+      case "top-left":
+        x = left;
+        y = top;
+        break;
+      case "top-right":
+        x = right;
+        y = top;
+        break;
+      case "bottom-center":
+        x = centerX;
+        y = bottom;
+        break;
+      case "top-center":
+        x = centerX;
+        y = top;
+        break;
+      case "right-center":
+        x = right;
+        y = centerY;
+        break;
+      case "left-center":
+        x = left;
+        y = centerY;
+        break;
+      default:
+        x = right;
+        y = bottom;
+    }
     const options = {
       width,
       height,
@@ -563,6 +621,7 @@ function parseSettings(raw) {
     reminderEnabled: s.reminderEnabled !== false,
     rainEffectEnabled: s.rainEffectEnabled !== false,
     overlaySeconds: clampOverlaySeconds(s.overlaySeconds),
+    overlayPosition: normalizeOverlayPosition(s.overlayPosition),
   };
 }
 
@@ -576,6 +635,7 @@ async function loadSettings() {
   el.cityInput.value = settings.city.name;
   el.effectToggle.checked = settings.rainEffectEnabled;
   el.overlaySeconds.value = String(settings.overlaySeconds);
+  el.overlayPosition.value = settings.overlayPosition;
   renderReminderToggle();
 }
 
@@ -725,6 +785,20 @@ function labels() {
   el.citySearch.textContent = t("查找", "尋找", "Find");
   el.effectLabel.textContent = t("天气特效", "天氣特效", "Weather effect");
   el.stayLabel.textContent = t("问候停留", "問候停留", "Greeting dwell");
+  el.positionLabel.textContent = t("问候位置", "問候位置", "Greeting position");
+  const positionText = {
+    "bottom-left": t("左下", "左下", "Bottom left"),
+    "bottom-right": t("右下", "右下", "Bottom right"),
+    "top-left": t("左上", "左上", "Top left"),
+    "top-right": t("右上", "右上", "Top right"),
+    "bottom-center": t("正下", "正下", "Bottom center"),
+    "top-center": t("正上", "正上", "Top center"),
+    "right-center": t("正右", "正右", "Right center"),
+    "left-center": t("正左", "正左", "Left center"),
+  };
+  for (const option of el.overlayPosition.options) {
+    option.textContent = positionText[option.value] || option.textContent;
+  }
   el.preview.textContent = t("预览下班问候", "預覽下班問候", "Preview the greeting");
   el.hide.textContent = t("收起", "收起", "Hide");
   el.refresh.textContent = t("刷新", "重新整理", "Refresh");
@@ -753,6 +827,14 @@ el.overlaySeconds.addEventListener("change", async () => {
   setStatus(
     t(`问候停留在 ${settings.overlaySeconds} 秒`, `問候停留在 ${settings.overlaySeconds} 秒`, `Greeting stays ${settings.overlaySeconds}s`)
   );
+});
+
+el.overlayPosition.addEventListener("change", async () => {
+  settings.overlayPosition = normalizeOverlayPosition(el.overlayPosition.value);
+  el.overlayPosition.value = settings.overlayPosition;
+  await saveSettings();
+  const text = el.overlayPosition.selectedOptions[0]?.textContent || settings.overlayPosition;
+  setStatus(t(`问候位置已设为${text}`, `問候位置已設為${text}`, `Greeting position: ${text}`));
 });
 
 el.citySearch.addEventListener("click", searchCity);

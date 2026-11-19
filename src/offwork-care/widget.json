@@ -6,7 +6,7 @@
     "zh-CN": "结合实时天气、今日黄历与一句暖话，提醒你该下班了；雨、雪、雷雨、雾、晴、多云都有对应的桌面特效。",
     "en": "A warm end-of-day card with live weather, the Chinese almanac and a gentle nudge to leave on time."
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "date": "2026-11-19",
   "author": "WinWidget",
   "entry": "index.html",
