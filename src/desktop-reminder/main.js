@@ -342,7 +342,11 @@ async function addReminder(ev) {
 
 // ── 到点提醒 ───────────────────────────────────────────────────────
 const ALERT_WIDTH = 380;
-const ALERT_HEIGHT = 230;
+const ALERT_HEIGHT = 300;
+const ALERT_MIN_WIDTH = 200;
+const ALERT_MIN_HEIGHT = 300;
+const ALERT_MAX_WIDTH = 560;
+const ALERT_MAX_HEIGHT = 820;
 
 async function closeAlert(id) {
   const winId = alertWins.get(id);
@@ -372,6 +376,10 @@ async function showReminderAlert(doc, code) {
       title: t("提醒", "提醒", "Reminder"),
       width: ALERT_WIDTH,
       height: ALERT_HEIGHT,
+      minWidth: ALERT_MIN_WIDTH,
+      minHeight: ALERT_MIN_HEIGHT,
+      maxWidth: ALERT_MAX_WIDTH,
+      maxHeight: ALERT_MAX_HEIGHT,
       x,
       y,
       frame: false,
@@ -379,7 +387,7 @@ async function showReminderAlert(doc, code) {
       seeThrough: true,
       alwaysOnTop: true,
       skipTaskbar: true,
-      resizable: false,
+      resizable: true,
       movable: false,
       minimizable: false,
       maximizable: false,
