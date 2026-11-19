@@ -3,7 +3,7 @@
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-19",
-  "count": 64,
+  "count": 54,
   "widgets": [
     {
       "id": "batch-rename",
@@ -173,35 +173,6 @@
       "sha256": "eaadbe2a13a05fc8a3805a5e6b0d383c716675eb62c8986fb0c3b976571a2552",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/agenda-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/agenda"
-    },
-    {
-      "id": "bloom",
-      "name": "玩出花",
-      "description": "让屏幕开出赛博时代的浪漫：39 款全屏特效，穿透执行，工作解压两不误。",
-      "version": "1.0.0",
-      "author": "WinWidget",
-      "category": "media",
-      "updated": "2026-11-18",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/bloom/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/type.zh-TW.webp"
-      ],
-      "permissions": [
-        "screen"
-      ],
-      "bytes": 787754,
-      "sha256": "c8f979b5112867b12f519c1f603654bf4c6b2319453b4f978dbb817f22c867e9",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/bloom-1.0.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/bloom"
     },
     {
       "id": "chargeguard",
@@ -404,33 +375,6 @@
       "sha256": "cd5ea6d5d7b555e105e4b91731803a41a9f29a029f04f112ae9a788d75b691b3",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/ical-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ical"
-    },
-    {
-      "id": "ledger",
-      "name": "记账速记",
-      "description": "打个数字、点分类就记一笔；不用切输入法，右下角看本月支出。",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "productivity",
-      "updated": "2026-11-18",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/ledger/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/type.zh-TW.webp"
-      ],
-      "permissions": [],
-      "bytes": 353483,
-      "sha256": "e8758e11bf1ef47f5b077f37181b03132f4ad377d96a26bbf7a55670dbdb4686",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/ledger-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ledger"
     },
     {
       "id": "meetplan",
@@ -716,64 +660,6 @@
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/water"
     },
     {
-      "id": "recyclebin",
-      "name": "回收站",
-      "description": "里面有几个项目、多大，按两次清空",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "system",
-      "updated": "2026-11-12",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/recyclebin/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/recyclebin/preview/type.zh-TW.webp"
-      ],
-      "permissions": [],
-      "bytes": 41875,
-      "sha256": "b3da3d59c978ebb279fd9125fb188a245a8b7bc6ac3a98ba9a4c3941a0d6cd7e",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/recyclebin-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/recyclebin"
-    },
-    {
-      "id": "airquality",
-      "name": "空气质量",
-      "description": "AQI、PM2.5、PM10，按等级上色",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "weather",
-      "updated": "2026-11-11",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/airquality/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/airquality/preview/type.zh-TW.webp"
-      ],
-      "permissions": [
-        "network:air-quality-api.open-meteo.com",
-        "network:geocoding-api.open-meteo.com",
-        "network:get.geojs.io"
-      ],
-      "bytes": 86742,
-      "sha256": "9b4ba677cc1a1b87b0f95990660038c01bb9e80267c4272d0bdd26c6eb8b0fd0",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/airquality-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/airquality"
-    },
-    {
       "id": "forecast",
       "name": "一周天气",
       "description": "未来 7 天的天气、最高最低温和降雨概率",
@@ -803,35 +689,6 @@
       "sha256": "26328d4e0349dca3dcff75537dc756c14aa6fb24a87b7d9a7b0011bb21f720bb",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/forecast-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/forecast"
-    },
-    {
-      "id": "media",
-      "name": "媒体控制",
-      "description": "正在播放的歌名、封面和歌词，可以播放、暂停、切换曲目",
-      "version": "1.2.0",
-      "author": "WinWidget",
-      "category": "media",
-      "updated": "2026-11-11",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/media/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/media/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/media/preview/type.zh-TW.webp"
-      ],
-      "permissions": [
-        "media"
-      ],
-      "bytes": 70627,
-      "sha256": "156d7cd42dc82381d07e5fb61dfccba088b7ed22536821361fc6e01b84b32044",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/media-1.2.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/media"
     },
     {
       "id": "netspeed",
@@ -923,37 +780,6 @@
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/sunmoon"
     },
     {
-      "id": "weather",
-      "name": "天气",
-      "description": "现在的天气与接下来几小时",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "weather",
-      "updated": "2026-11-11",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/weather/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/weather/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/weather/preview/type.zh-TW.webp"
-      ],
-      "permissions": [
-        "network:api.open-meteo.com",
-        "network:geocoding-api.open-meteo.com",
-        "network:get.geojs.io"
-      ],
-      "bytes": 81769,
-      "sha256": "7999053f6062f9aae84c6c807c5323ab3f5a2f9e91dfc0b16346d3f261b2889b",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/weather-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/weather"
-    },
-    {
       "id": "whitenoise",
       "name": "白噪音",
       "description": "雨声、海浪、风声、炉火，可以混在一起，也能定时关掉",
@@ -979,33 +805,6 @@
       "sha256": "dba1bd185dd5b8baa471a6f7a3a2a2a6ca9fce131a41e94da6a4e4f9088f8423",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/whitenoise-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/whitenoise"
-    },
-    {
-      "id": "analogclock",
-      "name": "指针时钟",
-      "description": "有指针的表盘，可选时区",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "time",
-      "updated": "2026-11-10",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/analogclock/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/analogclock/preview/type.zh-TW.webp"
-      ],
-      "permissions": [],
-      "bytes": 76776,
-      "sha256": "1e39239c96a0318c6a9f5a4187bc6503abfd784e37a9043ee43ea5a25dcb978a",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/analogclock-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/analogclock"
     },
     {
       "id": "battery",
@@ -1062,33 +861,6 @@
       "sha256": "04093ff1609b2ade01641616222559562403c76cdab6c9e9b73fe8d4b1bfdf74",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/calculator-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/calculator"
-    },
-    {
-      "id": "calendar",
-      "name": "日历",
-      "description": "月历与农历",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "time",
-      "updated": "2026-11-10",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/calendar/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/calendar/preview/type.zh-TW.webp"
-      ],
-      "permissions": [],
-      "bytes": 163693,
-      "sha256": "e7d8f2e0d3785305db861ed7b9f038d4c3ab9089e6bee0efdf195af595fd0afd",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/calendar-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/calendar"
     },
     {
       "id": "clock",
@@ -1345,36 +1117,6 @@
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/label"
     },
     {
-      "id": "launcher",
-      "name": "快捷启动",
-      "description": "常用程序、文件夹、网址，一点就打开；把文件拖进来就能加入",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "productivity",
-      "updated": "2026-11-10",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/launcher/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/launcher/preview/type.zh-TW.webp"
-      ],
-      "permissions": [
-        "shell.launch",
-        "shell.open"
-      ],
-      "bytes": 52166,
-      "sha256": "8cdec9935b80f90fe93f3ed0fa9f31f69a3c1c7602e7dce0d2c472a483f05f48",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/launcher-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/launcher"
-    },
-    {
       "id": "notes",
       "name": "便利贴",
       "description": "随手记下，自动保存",
@@ -1516,33 +1258,6 @@
       "sha256": "1650fc8dd4332fb537c29515e6cdbb264485e2a5099fb89ee3a225e9c0f33bea",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/pomodoro-1.1.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/pomodoro"
-    },
-    {
-      "id": "power",
-      "name": "电源",
-      "description": "锁定、睡眠、重启、关机；除了锁定都要按两次",
-      "version": "1.1.0",
-      "author": "WinWidget",
-      "category": "system",
-      "updated": "2026-11-10",
-      "icon": "https://demon1110.github.io/WinWidgetHub/src/power/icon.svg",
-      "preview": "https://demon1110.github.io/WinWidgetHub/src/power/preview/{theme}.{lang}.webp",
-      "previews": [
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/instrument.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/instrument.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/instrument.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/paper.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/paper.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/paper.zh-TW.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/type.en.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/type.zh-CN.webp",
-        "https://demon1110.github.io/WinWidgetHub/src/power/preview/type.zh-TW.webp"
-      ],
-      "permissions": [],
-      "bytes": 39473,
-      "sha256": "0d363331abd5d1c0a492efc75e9bcfba46381324fe25c3fa3ea90d26e9dcef20",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/power-1.1.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/power"
     },
     {
       "id": "progress",

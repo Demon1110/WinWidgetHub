@@ -24,14 +24,14 @@ scripts/
 .github/workflows/      提交检查（check.yml）和 Pages 发布（deploy.yml）
 ```
 
-## 内置组件镜像
+## 从内置资源迁出的组件
 
-`src/` 里有 58 个组件来自 WinWidget 自带的 `assets/widgets/`，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
+`src/` 里有 48 个组件源自 WinWidget 历史上的 `assets/widgets/`，现在只在本仓库维护，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
 
 - **id 去掉前缀，统一用唯一短名**：`winwidget.agenda` → `agenda`，`fullwidget.perpetual` → `perpetual`，`demon.batch-rename` → `batch-rename`，`demon.web-open` → `web-open`，`demon.coin` → `coin`。客户端安装时会拒绝 `winwidget.` / `user.` 开头的 id（`src/market/packages.rs` 的 `reject_reserved`）；本仓库也不再给组件加作者或项目前缀。
 - **补 `date` 字段**：取原仓库里该组件最后一次提交的日期（`git log -1 --format=%cs -- assets/widgets/<名>`）。不写死日期的话，`build.mjs` 会退回到 git 提交日期，CI 重建清单时就和本地产物对不上。
 
-除 `bluetooth` 已从宿主内置资源移出、只在本仓库维护外，其余组件在客户端里同时是内置组件（内置 id 是 `winwidget.*`），从市场装到桌面后会以市场 id 再出现一份，内置那份不受影响。
+当前宿主仍内置的组件（`airquality`、`analogclock`、`bloom`、`calendar`、`launcher`、`ledger`、`media`、`power`、`recyclebin`、`weather`）不再在本仓库发布，避免同一功能出现内置和市场两份。
 
 ## 加一个组件
 
