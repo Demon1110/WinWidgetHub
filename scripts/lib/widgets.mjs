@@ -307,7 +307,7 @@ export function discover(root) {
 
     const preview = findPreview(files.files);
     if (!preview.template && !preview.single) {
-      warnings.push(`「${id}」没有预览图：建议在 preview/ 下放 {theme}.{lang}.webp（主题 × 语言）`);
+      warnings.push(`「${id}」没有预览图：建议在 preview/ 下放一张 preview.webp（一张即可；主题 × 语言版本可选）`);
     }
 
     items.push({
@@ -338,8 +338,8 @@ export function discover(root) {
 }
 
 /**
- * 预览图：preview/ 下按「主题.语言.webp」命名时生成模板，清单里跟着全局主题和语言走；
- * 只有一张图时就直接用它。
+ * 预览图：优先一张 preview.webp；需要按主题/语言各一张时用「主题.语言.webp」生成模板，
+ * 清单里跟着全局主题和语言走。只有一张图时就直接用它。
  */
 function findPreview(files) {
   const images = files.filter(

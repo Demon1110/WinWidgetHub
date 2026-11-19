@@ -10,8 +10,9 @@ src/                    每个组件一个文件夹，文件夹名就是组件 i
     main.js
     style.css
     icon.svg            清单里的 logo
-    preview/            预览图（可选，建议放）
-      instrument.zh-CN.png
+    preview/             预览图（可选）
+      preview.webp       推荐：一张透明背景 WebP，宽 300–700
+      instrument.zh-CN.webp  可选：需要按主题/语言各一张时才这样命名
 widgets/                构建产物：<id>-<version>.fwz，提交进仓库
 widgets.json            构建产物：组件清单，提交进仓库
 index.html              Pages 首页：网页版组件市场，直接读 widgets.json
@@ -55,7 +56,10 @@ scripts/
    ```
 
    `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 13 个（`system`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`）和 `network:<域名>`。
-3. 预览图放 `preview/`，按 `<主题>.<语言>.<png|webp>` 命名，例如 `instrument.zh-CN.png`、`paper.en.webp`。清单会存成模板，客户端按当前全局主题和语言挑一张；只有一张图时也可以直接命名为 `preview.png`。
+3. 预览图放 `preview/`，**优先一张透明背景的 `preview.webp`**（宽 300–700 像素即可）。只有确实需要按主题/语言分别展示时，才按 `<主题>.<语言>.webp` 命名，例如 `instrument.zh-CN.webp`、`paper.en.webp`；这时清单会存成模板，客户端按当前全局主题和语言挑一张。没有 WebP 时客户端会回退到同名 `.png` / `.jpg` / `.jpeg`；也可以直接把 `preview` 指向 PNG。批量把 PNG 转成 WebP：
+   ```powershell
+   pwsh -File scripts/preview-to-webp.ps1 -Path src/<id>/preview
+   ```
 4. 本地构建并检查：
 
    ```bash
@@ -87,8 +91,8 @@ scripts/
       "category": "other",
       "updated": "2026-11-18",
       "icon": "https://…/src/demon.coin/icon.svg",
-      "preview": "https://…/src/demon.coin/preview/{theme}.{lang}.png",
-      "previews": ["https://…/src/demon.coin/preview/instrument.zh-CN.png", "…"],
+      "preview": "https://…/src/demon.coin/preview/preview.webp",
+      "previews": ["https://…/src/demon.coin/preview/preview.webp"],
       "permissions": [],
       "bytes": 3287,
       "sha256": "a4df30…",
