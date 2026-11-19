@@ -8,6 +8,7 @@ import { execFileSync } from "node:child_process";
 /** 客户端认识的非网络权限（对应 src/model/permissions.rs 的 KNOWN）。 */
 export const KNOWN_PERMISSIONS = [
   "system",
+  "bluetooth",
   "notify",
   "audio",
   "media",

@@ -26,12 +26,12 @@ scripts/
 
 ## 内置组件镜像
 
-`src/` 里有 57 个组件是从 WinWidget 自带的 `assets/widgets/` 复制过来的，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
+`src/` 里有 58 个组件来自 WinWidget 自带的 `assets/widgets/`，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
 
 - **id 去掉前缀，统一用唯一短名**：`winwidget.agenda` → `agenda`，`fullwidget.perpetual` → `perpetual`，`demon.batch-rename` → `batch-rename`，`demon.web-open` → `web-open`，`demon.coin` → `coin`。客户端安装时会拒绝 `winwidget.` / `user.` 开头的 id（`src/market/packages.rs` 的 `reject_reserved`）；本仓库也不再给组件加作者或项目前缀。
 - **补 `date` 字段**：取原仓库里该组件最后一次提交的日期（`git log -1 --format=%cs -- assets/widgets/<名>`）。不写死日期的话，`build.mjs` 会退回到 git 提交日期，CI 重建清单时就和本地产物对不上。
 
-这些组件在客户端里同时是内置组件（内置 id 是 `winwidget.*`），从市场装到桌面后会以市场 id 再出现一份，内置那份不受影响。
+除 `bluetooth` 已从宿主内置资源移出、只在本仓库维护外，其余组件在客户端里同时是内置组件（内置 id 是 `winwidget.*`），从市场装到桌面后会以市场 id 再出现一份，内置那份不受影响。
 
 ## 加一个组件
 
@@ -55,7 +55,7 @@ scripts/
    }
    ```
 
-   `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 14 个（`system`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`、`tool.exec`）和 `network:<域名>`。声明了 `tools`（第三方 CLI 工具）就必须同时声明 `tool.exec` 和下载网站的 `network:<域名>`；工具项里的 `sha256` 可选，填了客户端会强校验，不填就不做内容哈希校验。
+   `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 15 个（`system`、`bluetooth`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`、`tool.exec`）和 `network:<域名>`。声明了 `tools`（第三方 CLI 工具）就必须同时声明 `tool.exec` 和下载网站的 `network:<域名>`；工具项里的 `sha256` 可选，填了客户端会强校验，不填就不做内容哈希校验。
 3. 预览图放 `preview/`，**优先一张透明背景的 `preview.webp`**（宽 300–700 像素即可）。只有确实需要按主题/语言分别展示时，才按 `<主题>.<语言>.webp` 命名，例如 `instrument.zh-CN.webp`、`paper.en.webp`；这时清单会存成模板，客户端按当前全局主题和语言挑一张。没有 WebP 时客户端会回退到同名 `.png` / `.jpg` / `.jpeg`；也可以直接把 `preview` 指向 PNG。批量把 PNG 转成 WebP：
    ```powershell
    pwsh -File scripts/preview-to-webp.ps1 -Path src/<id>/preview

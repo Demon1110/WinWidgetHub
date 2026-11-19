@@ -3,7 +3,7 @@
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-19",
-  "count": 63,
+  "count": 64,
   "widgets": [
     {
       "id": "batch-rename",
@@ -27,6 +27,28 @@
       "sha256": "ac505f3b3b2b8db574018c607ea425b5b005469bb8473750340dfa2b31eab8df",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/batch-rename-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/batch-rename"
+    },
+    {
+      "id": "bluetooth",
+      "name": "蓝牙设备",
+      "description": "已配对的蓝牙设备、类型与电量；连接中的排在前面",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "system",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/bluetooth/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/bluetooth/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/bluetooth/preview/preview.webp"
+      ],
+      "permissions": [
+        "bluetooth",
+        "shell.open"
+      ],
+      "bytes": 28002,
+      "sha256": "ed5c26c40290520d8e97d765773672b918efd40a4ed3dbc9bd01fe58eb7d9aac",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/bluetooth-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/bluetooth"
     },
     {
       "id": "desktop-reminder",
