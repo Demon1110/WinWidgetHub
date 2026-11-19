@@ -33,7 +33,8 @@ declare namespace WinWidget {
     name: string;
     filename: string;
     url: string;
-    sha256: string;
+    /** The declared SHA-256, or null when the widget did not provide one. */
+    sha256: string | null;
     size: number | null;
     path: string;
     cached: boolean;

@@ -55,7 +55,7 @@ scripts/
    }
    ```
 
-   `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 14 个（`system`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`、`tool.exec`）和 `network:<域名>`。声明了 `tools`（第三方 CLI 工具）就必须同时声明 `tool.exec` 和下载网站的 `network:<域名>`。
+   `category` 只认 `time`、`weather`、`system`、`productivity`、`info`、`media`，其他值会被归到 `other`。权限只认客户端支持的 14 个（`system`、`notify`、`audio`、`media`、`clipboard`、`screen`、`input`、`schedule`、`sharp`、`ubrowser`、`shell.open`、`shell.launch`、`shell.drop`、`tool.exec`）和 `network:<域名>`。声明了 `tools`（第三方 CLI 工具）就必须同时声明 `tool.exec` 和下载网站的 `network:<域名>`；工具项里的 `sha256` 可选，填了客户端会强校验，不填就不做内容哈希校验。
 3. 预览图放 `preview/`，**优先一张透明背景的 `preview.webp`**（宽 300–700 像素即可）。只有确实需要按主题/语言分别展示时，才按 `<主题>.<语言>.webp` 命名，例如 `instrument.zh-CN.webp`、`paper.en.webp`；这时清单会存成模板，客户端按当前全局主题和语言挑一张。没有 WebP 时客户端会回退到同名 `.png` / `.jpg` / `.jpeg`；也可以直接把 `preview` 指向 PNG。批量把 PNG 转成 WebP：
    ```powershell
    pwsh -File scripts/preview-to-webp.ps1 -Path src/<id>/preview
