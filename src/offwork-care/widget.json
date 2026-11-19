@@ -6,7 +6,7 @@
     "zh-CN": "结合实时天气、今日黄历与一句暖话，提醒你该下班了；雨、雪、雷雨、雾、晴、多云都有对应的桌面特效。",
     "en": "A warm end-of-day card with live weather, the Chinese almanac and a gentle nudge to leave on time."
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "date": "2026-11-19",
   "author": "WinWidget",
   "entry": "index.html",
@@ -32,5 +32,49 @@
     "schedule",
     "screen"
   ],
-  "settings": []
+  "settings": [
+    {
+      "key": "offWorkTime",
+      "type": "text",
+      "label": { "zh-TW": "下班時間", "zh-CN": "下班时间", "en": "Off-work time" },
+      "description": { "zh-TW": "24 小時制，例如 18:00", "zh-CN": "24 小时制，例如 18:00", "en": "24-hour time, for example 18:00" },
+      "default": "18:00",
+      "placeholder": { "zh-TW": "18:00", "zh-CN": "18:00", "en": "18:00" }
+    },
+    {
+      "key": "city",
+      "type": "text",
+      "label": { "zh-TW": "城市", "zh-CN": "城市", "en": "City" },
+      "description": { "zh-TW": "留空：按網絡位置自動定位", "zh-CN": "留空：按网络位置自动定位", "en": "Empty: locate from your network" },
+      "default": "",
+      "placeholder": { "zh-TW": "例如：南昌；留空自動定位", "zh-CN": "例如：南昌；留空自动定位", "en": "For example: Nanchang; empty to auto-locate" }
+    },
+    {
+      "key": "overlaySeconds",
+      "type": "number",
+      "label": { "zh-TW": "問候停留", "zh-CN": "问候停留", "en": "Greeting dwell" },
+      "description": { "zh-TW": "單位秒，3–60", "zh-CN": "单位秒，3–60", "en": "Seconds, 3–60" },
+      "default": 14,
+      "min": 3,
+      "max": 60,
+      "step": 1
+    },
+    {
+      "key": "overlayPosition",
+      "type": "select",
+      "label": { "zh-TW": "問候位置", "zh-CN": "问候位置", "en": "Greeting position" },
+      "description": { "zh-TW": "問候彈窗停靠的位置", "zh-CN": "问候弹窗停靠的位置", "en": "Where the greeting card docks" },
+      "default": "bottom-right",
+      "options": [
+        { "value": "bottom-left", "label": { "zh-TW": "左下", "zh-CN": "左下", "en": "Bottom left" } },
+        { "value": "bottom-right", "label": { "zh-TW": "右下", "zh-CN": "右下", "en": "Bottom right" } },
+        { "value": "top-left", "label": { "zh-TW": "左上", "zh-CN": "左上", "en": "Top left" } },
+        { "value": "top-right", "label": { "zh-TW": "右上", "zh-CN": "右上", "en": "Top right" } },
+        { "value": "bottom-center", "label": { "zh-TW": "正下", "zh-CN": "正下", "en": "Bottom center" } },
+        { "value": "top-center", "label": { "zh-TW": "正上", "zh-CN": "正上", "en": "Top center" } },
+        { "value": "right-center", "label": { "zh-TW": "正右", "zh-CN": "正右", "en": "Right center" } },
+        { "value": "left-center", "label": { "zh-TW": "正左", "zh-CN": "正左", "en": "Left center" } }
+      ]
+    }
+  ]
 }

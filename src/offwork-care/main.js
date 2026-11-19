@@ -4,6 +4,7 @@ const hans = /^zh-(cn|sg|hans|mo)/i.test(widget.locale);
 const t = (cn, tw, en) => (zh ? (hans ? cn : tw) : en);
 
 const SETTINGS_KEY = "offwork/settings";
+const HOST_MIGRATION_KEY = "offwork/host-settings-migrated";
 const SCHEDULE_CODE = "offwork-daily";
 const DAY_MS = 86400000;
 const DEFAULT_OVERLAY_SECONDS = 14;
@@ -68,18 +69,10 @@ const el = {
   greeting: $("greeting"),
   warm: $("warm"),
   settingsTitle: $("settingsTitle"),
-  offworkLabel: $("offworkLabel"),
-  cityLabel: $("cityLabel"),
-  offWorkTime: $("offWorkTime"),
-  cityInput: $("cityInput"),
-  citySearch: $("citySearch"),
-  cityResults: $("cityResults"),
+  settingsHint: $("settingsHint"),
+  settingsSummary: $("settingsSummary"),
   effectToggle: $("effectToggle"),
   effectLabel: $("effectLabel"),
-  stayLabel: $("stayLabel"),
-  overlaySeconds: $("overlaySeconds"),
-  positionLabel: $("positionLabel"),
-  overlayPosition: $("overlayPosition"),
   almanacTitle: $("almanacTitle"),
   almanacDate: $("almanacDate"),
   almanacBadge: $("almanacBadge"),
@@ -115,6 +108,20 @@ function clampOverlaySeconds(value) {
 
 function normalizeOverlayPosition(value) {
   return OVERLAY_POSITIONS.includes(value) ? value : DEFAULT_OVERLAY_POSITION;
+}
+
+function overlayPositionText(value) {
+  const names = {
+    "bottom-left": t("左下", "左下", "Bottom left"),
+    "bottom-right": t("右下", "右下", "Bottom right"),
+    "top-left": t("左上", "左上", "Top left"),
+    "top-right": t("右上", "右上", "Top right"),
+    "bottom-center": t("正下", "正下", "Bottom center"),
+    "top-center": t("正上", "正上", "Top center"),
+    "right-center": t("正右", "正右", "Right center"),
+    "left-center": t("正左", "正左", "Left center"),
+  };
+  return names[normalizeOverlayPosition(value)];
 }
 
 // ── 黄历：节气、干支、建除、宜忌 ─────────────────────────────────────
@@ -479,7 +486,7 @@ function buildPayload() {
 
 async function displayArea() {
   try {
-    const d = await widget.screen.getPrimaryDisplay();
+    const d = await widget.screen.primary();
     return d && (d.workArea || d.bounds);
   } catch (err) {
     return null;
@@ -551,6 +558,7 @@ async function showOverlay() {
       center: !area,
       frame: false,
       transparent: true,
+      seeThrough: true,
       alwaysOnTop: true,
       skipTaskbar: true,
       resizable: false,
@@ -626,21 +634,102 @@ function parseSettings(raw) {
 }
 
 async function loadSettings() {
+  let stored = null;
   try {
-    settings = parseSettings(await widget.storage.get(SETTINGS_KEY));
+    stored = await widget.storage.get(SETTINGS_KEY);
   } catch (err) {
-    settings = parseSettings(null);
+    console.warn("settings load failed", err);
   }
-  el.offWorkTime.value = settings.offWorkTime;
-  el.cityInput.value = settings.city.name;
+  settings = parseSettings(stored);
+  const legacyApplied = await migrateLegacySettings(stored);
+  if (legacyApplied) {
+    if (settings.cityAuto) await autoLocateCity();
+    renderSettingsSummary();
+    await saveSettings();
+  } else {
+    await applyHostSettings(readHostSettings());
+  }
   el.effectToggle.checked = settings.rainEffectEnabled;
-  el.overlaySeconds.value = String(settings.overlaySeconds);
-  el.overlayPosition.value = settings.overlayPosition;
   renderReminderToggle();
+}
+
+function readHostSettings(raw) {
+  const s = raw && typeof raw === "object" ? raw : widget.settings.get() || {};
+  return {
+    offWorkTime: /^\d{2}:\d{2}$/.test(String(s.offWorkTime || "")) ? String(s.offWorkTime) : "18:00",
+    city: String(s.city || "").trim(),
+    overlaySeconds: clampOverlaySeconds(s.overlaySeconds),
+    overlayPosition: normalizeOverlayPosition(s.overlayPosition),
+  };
+}
+
+async function migrateLegacySettings(stored) {
+  if (!stored) return false;
+  try {
+    if (await widget.storage.get(HOST_MIGRATION_KEY)) return false;
+    const host = readHostSettings();
+    const untouched =
+      host.offWorkTime === "18:00" &&
+      !host.city &&
+      host.overlaySeconds === DEFAULT_OVERLAY_SECONDS &&
+      host.overlayPosition === DEFAULT_OVERLAY_POSITION;
+    if (!untouched) {
+      await widget.storage.set(HOST_MIGRATION_KEY, true);
+      return false;
+    }
+    const legacy = parseSettings(stored);
+    if (
+      legacy.offWorkTime === "18:00" &&
+      legacy.cityAuto &&
+      legacy.overlaySeconds === DEFAULT_OVERLAY_SECONDS &&
+      legacy.overlayPosition === DEFAULT_OVERLAY_POSITION
+    ) {
+      await widget.storage.set(HOST_MIGRATION_KEY, true);
+      return false;
+    }
+    if (legacy.offWorkTime !== "18:00") await widget.settings.set("offWorkTime", legacy.offWorkTime);
+    if (!legacy.cityAuto && legacy.city && legacy.city.name) await widget.settings.set("city", legacy.city.name);
+    if (legacy.overlaySeconds !== DEFAULT_OVERLAY_SECONDS) await widget.settings.set("overlaySeconds", legacy.overlaySeconds);
+    if (legacy.overlayPosition !== DEFAULT_OVERLAY_POSITION) await widget.settings.set("overlayPosition", legacy.overlayPosition);
+    await widget.storage.set(HOST_MIGRATION_KEY, true);
+    return true;
+  } catch (err) {
+    console.warn("settings migration failed", err);
+    return false;
+  }
+}
+
+async function applyHostSettings(host) {
+  settings.offWorkTime = host.offWorkTime;
+  settings.overlaySeconds = host.overlaySeconds;
+  settings.overlayPosition = host.overlayPosition;
+  if (host.city) {
+    settings.cityAuto = false;
+    if (settings.city.name !== host.city) {
+      const city = await findCityByName(host.city);
+      if (city) {
+        settings.city = city;
+      } else {
+        setStatus(t(`找不到城市“${host.city}”`, `找不到城市「${host.city}」`, `City "${host.city}" not found`), true);
+      }
+    }
+  } else {
+    settings.cityAuto = true;
+    await autoLocateCity();
+  }
+  renderSettingsSummary();
+  await saveSettings();
 }
 
 async function saveSettings() {
   await widget.storage.set(SETTINGS_KEY, settings);
+}
+
+function renderSettingsSummary() {
+  if (!el.settingsSummary) return;
+  const city = settings.cityAuto ? t("自动定位", "自動定位", "Auto location") : settings.city.name;
+  const seconds = t(`${settings.overlaySeconds} 秒`, `${settings.overlaySeconds} 秒`, `${settings.overlaySeconds}s`);
+  el.settingsSummary.textContent = `${settings.offWorkTime} · ${city} · ${seconds} · ${overlayPositionText(settings.overlayPosition)}`;
 }
 
 function renderReminderToggle() {
@@ -649,58 +738,6 @@ function renderReminderToggle() {
   el.reminderText.textContent = settings.reminderEnabled
     ? t("下班提醒", "下班提醒", "Reminder on")
     : t("提醒已关", "提醒已關", "Reminder off");
-}
-
-async function searchCity() {
-  const q = el.cityInput.value.trim();
-  if (!q) {
-    el.cityResults.hidden = true;
-    return;
-  }
-  el.citySearch.disabled = true;
-  try {
-    const url =
-      "https://geocoding-api.open-meteo.com/v1/search?name=" +
-      encodeURIComponent(q) +
-      "&count=6&language=zh&format=json";
-    const res = await widget.fetch(url);
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    const data = await res.json();
-    const list = (data.results || []).slice(0, 6);
-    el.cityResults.replaceChildren();
-    if (!list.length) {
-      el.cityResults.hidden = true;
-      setStatus(t("没有找到这个城市", "沒有找到這個城市", "No city found"), true);
-      return;
-    }
-    for (const c of list) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "city-option";
-      b.dataset.noDrag = "";
-      b.textContent = [c.name, c.admin1, c.country].filter(Boolean).join(" · ");
-      b.addEventListener("click", async () => {
-        settings.city = {
-          name: String(c.name || ""),
-          admin1: String(c.admin1 || ""),
-          country: String(c.country || ""),
-          latitude: Number(c.latitude),
-          longitude: Number(c.longitude),
-        };
-        settings.cityAuto = false;
-        el.cityInput.value = settings.city.name;
-        el.cityResults.hidden = true;
-        await saveSettings();
-        await fetchWeather().catch((err) => setStatus(String(err && err.message ? err.message : err), true));
-      });
-      el.cityResults.appendChild(b);
-    }
-    el.cityResults.hidden = false;
-  } catch (err) {
-    setStatus(String(err && err.message ? err.message : err), true);
-  } finally {
-    el.citySearch.disabled = false;
-  }
 }
 
 async function findCityByName(name) {
@@ -760,10 +797,13 @@ async function locateCityByIp() {
 async function autoLocateCity() {
   if (!settings.cityAuto) return;
   const city = await locateCityByIp();
-  if (!city) return;
+  if (!city) {
+    renderSettingsSummary();
+    return;
+  }
   settings.city = city;
-  el.cityInput.value = city.name;
   await saveSettings();
+  renderSettingsSummary();
   setStatus(
     t(`已根据网络位置定位到 ${city.name}`, `已依網路位置定位到 ${city.name}`, `Located ${city.name} from your network`)
   );
@@ -777,31 +817,18 @@ function setStatus(text, warn) {
 function labels() {
   el.eyebrow.textContent = t("今天也辛苦了", "今天也辛苦了", "You made it through today");
   el.title.textContent = t("下班关怀", "下班關懷", "Off-work care");
-  el.settingsTitle.textContent = t("下班设置", "下班設定", "Settings");
-  el.offworkLabel.textContent = t("下班时间", "下班時間", "Off-work time");
-  el.cityLabel.textContent = t("城市", "城市", "City");
+  el.settingsTitle.textContent = t("显示设置", "顯示設定", "Display");
+  el.settingsHint.textContent = t(
+    "下班时间、城市、问候停留和问候位置已移到组件设置",
+    "下班時間、城市、問候停留和問候位置已移到組件設定",
+    "Off-work time, city, greeting dwell and position are in the widget settings"
+  );
   el.almanacTitle.textContent = t("今日黄历", "今日黃曆", "Today's almanac");
-  el.cityInput.placeholder = t("搜索城市", "搜尋城市", "Search a city");
-  el.citySearch.textContent = t("查找", "尋找", "Find");
   el.effectLabel.textContent = t("天气特效", "天氣特效", "Weather effect");
-  el.stayLabel.textContent = t("问候停留", "問候停留", "Greeting dwell");
-  el.positionLabel.textContent = t("问候位置", "問候位置", "Greeting position");
-  const positionText = {
-    "bottom-left": t("左下", "左下", "Bottom left"),
-    "bottom-right": t("右下", "右下", "Bottom right"),
-    "top-left": t("左上", "左上", "Top left"),
-    "top-right": t("右上", "右上", "Top right"),
-    "bottom-center": t("正下", "正下", "Bottom center"),
-    "top-center": t("正上", "正上", "Top center"),
-    "right-center": t("正右", "正右", "Right center"),
-    "left-center": t("正左", "正左", "Left center"),
-  };
-  for (const option of el.overlayPosition.options) {
-    option.textContent = positionText[option.value] || option.textContent;
-  }
   el.preview.textContent = t("预览下班问候", "預覽下班問候", "Preview the greeting");
   el.hide.textContent = t("收起", "收起", "Hide");
   el.refresh.textContent = t("刷新", "重新整理", "Refresh");
+  renderSettingsSummary();
   renderReminderToggle();
 }
 
@@ -813,42 +840,24 @@ el.reminderToggle.addEventListener("click", async () => {
   setStatus(settings.reminderEnabled ? t("已开启工作日下班提醒", "已開啟工作日下班提醒", "Weekday reminder on") : t("已关闭下班提醒", "已關閉下班提醒", "Reminder off"));
 });
 
-el.offWorkTime.addEventListener("change", async () => {
-  settings.offWorkTime = el.offWorkTime.value || "18:00";
-  await saveSettings();
-  await syncSchedule().catch((err) => setStatus(String(err && err.message ? err.message : err), true));
-  setStatus(t("下班时间已保存", "下班時間已儲存", "Off-work time saved"));
-});
-
-el.overlaySeconds.addEventListener("change", async () => {
-  settings.overlaySeconds = clampOverlaySeconds(el.overlaySeconds.value);
-  el.overlaySeconds.value = String(settings.overlaySeconds);
-  await saveSettings();
-  setStatus(
-    t(`问候停留在 ${settings.overlaySeconds} 秒`, `問候停留在 ${settings.overlaySeconds} 秒`, `Greeting stays ${settings.overlaySeconds}s`)
-  );
-});
-
-el.overlayPosition.addEventListener("change", async () => {
-  settings.overlayPosition = normalizeOverlayPosition(el.overlayPosition.value);
-  el.overlayPosition.value = settings.overlayPosition;
-  await saveSettings();
-  const text = el.overlayPosition.selectedOptions[0]?.textContent || settings.overlayPosition;
-  setStatus(t(`问候位置已设为${text}`, `問候位置已設為${text}`, `Greeting position: ${text}`));
-});
-
-el.citySearch.addEventListener("click", searchCity);
 el.effectToggle.addEventListener("change", async () => {
   settings.rainEffectEnabled = el.effectToggle.checked;
   await saveSettings();
   setStatus(settings.rainEffectEnabled ? t("天气特效已开启", "天氣特效已開啟", "Weather effect on") : t("天气特效已关闭", "天氣特效已關閉", "Weather effect off"));
 });
-el.cityInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    searchCity();
-  }
-});
+
+let hostSettingsBound = false;
+function bindHostSettings() {
+  if (hostSettingsBound) return;
+  hostSettingsBound = true;
+  widget.settings.onChange(async (next) => {
+    await applyHostSettings(readHostSettings(next));
+    el.effectToggle.checked = settings.rainEffectEnabled;
+    renderReminderToggle();
+    await fetchWeather().catch((err) => setStatus(String(err && err.message ? err.message : err), true));
+    await syncSchedule().catch((err) => setStatus(String(err && err.message ? err.message : err), true));
+  });
+}
 
 el.refresh.addEventListener("click", async () => {
   await fetchWeather().catch((err) => setStatus(String(err && err.message ? err.message : err), true));
@@ -866,7 +875,7 @@ widget.schedule.onTrigger(async (action) => {
 widget.on("ready", async () => {
   labels();
   await loadSettings();
-  if (settings.cityAuto) await autoLocateCity();
+  bindHostSettings();
   renderAlmanac();
   await fetchWeather().catch((err) => {
     setStatus(String(err && err.message ? err.message : err), true);
