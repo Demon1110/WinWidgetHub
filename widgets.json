@@ -31,8 +31,8 @@
     {
       "id": "desktop-reminder",
       "name": "桌面提醒",
-      "description": "把待办放在桌面右侧，时间一到就提醒；支持每天、工作日、每周与每月重复。",
-      "version": "1.0.1",
+      "description": "把待办放在桌面右侧，时间一到就弹出醒目提醒；支持每天、工作日、每周与每月重复。",
+      "version": "1.0.2",
       "author": "WinWidget",
       "category": "productivity",
       "updated": "2026-11-19",
@@ -46,9 +46,9 @@
         "schedule",
         "screen"
       ],
-      "bytes": 79510,
-      "sha256": "2d917d2f6624a40e4b7286251371e9f82a5949c974ec7c8e74e80b1ec86293c8",
-      "download": "https://demon1110.github.io/WinWidgetHub/widgets/desktop-reminder-1.0.1.fwz",
+      "bytes": 83878,
+      "sha256": "9dbd65c08a8ec7877ff1442bf25936cd215b8b7645af92c77e8eb4323ca3286c",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/desktop-reminder-1.0.2.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/desktop-reminder"
     },
     {

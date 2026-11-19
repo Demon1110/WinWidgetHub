@@ -28,11 +28,16 @@ const el = {
   floatText: $("floatText"),
   floatDot: $("floatDot"),
   status: $("status"),
+  modal: $("modal"),
+  addReminderBtn: $("addReminderBtn"),
+  modalClose: $("modalClose"),
+  modalCancel: $("modalCancel"),
 };
 
 let reminders = [];
 let floatVisible = false;
 let floatWinId = null;
+const alertWins = new Map();
 let busy = false;
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -54,6 +59,12 @@ function labels() {
   el.repeatLabel.textContent = t("重复", "重複", "Repeat");
   el.addText.textContent = t("加入提醒", "加入提醒", "Add reminder");
   el.floatText.textContent = t("桌面悬浮", "桌面懸浮", "Desktop float");
+  const addLabel = t("新增提醒", "新增提醒", "Add reminder");
+  el.addReminderBtn.title = addLabel;
+  el.addReminderBtn.setAttribute("aria-label", addLabel);
+  el.modalClose.title = t("关闭", "關閉", "Close");
+  el.modalClose.setAttribute("aria-label", t("关闭", "關閉", "Close"));
+  el.modalCancel.textContent = t("取消", "取消", "Cancel");
   el.status.textContent = t(
     "提醒会保存在本组件的数据目录里。",
     "提醒會保存在本元件的資料目錄裡。",
@@ -106,6 +117,19 @@ function defaultTime() {
   return localInputValue(d.getTime());
 }
 
+function openEditor() {
+  el.titleInput.value = "";
+  el.noteInput.value = "";
+  el.timeInput.value = defaultTime();
+  el.repeatInput.value = "none";
+  el.modal.hidden = false;
+  requestAnimationFrame(() => el.titleInput.focus());
+}
+
+function closeEditor() {
+  el.modal.hidden = true;
+}
+
 function normalize(doc) {
   return {
     ...doc,
@@ -131,7 +155,11 @@ function scheduleTrigger(r) {
   if (!r.enabled || r.done) return null;
   const d = new Date(r.dueAt);
   if (!Number.isFinite(d.getTime())) return null;
-  if (r.repeat === "none") return r.dueAt > Date.now() + 1000 ? r.dueAt : null;
+  if (r.repeat === "none") {
+    // 单次提醒：到点后仍允许补发一次，避免应用当时没运行而永远错过。
+    if (Number(r.lastNotifiedAt) > 0) return null;
+    return r.dueAt > Date.now() - 7 * dayMs ? r.dueAt : null;
+  }
 
   const minute = d.getMinutes();
   const hour = d.getHours();
@@ -299,11 +327,11 @@ async function addReminder(ev) {
     el.noteInput.value = "";
     el.timeInput.value = defaultTime();
     el.repeatInput.value = "none";
+    closeEditor();
     await loadReminders();
     await syncSchedules();
     sendFloatUpdate();
     setStatus(t("已加入提醒", "已加入提醒", "Reminder added"));
-    el.titleInput.focus();
   } catch (err) {
     setStatus(String(err && err.message ? err.message : err), true);
   } finally {
@@ -312,10 +340,90 @@ async function addReminder(ev) {
   }
 }
 
+// ── 到点提醒 ───────────────────────────────────────────────────────
+const ALERT_WIDTH = 380;
+const ALERT_HEIGHT = 230;
+
+async function closeAlert(id) {
+  const winId = alertWins.get(id);
+  if (winId === undefined) return;
+  alertWins.delete(id);
+  await widget.call("win.destroy", { win: winId }).catch(() => {});
+}
+
+async function showReminderAlert(doc, code) {
+  if (alertWins.has(doc._id)) return;
+  const display = await primaryDisplay();
+  const area = (display && (display.workArea || display.bounds)) || null;
+  const offset = alertWins.size * (ALERT_HEIGHT + 12);
+  const x = area ? Math.round(area.x + area.width - ALERT_WIDTH - 16) : undefined;
+  const y = area ? Math.round(area.y + 16 + offset) : undefined;
+  const payload = {
+    id: doc._id,
+    title: String(doc.title || ""),
+    note: String(doc.note || ""),
+    dueAt: Number(doc.dueAt) || 0,
+    repeat: doc.repeat || "none",
+  };
+  const file = `alert.html?data=${encodeURIComponent(JSON.stringify(payload))}`;
+  const reply = await widget.call("win.create", {
+    file,
+    options: {
+      title: t("提醒", "提醒", "Reminder"),
+      width: ALERT_WIDTH,
+      height: ALERT_HEIGHT,
+      x,
+      y,
+      frame: false,
+      transparent: true,
+      seeThrough: true,
+      alwaysOnTop: true,
+      skipTaskbar: true,
+      resizable: false,
+      movable: false,
+      minimizable: false,
+      maximizable: false,
+      closable: true,
+      focusable: false,
+      show: false,
+      hasShadow: false,
+      roundedCorners: true,
+      backgroundColor: "#00000000",
+    },
+  });
+  const winId = reply && reply.id;
+  if (winId === undefined || winId === null) throw new Error("提醒弹窗没有创建成功");
+  alertWins.set(doc._id, winId);
+  await widget.call("win.setAlwaysOnTop", { win: winId, flag: true, level: "screen-saver" }).catch(() => {});
+  await widget.call("win.showInactive", { win: winId }).catch(async () => {
+    await widget.call("win.show", { win: winId }).catch(() => {});
+  });
+  // 系统通知作为声音/横幅兜底；提醒弹窗才是主提醒。
+  await widget
+    .notify({
+      title: `${t("提醒", "提醒", "Reminder")}：${payload.title || t("未命名提醒", "未命名提醒", "Untitled")}`,
+      body: payload.note || t("时间到了。", "時間到了。", "It is time."),
+      tag: code,
+    })
+    .catch(() => {});
+}
+
+async function completeReminder(id) {
+  const doc = await widget.db.get(id).catch(() => null);
+  if (doc) {
+    await saveDoc({ ...doc, done: true, completedAt: Date.now(), updatedAt: Date.now() }).catch(() => {});
+  }
+  await widget.schedule.remove(PREFIX + id).catch(() => {});
+  await closeAlert(id);
+  await loadReminders().catch(() => {});
+  await syncSchedules().catch(() => {});
+  sendFloatUpdate();
+}
+
 // ── 桌面悬浮窗 ───────────────────────────────────────────────────────
 async function primaryDisplay() {
   try {
-    return await widget.screen.getPrimaryDisplay();
+    return await widget.screen.primary();
   } catch (err) {
     return null;
   }
@@ -392,7 +500,7 @@ async function openMainFromFloat() {
   }
 }
 
-// The floating window sends actions back through utools.sendToParent.
+// The floating window and the reminder alert send actions back through utools.sendToParent.
 ipcRenderer.on("reminder-action", async (_, action) => {
   const a = action || {};
   if (a.type === "toggle") {
@@ -402,6 +510,10 @@ ipcRenderer.on("reminder-action", async (_, action) => {
     await openMainFromFloat();
   } else if (a.type === "hide-float") {
     await setFloatVisible(false);
+  } else if (a.type === "alert-done") {
+    await completeReminder(String(a.id || ""));
+  } else if (a.type === "alert-dismiss") {
+    await closeAlert(String(a.id || ""));
   }
 });
 
@@ -409,15 +521,30 @@ widget.schedule.onTrigger(async (action) => {
   const code = String(action && action.code ? action.code : "");
   if (!code.startsWith(PREFIX)) return;
   const id = code.slice(PREFIX.length);
-  const doc = await widget.db.get(id).catch(() => null);
-  if (!doc || doc.enabled === false || doc.done === true) return;
-  const title = String(doc.title || t("桌面提醒", "桌面提醒", "Desktop reminder"));
-  const body = String(doc.note || t("时间到了。", "時間到了。", "It is time."));
-  await widget.notify({ title: `提醒：${title}`, body, tag: code });
-  await saveDoc({ ...doc, lastNotifiedAt: Date.now(), updatedAt: Date.now() });
-  if (doc.repeat === "none") await widget.schedule.remove(code).catch(() => {});
-  await loadReminders();
-  sendFloatUpdate();
+  try {
+    const doc = await widget.db.get(id).catch(() => null);
+    if (!doc || doc.enabled === false || doc.done === true) return;
+    try {
+      await showReminderAlert(doc, code);
+    } catch (err) {
+      console.error(err);
+      // 自定义弹窗失败时至少保留系统通知，不让提醒彻底消失。
+      await widget
+        .notify({
+          title: `${t("提醒", "提醒", "Reminder")}：${String(doc.title || t("未命名提醒", "未命名提醒", "Untitled"))}`,
+          body: String(doc.note || t("时间到了。", "時間到了。", "It is time.")),
+          tag: code,
+        })
+        .catch(() => {});
+    }
+    await saveDoc({ ...doc, lastNotifiedAt: Date.now(), updatedAt: Date.now() });
+    if (doc.repeat === "none") await widget.schedule.remove(code).catch(() => {});
+    await loadReminders();
+    sendFloatUpdate();
+  } catch (err) {
+    console.error(err);
+    setStatus(t("提醒触发失败，请查看日志", "提醒觸發失敗，請查看日誌", "Reminder failed to fire"), true);
+  }
 });
 
 widget.on("ready", async () => {
@@ -443,6 +570,16 @@ widget.on("ready", async () => {
 });
 
 $("editor").addEventListener("submit", addReminder);
+el.addReminderBtn.addEventListener("click", openEditor);
+el.modalClose.addEventListener("click", closeEditor);
+el.modalCancel.addEventListener("click", closeEditor);
+el.modal.addEventListener("click", (event) => {
+  if (event.target === el.modal) closeEditor();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !el.modal.hidden) closeEditor();
+});
+
 el.floatToggle.addEventListener("click", () => setFloatVisible(!floatVisible).catch((err) => {
   setStatus(String(err && err.message ? err.message : err), true);
 }));
@@ -451,5 +588,9 @@ window.addEventListener("beforeunload", () => {
   if (floatWinId !== null) {
     widget.call("win.destroy", { win: floatWinId }).catch(() => {});
     floatWinId = null;
+  }
+  for (const [id, winId] of alertWins) {
+    widget.call("win.destroy", { win: winId }).catch(() => {});
+    alertWins.delete(id);
   }
 });
