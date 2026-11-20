@@ -449,13 +449,17 @@ async function ensureFloatWindow() {
   const x = area ? Math.round(area.x + area.width - width - 16) : undefined;
   const y = area ? Math.round(area.y + (area.height - height) / 2) : undefined;
   const options = {
-    title: t("桌面提醒", "桌面提醒", "Desktop reminders"),
+    // No title on purpose: DWM draws the window title into the caption strip it keeps for the
+    // hidden shadow frame, so any title here turns into a stray label above the card once the
+    // window loses activation.
+    title: "",
     width,
     height,
     x,
     y,
     frame: false,
     transparent: true,
+    seeThrough: true,
     alwaysOnTop: true,
     skipTaskbar: true,
     resizable: false,
