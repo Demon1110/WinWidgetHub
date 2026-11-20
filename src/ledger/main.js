@@ -1,6 +1,10 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
+const esc = widget.util.esc;
+const hhmm = widget.util.hhmm;
+const rid = widget.util.rid;
+const newUid = widget.util.uid;
 
 const CATS = {
   out: [
@@ -36,7 +40,6 @@ let exporting = false;
 let lastExport = null;          // { bookId, dir, name }
 let importPrompt = null;        // { base, list, targetId, targetName, invalid, duplicates }
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const sym = () => String(widget.settings.get("currency") || "¥").slice(0, 3);
 const keep = () => Math.max(10, Math.round(Number(widget.settings.get("keep")) || 40));
 const money = (n) => (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, "");
@@ -49,12 +52,6 @@ const monthKey = (ms) => {
   return d.getFullYear() * 12 + d.getMonth();
 };
 const nowKey = monthKey(Date.now());
-const hhmm = (ms) => {
-  const d = new Date(ms);
-  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
-};
-const rid = () => `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
-const newUid = () => (globalThis.crypto && crypto.randomUUID ? crypto.randomUUID() : rid());
 const defaultBookName = () => L("預設帳本", "默认账本", "Default ledger");
 
 let toastTimer = 0;

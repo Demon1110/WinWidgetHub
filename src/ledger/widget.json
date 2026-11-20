@@ -1,5 +1,6 @@
 {
   "id": "ledger",
+  "aliases": ["winwidget.ledger"],
   "name": { "zh-TW": "記帳速記", "zh-CN": "记账速记", "en": "Quick ledger" },
   "description": {
     "zh-TW": "打個數字、點分類就記一筆；帳本獨立保存，可匯出及匯入備份，同名帳本可選合併或另建，多張卡片可共用同一本，移除卡片不會丟資料。",
