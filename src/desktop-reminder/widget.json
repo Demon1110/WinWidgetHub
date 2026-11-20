@@ -15,9 +15,9 @@
   "preview": "preview/preview.png",
   "size": {
     "width": 360,
-    "height": 560,
+    "height": 480,
     "minWidth": 320,
-    "minHeight": 430,
+    "minHeight": 400,
     "maxWidth": 560,
     "maxHeight": 820,
     "resizable": true,

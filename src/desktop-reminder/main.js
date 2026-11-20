@@ -443,7 +443,7 @@ async function ensureFloatWindow() {
     return;
   }
   const width = 344;
-  const height = 468;
+  const height = 400;
   const display = await primaryDisplay();
   const area = (display && (display.workArea || display.bounds)) || null;
   const x = area ? Math.round(area.x + area.width - width - 16) : undefined;
