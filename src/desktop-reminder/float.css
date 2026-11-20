@@ -24,7 +24,6 @@ body.float-body {
   flex-direction: column;
   gap: 10px;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--w-fg) 14%, transparent);
   background:
     linear-gradient(165deg, color-mix(in srgb, var(--w-bg-solid) 74%, transparent), color-mix(in srgb, var(--w-bg-solid) 92%, transparent));
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.4);
