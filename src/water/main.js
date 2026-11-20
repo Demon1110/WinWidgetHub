@@ -1,6 +1,6 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 let days = {};                // { "2026-11-18": 6 }
 let armAt = 0;                // when the next nudge is booked
@@ -9,10 +9,7 @@ const goal = () => Math.max(1, Math.round(Number(widget.settings.get("goal")) ||
 const cupMl = () => Math.max(50, Math.round(Number(widget.settings.get("cup")) || 250));
 const remindMin = () => Math.max(0, Math.round(Number(widget.settings.get("remind")) || 60));
 
-const dayKey = (d) => {
-  const x = d || new Date();
-  return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`;
-};
+const dayKey = widget.util.dayKey;
 const today = () => Math.max(0, Math.round(Number(days[dayKey()]) || 0));
 
 let toastTimer = 0;

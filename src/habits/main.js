@@ -1,6 +1,6 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 let opts = widget.settings.get();
 let habits = [];   // { id, name, done: ["2026-11-02", …] }
 let editing = false;
@@ -12,8 +12,8 @@ const DEFAULTS = [
   { "zh-TW": "讀書", "zh-CN": "读书", en: "Read" },
 ];
 
-const pad = (n) => String(n).padStart(2, "0");
-const dayKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const pad = widget.util.pad;
+const dayKey = widget.util.dayKey;
 const shift = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
 const save = () => widget.storage.set("habits", habits);
 

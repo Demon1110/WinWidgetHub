@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let opts = widget.settings.get();
 let data = null;  // { mkt, at, images: [{ date, url, title, copyright, link }] }, newest first

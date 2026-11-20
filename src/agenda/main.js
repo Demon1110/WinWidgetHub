@@ -1,6 +1,6 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 const DEFAULT_ITEMS = [
   { title: "開場 · 上次待辦", min: 5 },
@@ -17,7 +17,7 @@ let running = false;
 let alerted = -1;     // slice index we already beeped for
 let ticker = 0;
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 const mmss = (ms) => {
   const sign = ms < 0 ? "-" : "";
   const total = Math.round(Math.abs(ms) / 1000);

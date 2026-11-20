@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 
 // Every linear unit is a factor to the group's base unit; temperature converts through °C.

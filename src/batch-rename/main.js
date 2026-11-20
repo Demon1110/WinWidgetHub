@@ -1,6 +1,6 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = (o) => widget.t(o);
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 const CASE_MODES = [
   { id: "keep", label: L("保持", "保持", "Keep") },

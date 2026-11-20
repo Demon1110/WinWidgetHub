@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 const input = $("text");
 const canvas = $("code");

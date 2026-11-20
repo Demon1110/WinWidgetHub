@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let opts = widget.settings.get();
 let a = null;           // { available, volume, muted, device }

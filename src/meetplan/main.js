@@ -1,11 +1,11 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 const DEFAULT_CITIES = "Asia/Taipei=台北\nAsia/Tokyo=東京\nEurope/London=倫敦\nAmerica/New_York=紐約\nAmerica/Los_Angeles=洛杉磯";
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-const pad = (n) => String(n).padStart(2, "0");
+const esc = widget.util.esc;
+const pad = widget.util.pad;
 
 function localInputValue(ms) {
   const d = new Date(ms);

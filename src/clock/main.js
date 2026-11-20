@@ -1,5 +1,5 @@
-const $ = (id) => document.getElementById(id);
-const pad = (n) => String(n).padStart(2, "0");
+const $ = widget.util.$;
+const pad = widget.util.pad;
 let opts = widget.settings.get();
 
 $("ticks").innerHTML = "<i></i>".repeat(24);

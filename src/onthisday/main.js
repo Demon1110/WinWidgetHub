@@ -1,11 +1,11 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let opts = widget.settings.get();
 let data = null;   // { day: "11-02", lang, events: [{ year, text, link, title }] }
 let index = 0;
 
 const lang = () => (/^zh-(cn|sg|hans)/i.test(widget.locale) ? "zh-cn" : /^zh/i.test(widget.locale) ? "zh-tw" : "en");
-const pad = (n) => String(n).padStart(2, "0");
+const pad = widget.util.pad;
 const today = () => { const d = new Date(); return `${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; };
 
 /** "(pictured)", "（圖）" and the like point at photos on Wikipedia's front page; not here. */

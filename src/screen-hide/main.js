@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const zh = widget.locale.toLowerCase().startsWith("zh");
 const hans = /^zh-(cn|sg|hans|mo)/i.test(widget.locale);
 const t = (cn, tw, en) => (zh ? (hans ? cn : tw) : en);

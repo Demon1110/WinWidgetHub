@@ -1,9 +1,9 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let items = [];   // { path, name, kind }
 let picking = false;
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 const limit = () => Math.max(5, Math.round(Number(widget.settings.get("limit")) || 20));
 
 function stem(p) {

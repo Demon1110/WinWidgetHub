@@ -1,12 +1,12 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 let sites = [];   // { url, name, ok, ms, at, err }
 let running = false;
 let timer = 0;
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 const interval = () => Math.max(30, Math.round(Number(widget.settings.get("interval")) || 60)) * 1000;
 const timeout = () => Math.min(5000, Math.max(200, Math.round(Number(widget.settings.get("timeout")) || 2500)));
 const cap = () => Math.max(2, Math.round(Number(widget.settings.get("max")) || 8));

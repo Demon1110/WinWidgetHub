@@ -1,7 +1,7 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let opts = widget.settings.get();
-const pad = (n) => String(n).padStart(2, "0");
+const pad = widget.util.pad;
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ── the flip, worked out frame by frame ──

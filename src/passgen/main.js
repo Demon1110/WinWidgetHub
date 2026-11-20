@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 
 const POOLS = {
@@ -18,10 +18,7 @@ let password = "";
 let history = [];   // { pw, t }
 
 // ── settings the control center owns ──
-const clampInt = (v, lo, hi, fallback) => {
-  const n = Math.round(Number(v));
-  return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : fallback;
-};
+const clampInt = widget.util.clampInt;
 const setting = (key, fallback) => {
   const v = widget.settings.get(key);
   return v === undefined || v === null ? fallback : v;

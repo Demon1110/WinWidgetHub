@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let items = []; // { id, text, done }
 
@@ -8,7 +8,7 @@ widget.on("summon", () => $("new").focus());
 $("new").placeholder = t({ "zh-TW": "新增一項，按 Enter", "zh-CN": "新增一项，按 Enter", en: "Add an item" });
 $("clear").textContent = t({ "zh-TW": "清除已完成", "zh-CN": "清除已完成", en: "Clear done" });
 
-const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 
 function save() {
   widget.storage.set("items", items).catch((e) => widget.log(`todo: save failed: ${e.message}`));

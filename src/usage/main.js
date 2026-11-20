@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let opts = widget.settings.get();
 // one slot per step, newest last; null where nothing was recorded

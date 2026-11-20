@@ -3,7 +3,7 @@ let opts = widget.settings.get();
 let sys = {};
 let unsubscribe = null;
 
-const pad = (n) => String(n).padStart(2, "0");
+const pad = widget.util.pad;
 const gb = (b) => (b / 2 ** 30).toFixed(1);
 function speed(bps) {
   const units = ["B/s", "KB/s", "MB/s", "GB/s"];

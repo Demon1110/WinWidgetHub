@@ -1,6 +1,6 @@
 // 掷硬币：点一下抛一次，结果和累计次数存在 widget.storage 里，重开也在。
 
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 
 let opts = widget.settings.get();
 let stats = { heads: 0, tails: 0 };

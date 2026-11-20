@@ -1,13 +1,13 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 let info = null;
 let events = [];
 let loading = false;
 let timer = 0;
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 const repoName = () => String(widget.settings.get("repo") || "rust-lang/rust").trim().replace(/^https?:\/\/github\.com\//i, "").replace(/\.git$/, "");
 const refreshMin = () => Math.max(5, Math.round(Number(widget.settings.get("refresh")) || 15));
 const count = () => Math.max(3, Math.round(Number(widget.settings.get("count")) || 6));

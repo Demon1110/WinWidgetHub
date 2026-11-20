@@ -1,18 +1,18 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 let events = [];       // { start, end, allDay, title, where, repeat }
 let loading = false;
 let timer = 0;
 let status = "";
 
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const esc = widget.util.esc;
 const urlSetting = () => String(widget.settings.get("url") || "").trim();
 const daysAhead = () => Math.max(1, Math.round(Number(widget.settings.get("days")) || 7));
 const maxCount = () => Math.max(4, Math.round(Number(widget.settings.get("max")) || 12));
 
-const pad = (n) => String(n).padStart(2, "0");
+const pad = widget.util.pad;
 const dayStamp = (ms) => {
   const d = new Date(ms);
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;

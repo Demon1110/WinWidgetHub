@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
 let opts = widget.settings.get();
 const SEC = 1000, MIN = 60 * SEC, HOUR = 60 * MIN;

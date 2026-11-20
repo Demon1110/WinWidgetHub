@@ -1,10 +1,10 @@
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const t = widget.t;
-const L = (tw, cn, en) => t({ "zh-TW": tw, "zh-CN": cn, en });
+const L = widget.util.L;
 
 let log = {};        // { "2026-11-18": { t, why, done } }
 
-const pad = (n) => String(n).padStart(2, "0");
+const pad = widget.util.pad;
 const stamp = (d) => {
   const x = d || new Date();
   return `${x.getFullYear()}-${pad(x.getMonth() + 1)}-${pad(x.getDate())}`;

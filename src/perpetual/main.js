@@ -5,7 +5,7 @@
 // day's 干支 from the continuous sixty-day cycle. The almanac line (建除十二神, 宜, 忌, 沖煞) is
 // the traditional 建除 reading of that day — a common, well-defined rule, not a full 通書.
 
-const $ = (id) => document.getElementById(id);
+const $ = widget.util.$;
 const DAY_MS = 86400000;
 const MIN_YEAR = 1900;
 const MAX_YEAR = 2100;
@@ -22,12 +22,9 @@ const t = (cn, tw, en) => (zh ? p(cn, tw) : en);
 let opts = widget.settings.get();
 
 // ── dates ───────────────────────────────────────────────────────────
-const startOfDay = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+const startOfDay = widget.util.startOfDay;
 const firstOfMonth = (d) => new Date(d.getFullYear(), d.getMonth(), 1);
-const addDays = (d, n) => {
-  const x = new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
-  return x;
-};
+const addDays = widget.util.addDays;
 // Zero-padded, so these keys can be compared as strings (a term on 11-7 must sort before 11-13).
 const keyOf = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 const fromKey = (k) => {
