@@ -10,7 +10,6 @@ const el = {
   list: $("floatList"),
   empty: $("floatEmpty"),
   close: $("floatClose"),
-  open: $("floatOpen"),
 };
 
 function repeatLabel(v) {
@@ -40,7 +39,6 @@ function labels() {
     "桌面是空的，先喘口氣。",
     "Nothing on the desktop. Take a breath."
   );
-  el.open.textContent = t("打开完整列表", "開啟完整列表", "Open the full list");
   el.close.title = t("收起", "收起", "Hide");
 }
 
@@ -112,10 +110,6 @@ ipcRenderer.on("reminders-updated", () => load());
 
 el.close.addEventListener("click", () => {
   utools.sendToParent("reminder-action", { type: "hide-float" });
-});
-
-el.open.addEventListener("click", () => {
-  utools.sendToParent("reminder-action", { type: "open-main" });
 });
 
 widget.on("ready", async () => {

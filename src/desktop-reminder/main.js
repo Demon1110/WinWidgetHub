@@ -504,22 +504,12 @@ function sendFloatUpdate() {
   widget.call("win.send", { win: floatWinId, channel: "reminders-updated", args: [] }).catch(() => {});
 }
 
-async function openMainFromFloat() {
-  try {
-    await widget.window.show();
-  } catch (err) {
-    console.error(err);
-  }
-}
-
 // The floating window and the reminder alert send actions back through utools.sendToParent.
 ipcRenderer.on("reminder-action", async (_, action) => {
   const a = action || {};
   if (a.type === "toggle") {
     const r = reminders.find((x) => x._id === a.id);
     if (r) await toggleDone(r, typeof a.done === "boolean" ? a.done : !r.done);
-  } else if (a.type === "open-main") {
-    await openMainFromFloat();
   } else if (a.type === "hide-float") {
     await setFloatVisible(false);
   } else if (a.type === "alert-done") {

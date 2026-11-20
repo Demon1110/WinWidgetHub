@@ -137,24 +137,6 @@ body.float-body {
   line-height: 1.6;
 }
 
-.float-card footer {
-  padding-top: 2px;
-}
-
-.float-open {
-  width: 100%;
-  min-height: 34px;
-  border: 1px solid color-mix(in srgb, var(--w-accent) 35%, transparent);
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--w-accent) 12%, transparent);
-  color: var(--w-fg);
-  font: inherit;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.float-open:hover { filter: brightness(1.12); }
-
 html[data-theme="paper"] .float-card {
   border-radius: 4px;
   background: var(--w-bg-solid);
