@@ -24,9 +24,9 @@ header > div:first-child {
 .head-actions {
   flex: none;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.35rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .add-fab {
