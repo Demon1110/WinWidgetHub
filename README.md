@@ -26,12 +26,14 @@ scripts/
 
 ## 从内置资源迁出的组件
 
-`src/` 里有 48 个组件源自 WinWidget 历史上的 `assets/widgets/`，现在只在本仓库维护，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
+`src/` 里有 55 个组件源自 WinWidget 历史上的 `assets/widgets/`，现在只在本仓库维护，打包、校验、发布流程和第三方组件完全一样。为了过客户端的规则，有两处改动：
 
 - **id 去掉前缀，统一用唯一短名**：`winwidget.agenda` → `agenda`，`fullwidget.perpetual` → `perpetual`，`demon.batch-rename` → `batch-rename`，`demon.web-open` → `web-open`，`demon.coin` → `coin`。客户端安装时会拒绝 `winwidget.` / `user.` 开头的 id（`src/market/packages.rs` 的 `reject_reserved`）；本仓库也不再给组件加作者或项目前缀。
 - **补 `date` 字段**：取原仓库里该组件最后一次提交的日期（`git log -1 --format=%cs -- assets/widgets/<名>`）。不写死日期的话，`build.mjs` 会退回到 git 提交日期，CI 重建清单时就和本地产物对不上。
 
-当前宿主仍内置的组件（`airquality`、`analogclock`、`bloom`、`calendar`、`launcher`、`ledger`、`media`、`power`、`recyclebin`、`weather`）不再在本仓库发布，避免同一功能出现内置和市场两份。
+当前宿主仍内置的组件（`airquality`、`analogclock`、`bloom`、`calendar`、`launcher`、`media`、`power`、`recyclebin`、`weather`）不再在本仓库发布，避免同一功能出现内置和市场两份。
+
+`ledger` 从内置迁出时 id 由 `winwidget.ledger` 缩成 `ledger`。宿主启动时会核对已安装的新组件，把旧卡片改指新 id，并把旧的 `plugins/winwidget_ledger.json` 改名为 `plugins/ledger.json`，所以已有账本和卡片不需要手工重建。
 
 ## 加一个组件
 

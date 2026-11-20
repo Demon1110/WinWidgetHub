@@ -2,9 +2,36 @@
   "schema": 1,
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
-  "updated": "2026-11-19",
-  "count": 54,
+  "updated": "2026-11-20",
+  "count": 55,
   "widgets": [
+    {
+      "id": "ledger",
+      "name": "记账速记",
+      "description": "打个数字、点分类就记一笔；账本独立保存，可导出及导入备份，同名账本可选合并或另建，多张卡片可共用同一本，移除卡片不会丢数据。",
+      "version": "1.4.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-20",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/ledger/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/{theme}.{lang}.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/instrument.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/instrument.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/instrument.zh-TW.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/paper.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/paper.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/paper.zh-TW.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/type.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/type.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/ledger/preview/type.zh-TW.webp"
+      ],
+      "permissions": [],
+      "bytes": 361551,
+      "sha256": "2d0274a37e62719be643f3d7efc1d379aea62ff04b23172a07b8f41dafe090d9",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/ledger-1.4.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ledger"
+    },
     {
       "id": "batch-rename",
       "name": "批量重命名",
