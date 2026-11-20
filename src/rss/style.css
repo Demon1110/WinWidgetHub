@@ -5,7 +5,7 @@ body { container-type: size; display: flex; flex-direction: column; gap: 0.4rem;
 .src { font-size: 0.93rem; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .when { margin-left: auto; font-variant-numeric: tabular-nums; }
 
-.items { list-style: none; margin: 0 -6px; padding: 0; flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; mask-image: linear-gradient(#000 calc(100% - 18px), transparent); }
+.items { list-style: none; margin: 0 -6px; padding: 0; flex: 1; min-height: 0; overflow-y: auto; mask-image: linear-gradient(#000 calc(100% - 18px), transparent); }
 .item { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.32rem 6px; border-radius: 6px; color: inherit; text-decoration: none; cursor: pointer; }
 .item:hover { background: var(--w-hover); }
 .tt { flex: 1; min-width: 0; font-size: 0.88rem; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }

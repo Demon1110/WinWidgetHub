@@ -1,6 +1,6 @@
 const $ = widget.util.$;
-const zh = widget.locale.toLowerCase().startsWith("zh");
-const hans = /^zh-(cn|sg|hans|mo)/i.test(widget.locale);
+const zh = widget.util.zh;
+const hans = widget.util.hans;
 const t = (cn, tw, en) => (zh ? (hans ? cn : tw) : en);
 
 const el = {

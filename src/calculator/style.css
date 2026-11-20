@@ -1,6 +1,6 @@
 body { container-type: size; display: flex; flex-direction: column; gap: 0.4rem; }
 
-.history { list-style: none; margin: 0; padding: 0; flex: 1 1 0; min-height: 0; overflow-y: auto; scrollbar-width: none; display: flex; flex-direction: column; justify-content: flex-end; }
+.history { list-style: none; margin: 0; padding: 0; flex: 1 1 0; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; justify-content: flex-end; }
 .history li { flex: none; }
 .history button { width: 100%; display: flex; justify-content: flex-end; align-items: baseline; gap: 0.4em; padding: 1px 4px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; text-align: right; color: var(--w-fg-muted); text-shadow: inherit; }
 .history button:hover { background: var(--w-hover); color: var(--w-fg); }

@@ -13,8 +13,8 @@ const MAX_YEAR = 2100;
 const GAN = "甲乙丙丁戊己庚辛壬癸";
 const ZHI = "子丑寅卯辰巳午未申酉戌亥";
 
-const zh = widget.locale.toLowerCase().startsWith("zh");
-const hans = /^zh-(cn|sg|hans|mo)/i.test(widget.locale);
+const zh = widget.util.zh;
+const hans = widget.util.hans;
 /** The text for the user's script: simplified for zh-CN/zh-SG, traditional otherwise, English for the rest. */
 const p = (cn, tw) => (!zh ? cn : hans ? cn : tw);
 const t = (cn, tw, en) => (zh ? p(cn, tw) : en);

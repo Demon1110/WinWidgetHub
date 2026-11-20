@@ -17,13 +17,7 @@ $("copy").textContent = t({ "zh-TW": "複製", "zh-CN": "复制", en: "Copy" });
 $("clear").textContent = t({ "zh-TW": "清除", "zh-CN": "清除", en: "Clear" });
 $("note").textContent = t({ "zh-TW": "打點字，這裡就出現二維碼", "zh-CN": "打点字，这里就出现二维码", en: "Type something to get a code" });
 
-function toast(msg) {
-  const el = $("toast");
-  el.textContent = msg;
-  el.hidden = false;
-  clearTimeout(toast.timer);
-  toast.timer = setTimeout(() => { el.hidden = true; }, 1600);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 1600);
 
 const byteLength = (s) => new TextEncoder().encode(s).length;
 

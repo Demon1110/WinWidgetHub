@@ -12,14 +12,7 @@ const remindMin = () => Math.max(0, Math.round(Number(widget.settings.get("remin
 const dayKey = widget.util.dayKey;
 const today = () => Math.max(0, Math.round(Number(days[dayKey()]) || 0));
 
-let toastTimer = 0;
-function toast(msg) {
-  const el = $("toast");
-  el.textContent = msg;
-  el.hidden = false;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.hidden = true; }, 1600);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 1600);
 
 function save() {
   // keep two weeks so the file stays tiny

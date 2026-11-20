@@ -74,7 +74,6 @@ let search = "";
 let editing = false;
 let tab = "web";
 let clip = { files: [], image: null };
-let toastTimer = 0;
 
 function defaultBrowser() {
   return { id: "default", name: L("系統預設", "系统默认", "System default"), path: "" };
@@ -323,13 +322,7 @@ function renderClip() {
   $("clearClip").hidden = false;
 }
 
-function toast(message) {
-  const el = $("toast");
-  el.textContent = message;
-  el.hidden = false;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.hidden = true; }, 2300);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 2300);
 
 async function openSite(site, quiet) {
   const browser = browserOf(site.browser);

@@ -34,13 +34,7 @@ $("footHint").textContent = t({
   en: "Drop files or folders straight onto this card",
 });
 
-function toast(msg) {
-  const el = $("toast");
-  el.textContent = msg;
-  el.hidden = false;
-  clearTimeout(toast.timer);
-  toast.timer = setTimeout(() => { el.hidden = true; }, 2200);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 2200);
 
 function save() {
   widget.storage.set("files", items).catch((e) => widget.log(`shelf: save failed ${e.message}`));

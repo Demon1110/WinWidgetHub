@@ -72,7 +72,7 @@ let list = []; // city ids, in order
 
 /** First the PC's own city, then a few far-away ones. */
 function defaults() {
-  const zh = /^zh/i.test(widget.locale), hans = /^zh-(cn|sg|hans)/i.test(widget.locale);
+  const zh = widget.util.zh, hans = widget.util.hans;
   const prefer = hans ? "beijing" : zh ? "taipei" : null;
   const here = CITIES.filter((c) => c.zone === localZone);
   const home = here.find((c) => c.id === prefer) || here[0];

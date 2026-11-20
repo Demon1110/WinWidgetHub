@@ -169,13 +169,7 @@ function saveHistory() {
   widget.storage.set("hist", history).catch((e) => widget.log(`passgen: ${e.message}`));
 }
 
-function toast(msg) {
-  const el = $("toast");
-  el.textContent = msg;
-  el.hidden = false;
-  clearTimeout(toast.timer);
-  toast.timer = setTimeout(() => { el.hidden = true; }, 1500);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 1500);
 
 function refresh(regen = true) {
   if (regen) {

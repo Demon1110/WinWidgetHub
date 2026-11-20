@@ -55,7 +55,6 @@ let rules = { ...DEFAULT_RULES };
 let preview = { items: [], valid: [], selectedCount: 0, changedCount: 0, errorCount: 0 };
 let lastBatch = null;
 let confirmItems = [];
-let toastTimer = 0;
 let saveTimer = 0;
 
 const esc = (value) =>
@@ -67,13 +66,7 @@ function log(message) {
   try { if (widget.log) widget.log(`batch-rename: ${message}`); } catch {}
 }
 
-function toast(message) {
-  const el = $("toast");
-  el.textContent = message;
-  el.hidden = false;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.hidden = true; }, 2400);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 2400);
 
 function splitPath(raw) {
   const text = String(raw || "").trim().replace(/\//g, "\\").replace(/\\+$/, "");

@@ -60,8 +60,7 @@ header { display: flex; align-items: center; gap: 8px; flex: none; }
 .cur { font-size: 0.9rem; color: var(--w-fg-muted); flex: none; }
 #amt { flex: 1 1 0; min-width: 0; font-size: 1.05rem; font-variant-numeric: tabular-nums; padding: 4px 8px; }
 
-.cats { display: flex; flex-wrap: nowrap; gap: 4px; flex: none; overflow-x: auto; scrollbar-width: none; }
-.cats::-webkit-scrollbar { display: none; }
+.cats { display: flex; flex-wrap: nowrap; gap: 4px; flex: none; overflow-x: auto; }
 .chip {
   flex: none; padding: 2px 8px; border-radius: 99px;
   background: var(--w-control-bg); color: var(--w-fg-muted);

@@ -54,14 +54,7 @@ const monthKey = (ms) => {
 const nowKey = monthKey(Date.now());
 const defaultBookName = () => L("預設帳本", "默认账本", "Default ledger");
 
-let toastTimer = 0;
-function toast(msg) {
-  const el = $("toast");
-  el.textContent = msg;
-  el.hidden = false;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.hidden = true; }, 1800);
-}
+const toast = (msg) => widget.util.toast($("toast"), msg, 1800);
 
 function saveUi() {
   widget.storage.set("ui", { kind, cat }).catch(() => {});

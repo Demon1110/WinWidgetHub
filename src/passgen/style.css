@@ -16,7 +16,6 @@ body { display: flex; flex-direction: column; }
   word-break: break-all;
   overflow: auto;
   cursor: copy;
-  scrollbar-width: none;
 }
 .pw:hover { background: var(--w-hover); }
 
