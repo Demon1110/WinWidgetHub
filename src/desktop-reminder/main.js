@@ -387,7 +387,7 @@ async function showReminderAlert(doc, code) {
       seeThrough: true,
       alwaysOnTop: true,
       skipTaskbar: true,
-      resizable: true,
+      resizable: false,
       movable: false,
       minimizable: false,
       maximizable: false,
@@ -395,7 +395,7 @@ async function showReminderAlert(doc, code) {
       focusable: false,
       show: false,
       hasShadow: false,
-      roundedCorners: true,
+      roundedCorners: false,
       backgroundColor: "#00000000",
     },
   });
@@ -466,7 +466,7 @@ async function ensureFloatWindow() {
     focusable: true,
     show: false,
     hasShadow: false,
-    roundedCorners: true,
+    roundedCorners: false,
     backgroundColor: "#00000000",
   };
   const reply = await widget.call("win.create", { file: "float.html", options });
