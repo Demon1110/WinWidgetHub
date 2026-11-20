@@ -7,7 +7,7 @@ const SETTINGS_KEY = "offwork/settings";
 const HOST_MIGRATION_KEY = "offwork/host-settings-migrated";
 const SCHEDULE_CODE = "offwork-daily";
 const DAY_MS = 86400000;
-const DEFAULT_OVERLAY_SECONDS = 14;
+const DEFAULT_OVERLAY_SECONDS = 6;
 const DEFAULT_OVERLAY_POSITION = "bottom-right";
 const OVERLAY_POSITIONS = [
   "bottom-left",
