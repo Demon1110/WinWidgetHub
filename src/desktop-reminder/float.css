@@ -24,10 +24,11 @@ body.float-body {
   flex-direction: column;
   gap: 10px;
   border-radius: 18px;
-  background:
-    linear-gradient(165deg, color-mix(in srgb, var(--w-bg-solid) 74%, transparent), color-mix(in srgb, var(--w-bg-solid) 92%, transparent));
+  /* Opaque on purpose: a backdrop-filter here needs the DWM blur-behind the host gets from an
+     extended frame, and that frame is also what leaves a caption strip around the window. The
+     card draws its own background instead, so the window can be a plain rectangle. */
+  background: var(--w-bg-solid);
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(22px) saturate(1.15);
   overflow: hidden;
 }
 
