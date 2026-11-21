@@ -1,0 +1,46 @@
+{
+  "id": "offwork",
+  "name": { "zh-TW": "下班有數", "zh-CN": "下班有数", "en": "Off-work countdown" },
+  "description": {
+    "zh-TW": "今天還剩幾個小時，一眼看得出來；上班前、下班後也都算得清",
+    "zh-CN": "今天还剩几个小时，一眼看得出来；上班前、下班后也都算得清",
+    "en": "How much of the workday is left — and how long the overtime already ran"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "time",
+  "aliases": ["下班", "倒计时", "工时"],
+  "size": { "width": 260, "height": 185, "minWidth": 200, "minHeight": 150, "maxWidth": 560, "maxHeight": 560, "grow": 0.5 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "start",
+      "type": "select",
+      "label": { "zh-TW": "上班時間", "zh-CN": "上班时间", "en": "Start" },
+      "description": { "zh-TW": "算出今天的工時長度", "zh-CN": "算出今天的工时长度", "en": "Sets today's total span" },
+      "default": "09:00",
+      "options": [
+        { "value": "08:30", "label": { "zh-TW": "08:30", "zh-CN": "08:30", "en": "08:30" } },
+        { "value": "09:00", "label": { "zh-TW": "09:00", "zh-CN": "09:00", "en": "09:00" } },
+        { "value": "09:30", "label": { "zh-TW": "09:30", "zh-CN": "09:30", "en": "09:30" } },
+        { "value": "10:00", "label": { "zh-TW": "10:00", "zh-CN": "10:00", "en": "10:00" } }
+      ]
+    },
+    {
+      "key": "end",
+      "type": "select",
+      "label": { "zh-TW": "下班時間", "zh-CN": "下班时间", "en": "End" },
+      "description": { "zh-TW": "到點後開始算加班", "zh-CN": "到点后开始算加班", "en": "Past this point it counts as overtime" },
+      "default": "18:00",
+      "options": [
+        { "value": "17:30", "label": { "zh-TW": "17:30", "zh-CN": "17:30", "en": "17:30" } },
+        { "value": "18:00", "label": { "zh-TW": "18:00", "zh-CN": "18:00", "en": "18:00" } },
+        { "value": "18:30", "label": { "zh-TW": "18:30", "zh-CN": "18:30", "en": "18:30" } },
+        { "value": "19:00", "label": { "zh-TW": "19:00", "zh-CN": "19:00", "en": "19:00" } }
+      ]
+    }
+  ]
+}

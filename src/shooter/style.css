@@ -1,0 +1,33 @@
+body { display: flex; flex-direction: column; gap: 6px; }
+
+.head { flex: 0 0 auto; display: flex; align-items: baseline; gap: 8px; }
+#score { font-size: 0.86rem; }
+#lives { margin-left: auto; font-size: 0.76rem; color: var(--w-danger); letter-spacing: 0.14em; }
+
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cv { display: block; border-radius: 10px; touch-action: none; cursor: crosshair; }
+
+.over {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--w-bg-solid) 80%, transparent);
+  font-size: 0.82rem;
+  backdrop-filter: blur(2px);
+}
+.over[hidden] { display: none; }
+
+.hint { flex: 0 0 auto; text-align: center; font-size: 0.62rem; color: var(--w-fg-faint); }

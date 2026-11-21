@@ -1,0 +1,32 @@
+{
+  "id": "palette",
+  "name": { "zh-TW": "色卡", "zh-CN": "色卡", "en": "Colour swatch" },
+  "description": {
+    "zh-TW": "從螢幕取一個顏色，順手算出深淺、互補與三角配色，點一下就複製色值；也備了幾套經典色板",
+    "zh-CN": "从屏幕取一个颜色，顺手算出深浅、互补与三角配色，点一下就复制色值；也备了几套经典色板",
+    "en": "Pick a colour off the screen, get tints, shades, complement and triad — tap any chip to copy; classic palettes included"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": ["取色", "配色", "色值"],
+  "size": { "width": 300, "height": 300, "minWidth": 220, "minHeight": 230, "maxWidth": 640, "maxHeight": 640, "grow": 0.5 },
+  "permissions": ["clipboard", "screen"],
+  "settings": [
+    {
+      "key": "scheme",
+      "type": "select",
+      "label": { "zh-TW": "配色方式", "zh-CN": "配色方式", "en": "Scheme" },
+      "description": { "zh-TW": "底下那排色塊怎麼算出來", "zh-CN": "底下那排色块怎么算出来", "en": "How the row underneath is derived" },
+      "default": "tone",
+      "options": [
+        { "value": "tone", "label": { "zh-TW": "深淺", "zh-CN": "深浅", "en": "Tints" } },
+        { "value": "harmony", "label": { "zh-TW": "協調", "zh-CN": "协调", "en": "Harmony" } },
+        { "value": "triad", "label": { "zh-TW": "三角", "zh-CN": "三角", "en": "Triad" } }
+      ]
+    }
+  ]
+}

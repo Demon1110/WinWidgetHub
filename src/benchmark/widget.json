@@ -1,0 +1,19 @@
+{
+  "id": "benchmark",
+  "name": { "zh-TW": "人類基準", "zh-CN": "人类基准", "en": "Human benchmark" },
+  "description": {
+    "zh-TW": "反應速度和數字記憶兩項小測，五輪取平均，成績存在本機",
+    "zh-CN": "反应速度和数字记忆两项小测，五轮取平均，成绩存在本机",
+    "en": "Two quick tests — reaction time and digit span — five rounds, bests kept on this machine"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": ["反应测试", "记忆测试", "手速"],
+  "size": { "width": 300, "height": 300, "minWidth": 220, "minHeight": 230, "maxWidth": 640, "maxHeight": 640, "grow": 0.5 },
+  "permissions": [],
+  "settings": []
+}

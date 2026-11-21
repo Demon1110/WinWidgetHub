@@ -1,0 +1,39 @@
+{
+  "id": "json-edit",
+  "name": { "zh-TW": "JSON 整理", "zh-CN": "JSON 整理", "en": "JSON tidy" },
+  "description": {
+    "zh-TW": "把貼上來的 JSON 排好縮進或壓成一行，錯了會指出第幾行第幾列，只在本地處理",
+    "zh-CN": "把粘贴上来的 JSON 排好缩进或压成一行，错了会指出第几行第几列，只在本地处理",
+    "en": "Indent or minify pasted JSON; when it fails, it points at the line and column. Nothing leaves the machine"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": ["json", "格式化", "压缩"],
+  "size": { "width": 330, "height": 320, "minWidth": 240, "minHeight": 220, "maxWidth": 720, "maxHeight": 720, "grow": 0.6 },
+  "permissions": ["clipboard"],
+  "settings": [
+    {
+      "key": "indent",
+      "type": "select",
+      "label": { "zh-TW": "縮進", "zh-CN": "缩进", "en": "Indent" },
+      "description": { "zh-TW": "格式化時的空格數", "zh-CN": "格式化时的空格数", "en": "Spaces per level when pretty-printing" },
+      "default": "2",
+      "options": [
+        { "value": "2", "label": { "zh-TW": "2 空格", "zh-CN": "2 空格", "en": "2 spaces" } },
+        { "value": "4", "label": { "zh-TW": "4 空格", "zh-CN": "4 空格", "en": "4 spaces" } },
+        { "value": "tab", "label": { "zh-TW": "Tab", "zh-CN": "Tab", "en": "Tab" } }
+      ]
+    },
+    {
+      "key": "sort",
+      "type": "toggle",
+      "label": { "zh-TW": "鍵名排序", "zh-CN": "键名排序", "en": "Sort keys" },
+      "description": { "zh-TW": "格式化時把物件的鍵按字母順序排好", "zh-CN": "格式化时把对象的键按字母顺序排好", "en": "Alphabetise object keys while formatting" },
+      "default": false
+    }
+  ]
+}

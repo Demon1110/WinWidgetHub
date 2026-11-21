@@ -3,7 +3,7 @@
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-21",
-  "count": 58,
+  "count": 69,
   "widgets": [
     {
       "id": "2048",
@@ -21,6 +21,42 @@
       "sha256": "bf6bafb20c59b35df6c184092e8a3523f5fb9e709258c622b9b332b4c05b1053",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/2048-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/2048"
+    },
+    {
+      "id": "arcade",
+      "name": "游戏厅",
+      "description": "贪吃蛇、打砖块、扫雷三款小游戏，不用联网，最高分存在本机",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "other",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/arcade/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 6722,
+      "sha256": "82a7336b71b5116c8c3670ae4f1dc3b3045275dca7fe59bb9b2f94003e842521",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/arcade-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/arcade"
+    },
+    {
+      "id": "ascii-art",
+      "name": "字块艺术",
+      "description": "把打进去的字转成一堆字符方块，能贴进终端、README 或聊天框",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "other",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/ascii-art/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard"
+      ],
+      "bytes": 4358,
+      "sha256": "2f9263331abc079aa56f48a371a93bc11b84d440d7fffd08f52a10f6a0760dfd",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/ascii-art-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ascii-art"
     },
     {
       "id": "avatar",
@@ -42,6 +78,42 @@
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/avatar"
     },
     {
+      "id": "benchmark",
+      "name": "人类基准",
+      "description": "反应速度和数字记忆两项小测，五轮取平均，成绩存在本机",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "other",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/benchmark/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 4524,
+      "sha256": "75fe1d96d78fc088e7fdd107986e3a3d133bedaf2bd72ca042345a6559fbdf65",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/benchmark-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/benchmark"
+    },
+    {
+      "id": "code-card",
+      "name": "代码截图",
+      "description": "把贴上的代码画成一张带配色与行号的图，复制到剪贴板就能发",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "media",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/code-card/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard"
+      ],
+      "bytes": 5131,
+      "sha256": "26fcb7b769b04876b976deefe6a95ebfc2e1f29eb35ed60a1a47fc8896c7f5a4",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/code-card-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/code-card"
+    },
+    {
       "id": "fake-data",
       "name": "假数据",
       "description": "姓名、身份证号、手机号、银行卡号一次生成，点一下就复制；号码按国标校验位算好，只在本地产生",
@@ -59,6 +131,135 @@
       "sha256": "bc387c54a1f9b93bad465c72d69f7d85669e66211dfb2968398186094c01fa82",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/fake-data-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/fake-data"
+    },
+    {
+      "id": "greeting",
+      "name": "暖心问候",
+      "description": "挑好对象、场景和语气，当场给一句得体的话，点一下就复制走",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/greeting/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard"
+      ],
+      "bytes": 6029,
+      "sha256": "efa8f9699b300f2257a3a14c55762ad9b8d67032dff418989431aec51156b75d",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/greeting-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/greeting"
+    },
+    {
+      "id": "json-edit",
+      "name": "JSON 整理",
+      "description": "把粘贴上来的 JSON 排好缩进或压成一行，错了会指出第几行第几列，只在本地处理",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/json-edit/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard"
+      ],
+      "bytes": 4401,
+      "sha256": "19a96cc65d6233ce6cec554d2dcdb163f50a7c76259a64bbd25ac877c5679c39",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/json-edit-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/json-edit"
+    },
+    {
+      "id": "offwork",
+      "name": "下班有数",
+      "description": "今天还剩几个小时，一眼看得出来；上班前、下班后也都算得清",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "time",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/offwork/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 3257,
+      "sha256": "3d89f4203958741f7c040867471dea8fd95a9b1a3d5b47fc7a4f9ef5c4fe2de4",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/offwork"
+    },
+    {
+      "id": "palette",
+      "name": "色卡",
+      "description": "从屏幕取一个颜色，顺手算出深浅、互补与三角配色，点一下就复制色值；也备了几套经典色板",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/palette/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard",
+        "screen"
+      ],
+      "bytes": 4783,
+      "sha256": "5cc5635e1f30b6df2fb5907b6c128c3046f550e1e0311aef1caf22b9c89d6d66",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/palette-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/palette"
+    },
+    {
+      "id": "screen-test",
+      "name": "屏幕检测",
+      "description": "纯色、灰阶、坏点、色带、字级五种图样轮着放，换屏幕或调色时用",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "system",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/screen-test/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 4260,
+      "sha256": "d1453c2dce2f8a54dc2c9b3ca16d1fe36c1f89f270b72e2460be053c183303d8",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/screen-test-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/screen-test"
+    },
+    {
+      "id": "shooter",
+      "name": "无限重载",
+      "description": "底下开火、上面不停落下来的方块，撑得越久分越高，最高分存在本机",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "other",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/shooter/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 4188,
+      "sha256": "ec78ee49e28076e2192e58bb48aa8a842976ad12f0e8f4d41b9a8fad4c613174",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/shooter-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/shooter"
+    },
+    {
+      "id": "worktime",
+      "name": "工时日历",
+      "description": "按月看工作日、周末和调休补班，顺手数出这个月还有几天要上班",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "time",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/worktime/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard",
+        "network:raw.githubusercontent.com"
+      ],
+      "bytes": 4671,
+      "sha256": "7579216accbc8740e3b1f340c72bc0d0927bdfcc2842a0aeaf23c5b93176f020",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/worktime-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/worktime"
     },
     {
       "id": "ledger",

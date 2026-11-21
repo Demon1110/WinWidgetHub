@@ -1,0 +1,19 @@
+{
+  "id": "arcade",
+  "name": { "zh-TW": "遊戲廳", "zh-CN": "游戏厅", "en": "Arcade" },
+  "description": {
+    "zh-TW": "貪吃蛇、打磚塊、掃雷三款小遊戲，不用聯網，最高分存在本機",
+    "zh-CN": "贪吃蛇、打砖块、扫雷三款小游戏，不用联网，最高分存在本机",
+    "en": "Snake, breakout and minesweeper — offline, with best scores kept on this machine"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": ["小游戏", "贪吃蛇", "扫雷", "打砖块"],
+  "size": { "width": 300, "height": 330, "minWidth": 230, "minHeight": 260, "maxWidth": 720, "maxHeight": 720, "grow": 0.6 },
+  "permissions": [],
+  "settings": []
+}

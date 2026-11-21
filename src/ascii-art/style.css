@@ -1,0 +1,42 @@
+body { position: relative; display: flex; flex-direction: column; gap: 6px; }
+
+#say { flex: 0 0 auto; font-size: 0.8rem; padding: 5px 8px; }
+
+.out {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: calc(var(--w-radius) * 0.7);
+  background: var(--w-control-bg);
+  overflow: auto;
+}
+
+#art {
+  margin: 0;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "Microsoft YaHei UI", monospace;
+  font-size: 0.5rem;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: pre;
+  color: var(--w-fg);
+  text-align: center;
+}
+
+footer { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+.dim { font-size: 0.62rem; color: var(--w-fg-faint); }
+footer .w-btn { margin-left: auto; font-size: 0.72rem; padding: 0.28em 0.65em; }
+
+.toast {
+  position: absolute;
+  right: 10px;
+  bottom: 40px;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--w-bg-solid) 88%, transparent);
+  font-size: 0.62rem;
+  pointer-events: none;
+}
+.toast[hidden] { display: none; }

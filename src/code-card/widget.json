@@ -1,0 +1,40 @@
+{
+  "id": "code-card",
+  "name": { "zh-TW": "程式碼截圖", "zh-CN": "代码截图", "en": "Code shot" },
+  "description": {
+    "zh-TW": "把貼上的程式碼畫成一張帶配色與行號的圖，複製到剪貼簿就能發",
+    "zh-CN": "把贴上的代码画成一张带配色与行号的图，复制到剪贴板就能发",
+    "en": "Turns pasted code into a shareable image with colouring and line numbers"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "media",
+  "aliases": ["代码图片", "carbon", "分享图"],
+  "size": { "width": 330, "height": 320, "minWidth": 240, "minHeight": 230, "maxWidth": 760, "maxHeight": 760, "grow": 0.6 },
+  "permissions": ["clipboard"],
+  "settings": [
+    {
+      "key": "lang",
+      "type": "select",
+      "label": { "zh-TW": "語言", "zh-CN": "语言", "en": "Language" },
+      "description": { "zh-TW": "決定關鍵字與註解的著色規則", "zh-CN": "决定关键字与注释的着色规则", "en": "Picks the highlighting rules" },
+      "default": "js",
+      "options": [
+        { "value": "js", "label": { "zh-TW": "JavaScript", "zh-CN": "JavaScript", "en": "JavaScript" } },
+        { "value": "py", "label": { "zh-TW": "Python", "zh-CN": "Python", "en": "Python" } },
+        { "value": "rust", "label": { "zh-TW": "Rust", "zh-CN": "Rust", "en": "Rust" } },
+        { "value": "json", "label": { "zh-TW": "JSON", "zh-CN": "JSON", "en": "JSON" } }
+      ]
+    },
+    {
+      "key": "dark",
+      "type": "toggle",
+      "label": { "zh-TW": "深色底", "zh-CN": "深色底", "en": "Dark" },
+      "description": { "zh-TW": "關掉就是淺色紙張感", "zh-CN": "关掉就是浅色纸张感", "en": "Off gives the light paper look" },
+      "default": true
+    }
+  ]
+}

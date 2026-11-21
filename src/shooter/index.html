@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="head">
+    <span class="w-num" id="score">0</span>
+    <span class="w-label" id="lives">❤❤❤</span>
+  </div>
+  <div class="stage" id="stage">
+    <canvas id="cv" width="280" height="280"></canvas>
+    <div class="over" id="over" hidden>
+      <b id="over-text"></b>
+      <button type="button" class="w-btn is-primary" id="again"></button>
+    </div>
+  </div>
+  <div class="hint" id="hint"></div>
+  <script src="main.js"></script>
+</body>
+</html>

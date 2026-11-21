@@ -1,0 +1,43 @@
+{
+  "id": "ascii-art",
+  "name": { "zh-TW": "字塊藝術", "zh-CN": "字块艺术", "en": "Block art" },
+  "description": {
+    "zh-TW": "把打進去的字轉成一堆字符方塊，能貼進終端、README 或聊天框",
+    "zh-CN": "把打进去的字转成一堆字符方块，能贴进终端、README 或聊天框",
+    "en": "Turns typed words into blocks of characters you can paste into a terminal, a README or a chat"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": ["ascii", "字符画", "艺术字"],
+  "size": { "width": 340, "height": 280, "minWidth": 250, "minHeight": 210, "maxWidth": 760, "maxHeight": 640, "grow": 0.6 },
+  "permissions": ["clipboard"],
+  "settings": [
+    {
+      "key": "width",
+      "type": "select",
+      "label": { "zh-TW": "寬度", "zh-CN": "宽度", "en": "Width" },
+      "description": { "zh-TW": "一行放多少個字符", "zh-CN": "一行放多少个字符", "en": "Characters per line" },
+      "default": "48",
+      "options": [
+        { "value": "32", "label": { "zh-TW": "32 列", "zh-CN": "32 列", "en": "32 cols" } },
+        { "value": "48", "label": { "zh-TW": "48 列", "zh-CN": "48 列", "en": "48 cols" } },
+        { "value": "64", "label": { "zh-TW": "64 列", "zh-CN": "64 列", "en": "64 cols" } }
+      ]
+    },
+    {
+      "key": "ramp",
+      "type": "select",
+      "label": { "zh-TW": "字符集", "zh-CN": "字符集", "en": "Ramp" },
+      "description": { "zh-TW": "方塊最扎實，經典那組在純文字環境最保險", "zh-CN": "方块最扎实，经典那组在纯文本环境最保险", "en": "Blocks look solid; the classic set survives plain-text contexts" },
+      "default": "block",
+      "options": [
+        { "value": "block", "label": { "zh-TW": "方塊", "zh-CN": "方块", "en": "Blocks" } },
+        { "value": "ascii", "label": { "zh-TW": "經典", "zh-CN": "经典", "en": "Classic" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "worktime",
+  "name": { "zh-TW": "工時日曆", "zh-CN": "工时日历", "en": "Work calendar" },
+  "description": {
+    "zh-TW": "按月看工作日、週末和調休補班，順手數出這個月還有幾天要上班",
+    "zh-CN": "按月看工作日、周末和调休补班，顺手数出这个月还有几天要上班",
+    "en": "See working days, weekends and make-up work days for the month, and how many are left"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "time",
+  "aliases": ["节假日", "调休", "工作日"],
+  "size": { "width": 320, "height": 300, "minWidth": 240, "minHeight": 220, "maxWidth": 700, "maxHeight": 700, "grow": 0.6 },
+  "permissions": ["clipboard", "network:raw.githubusercontent.com"],
+  "settings": [
+    {
+      "key": "weekend",
+      "type": "select",
+      "label": { "zh-TW": "週末安排", "zh-CN": "周末安排", "en": "Weekend" },
+      "description": { "zh-TW": "大週小週會影響週六算不算上班", "zh-CN": "大周小周会影响周六算不算上班", "en": "Decides whether Saturday counts as work" },
+      "default": "two",
+      "options": [
+        { "value": "two", "label": { "zh-TW": "雙休", "zh-CN": "双休", "en": "Two days" } },
+        { "value": "big", "label": { "zh-TW": "大週（隔週六上）", "zh-CN": "大周（隔周六上）", "en": "Every other Saturday" } },
+        { "value": "six", "label": { "zh-TW": "單休", "zh-CN": "单休", "en": "Saturday too" } }
+      ]
+    }
+  ]
+}

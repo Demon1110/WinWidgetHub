@@ -1,0 +1,20 @@
+body { display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+
+.head { display: flex; align-items: baseline; gap: 8px; }
+.head .w-label { font-size: 0.72rem; }
+.head .span { margin-left: auto; font-size: 0.64rem; color: var(--w-fg-faint); }
+
+.num {
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--w-fg);
+}
+.num.is-rest { font-size: 1.6rem; }
+
+body .w-bar { margin-top: 2px; }
+
+.foot { font-size: 0.64rem; color: var(--w-fg-faint); letter-spacing: 0.03em; }
+
+html[data-theme="type"] .num { font-size: 2.2rem; letter-spacing: 0.02em; }
+html[data-theme="paper"] .num { font-weight: 500; }

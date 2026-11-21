@@ -1,0 +1,34 @@
+{
+  "id": "screen-test",
+  "name": { "zh-TW": "螢幕檢測", "zh-CN": "屏幕检测", "en": "Screen check" },
+  "description": {
+    "zh-TW": "純色、灰階、壞點、色帶、字級五種圖樣輪著放，換螢幕或調色時用",
+    "zh-CN": "纯色、灰阶、坏点、色带、字级五种图样轮着放，换屏幕或调色时用",
+    "en": "Solid fills, grey steps, dead-pixel grid, colour bars and text sizes — for a new monitor or a calibration"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "aliases": ["坏点", "测屏", "色彩测试"],
+  "size": { "width": 300, "height": 280, "minWidth": 220, "minHeight": 210, "maxWidth": 900, "maxHeight": 900, "grow": 0.7 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "mode",
+      "type": "select",
+      "label": { "zh-TW": "開場圖樣", "zh-CN": "开场图样", "en": "Starting pattern" },
+      "description": { "zh-TW": "打開時先放哪一種", "zh-CN": "打开时先放哪一种", "en": "Which one it shows first" },
+      "default": "solid",
+      "options": [
+        { "value": "solid", "label": { "zh-TW": "純色", "zh-CN": "纯色", "en": "Solid" } },
+        { "value": "gray", "label": { "zh-TW": "灰階", "zh-CN": "灰阶", "en": "Grey steps" } },
+        { "value": "grid", "label": { "zh-TW": "壞點", "zh-CN": "坏点", "en": "Dead pixel" } },
+        { "value": "bars", "label": { "zh-TW": "色帶", "zh-CN": "色带", "en": "Colour bars" } },
+        { "value": "text", "label": { "zh-TW": "字級", "zh-CN": "字级", "en": "Text" } }
+      ]
+    }
+  ]
+}

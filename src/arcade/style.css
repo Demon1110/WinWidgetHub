@@ -1,0 +1,82 @@
+body { display: flex; flex-direction: column; gap: 6px; }
+
+.head { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+.tabs { display: flex; gap: 4px; flex: 1 1 auto; }
+.tab {
+  flex: 1 1 0;
+  padding: 3px 4px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--w-control-bg);
+  color: var(--w-fg-muted);
+  font: inherit;
+  font-size: 0.66rem;
+  cursor: pointer;
+}
+.tab:hover { background: var(--w-hover); color: var(--w-fg); }
+.tab[aria-pressed="true"] { background: var(--w-accent); color: var(--w-on-accent); font-weight: 600; }
+.score { flex: 0 0 auto; font-size: 0.82rem; color: var(--w-fg-muted); min-width: 2em; text-align: right; }
+
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cv { display: block; border-radius: 10px; touch-action: none; }
+#cv[hidden] { display: none; }
+
+.mines {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 2px;
+  aspect-ratio: 1;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+}
+.mines[hidden] { display: none; }
+
+.cell {
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: var(--w-control-bg);
+  color: var(--w-fg-muted);
+  font: inherit;
+  font-size: 0.66rem;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell:hover:not(.open) { background: var(--w-hover); }
+.cell.open { background: color-mix(in srgb, var(--w-fg) 16%, transparent); color: var(--w-fg); cursor: default; }
+.cell.flag { color: var(--w-warn); }
+.cell.mine { background: var(--w-danger); color: #fff; }
+.cell[data-n="1"] { color: #6fc3ff; }
+.cell[data-n="2"] { color: #7de2a4; }
+.cell[data-n="3"] { color: var(--w-warn); }
+.cell[data-n="4"] { color: #ff9d92; }
+
+.over {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--w-bg-solid) 82%, transparent);
+  font-size: 0.8rem;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+.over[hidden] { display: none; }
+
+.hint { flex: 0 0 auto; text-align: center; font-size: 0.62rem; color: var(--w-fg-faint); }

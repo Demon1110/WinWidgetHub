@@ -1,0 +1,53 @@
+body { display: flex; flex-direction: column; gap: 4px; }
+
+.head { position: relative; flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
+.month { flex: 1 1 auto; text-align: center; font-size: 0.86rem; }
+.nav { flex: 0 0 auto; font-size: 0.9rem; line-height: 1; padding: 0.1em 0.4em; }
+
+.toast {
+  position: absolute;
+  right: 0;
+  bottom: -18px;
+  z-index: 3;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--w-bg-solid) 90%, transparent);
+  font-size: 0.6rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.toast[hidden] { display: none; }
+
+.week { flex: 0 0 auto; display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.week span { text-align: center; font-size: 0.58rem; color: var(--w-fg-faint); }
+
+.grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 3px;
+}
+
+.day, .blank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  user-select: none;
+}
+.blank { cursor: default; }
+.day.work { background: var(--w-control-bg); color: var(--w-fg); }
+.day.off { color: var(--w-fg-faint); }
+.day.work:hover { background: var(--w-hover); }
+.day.mark { background: color-mix(in srgb, var(--w-warn) 26%, transparent); color: var(--w-fg); }
+.day.makeup { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--w-warn) 52%, transparent); }
+.day.now { background: var(--w-accent); color: var(--w-on-accent); font-weight: 600; }
+
+.foot { flex: 0 0 auto; text-align: center; font-size: 0.62rem; color: var(--w-fg-faint); }
+
+html[data-theme="paper"] .day.work { background: color-mix(in srgb, var(--w-fg) 5%, transparent); }

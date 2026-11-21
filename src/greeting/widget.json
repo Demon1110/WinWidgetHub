@@ -1,0 +1,59 @@
+{
+  "id": "greeting",
+  "name": { "zh-TW": "暖心問候", "zh-CN": "暖心问候", "en": "Warm greeting" },
+  "description": {
+    "zh-TW": "挑好對象、場景和語氣，當場給一句得體的話，點一下就複製走",
+    "zh-CN": "挑好对象、场景和语气，当场给一句得体的话，点一下就复制走",
+    "en": "Pick who it is for, the occasion and the tone — get a line worth sending, one tap to copy"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": ["问候", "祝福语", "开场白"],
+  "size": { "width": 300, "height": 250, "minWidth": 230, "minHeight": 190, "maxWidth": 620, "maxHeight": 620, "grow": 0.5 },
+  "permissions": ["clipboard"],
+  "settings": [
+    {
+      "key": "who",
+      "type": "select",
+      "label": { "zh-TW": "對象", "zh-CN": "对象", "en": "For whom" },
+      "description": { "zh-TW": "決定稱呼與親疏分寸", "zh-CN": "决定称呼与亲疏分寸", "en": "Sets the form of address and how close it sounds" },
+      "default": "friend",
+      "options": [
+        { "value": "family", "label": { "zh-TW": "家人", "zh-CN": "家人", "en": "Family" } },
+        { "value": "friend", "label": { "zh-TW": "朋友", "zh-CN": "朋友", "en": "Friend" } },
+        { "value": "colleague", "label": { "zh-TW": "同事", "zh-CN": "同事", "en": "Colleague" } },
+        { "value": "lover", "label": { "zh-TW": "伴侶", "zh-CN": "伴侣", "en": "Partner" } }
+      ]
+    },
+    {
+      "key": "scene",
+      "type": "select",
+      "label": { "zh-TW": "場景", "zh-CN": "场景", "en": "Occasion" },
+      "description": { "zh-TW": "生日、節日、打氣、道歉、道謝", "zh-CN": "生日、节日、打气、道歉、道谢", "en": "Birthday, holiday, encouragement, apology or thanks" },
+      "default": "birthday",
+      "options": [
+        { "value": "birthday", "label": { "zh-TW": "生日", "zh-CN": "生日", "en": "Birthday" } },
+        { "value": "holiday", "label": { "zh-TW": "節日", "zh-CN": "节日", "en": "Holiday" } },
+        { "value": "encourage", "label": { "zh-TW": "打氣", "zh-CN": "打气", "en": "Encourage" } },
+        { "value": "apology", "label": { "zh-TW": "道歉", "zh-CN": "道歉", "en": "Apologise" } },
+        { "value": "thanks", "label": { "zh-TW": "道謝", "zh-CN": "道谢", "en": "Thank" } }
+      ]
+    },
+    {
+      "key": "tone",
+      "type": "select",
+      "label": { "zh-TW": "語氣", "zh-CN": "语气", "en": "Tone" },
+      "description": { "zh-TW": "真誠、輕鬆、正式", "zh-CN": "真诚、轻松、正式", "en": "Sincere, light, or formal" },
+      "default": "sincere",
+      "options": [
+        { "value": "sincere", "label": { "zh-TW": "真誠", "zh-CN": "真诚", "en": "Sincere" } },
+        { "value": "light", "label": { "zh-TW": "輕鬆", "zh-CN": "轻松", "en": "Light" } },
+        { "value": "formal", "label": { "zh-TW": "正式", "zh-CN": "正式", "en": "Formal" } }
+      ]
+    }
+  ]
+}

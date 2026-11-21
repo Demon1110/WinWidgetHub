@@ -1,0 +1,53 @@
+body { display: flex; flex-direction: column; gap: 6px; }
+
+.panel {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: calc(var(--w-radius) * 0.8);
+  overflow: hidden;
+  outline: 1px solid var(--w-card-ring);
+  outline-offset: -1px;
+  cursor: pointer;
+}
+
+.gridlines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, #fff 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 32px);
+  opacity: 0.92;
+}
+
+.texts {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  background: var(--w-bg-solid);
+  color: var(--w-fg);
+  font-family: var(--w-font);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.modes { flex: 0 0 auto; display: flex; gap: 4px; }
+.chip {
+  flex: 1 1 0;
+  padding: 3px 4px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--w-control-bg);
+  color: var(--w-fg-muted);
+  font: inherit;
+  font-size: 0.66rem;
+  cursor: pointer;
+}
+.chip:hover { background: var(--w-hover); color: var(--w-fg); }
+.chip[aria-pressed="true"] { background: var(--w-accent); color: var(--w-on-accent); font-weight: 600; }
+
+.tip { flex: 0 0 auto; font-size: 0.62rem; color: var(--w-fg-faint); text-align: center; }

@@ -1,0 +1,19 @@
+{
+  "id": "shooter",
+  "name": { "zh-TW": "無限重載", "zh-CN": "无限重载", "en": "Endless reload" },
+  "description": {
+    "zh-TW": "底下開火、上面不停落下來的方塊，撐得越久分越高，最高分存在本機",
+    "zh-CN": "底下开火、上面不停落下来的方块，撑得越久分越高，最高分存在本机",
+    "en": "Fire from the bottom, keep the falling blocks off your line — the longer you last, the higher the score"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": ["射击", "小游戏", "打飞机"],
+  "size": { "width": 280, "height": 320, "minWidth": 220, "minHeight": 260, "maxWidth": 640, "maxHeight": 720, "grow": 0.6 },
+  "permissions": [],
+  "settings": []
+}
