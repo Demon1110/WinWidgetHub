@@ -1,0 +1,81 @@
+body { display: flex; flex-direction: column; gap: 8px; }
+
+header { display: flex; align-items: baseline; gap: 10px; flex: 0 0 auto; }
+.score { display: flex; align-items: baseline; gap: 4px; min-width: 0; }
+.score .w-label { font-size: 0.68rem; }
+#score { font-size: 1.05rem; line-height: 1.1; }
+.score.best { margin-left: auto; color: var(--w-fg-muted); }
+.score.best #best { color: var(--w-fg-muted); font-size: 0.82rem; }
+#again { flex: 0 0 auto; font-size: 0.72rem; padding: 0.25em 0.6em; }
+
+/* 盘面尺寸由脚本按可用正方形算出来，这里是配方：四周一圈 gutter，格子按 --n 等分 */
+.board {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0 auto;
+  --n: 4;
+  --g: 6px;
+  --tile-font: 20px;
+  border-radius: 12px;
+  background: var(--w-track);
+  touch-action: none;
+  user-select: none;
+}
+
+.tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc((100% - (var(--n) + 1) * var(--g)) / var(--n));
+  height: calc((100% - (var(--n) + 1) * var(--g)) / var(--n));
+  transform: translate(
+    calc(var(--g) + var(--c) * (100% + var(--g))),
+    calc(var(--g) + var(--r) * (100% + var(--g)))
+  );
+  transition: transform 120ms ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-family: var(--w-font-num);
+  font-size: var(--tile-font);
+  font-weight: 600;
+  line-height: 1;
+  will-change: transform;
+}
+
+.tile.big { font-size: calc(var(--tile-font) * 0.84); }
+
+.tile.born { animation: born 130ms ease-out both; }
+.tile.gone { animation: gone 120ms ease-in both; }
+.tile.pop { animation: pop 120ms ease-out both; }
+
+@keyframes born { from { opacity: 0; scale: 0.6; } to { opacity: 1; scale: 1; } }
+@keyframes gone { to { opacity: 0; scale: 0.9; } }
+@keyframes pop { 50% { scale: 1.12; } }
+
+/* 结束或达成目标时盖住盘面一句提示，不抢焦点 */
+.over {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--w-bg-solid) 78%, transparent);
+  backdrop-filter: blur(2px);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.over[hidden] { display: none; }
+.over b { font-family: var(--w-font-title); font-weight: 500; }
+
+.hint {
+  flex: 0 0 auto;
+  font-size: 0.64rem;
+  color: var(--w-fg-faint);
+  text-align: center;
+  letter-spacing: 0.04em;
+}

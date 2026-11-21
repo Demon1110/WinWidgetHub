@@ -1,0 +1,46 @@
+body { display: flex; flex-direction: column; gap: 8px; }
+
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 画布是方形的，只按宽度缩放，高度跟着走，绝不让脸变扁 */
+#face {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  border-radius: var(--w-radius);
+  outline: 1px solid var(--w-card-ring);
+  outline-offset: -1px;
+  object-fit: contain;
+}
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  padding: 0.22em 0.7em;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--w-bg-solid) 82%, transparent);
+  color: var(--w-fg);
+  font-size: 0.68rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.toast[hidden] { display: none; }
+
+.foot {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 8px;
+}
+.foot .w-btn { flex: 1 1 0; font-size: 0.75rem; padding: 0.35em 0.6em; }
+.foot .ghost { color: var(--w-fg-muted); }
+.foot .ghost:hover { color: var(--w-fg); }

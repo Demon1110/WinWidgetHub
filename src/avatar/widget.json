@@ -1,0 +1,61 @@
+{
+  "id": "avatar",
+  "name": { "zh-TW": "醜醜頭像", "zh-CN": "丑丑头像", "en": "Ugly avatar" },
+  "description": {
+    "zh-TW": "每次生成一張歪七扭八的臉，蠢得剛好，存下來當頭像或群聊表情",
+    "zh-CN": "每次生成一张歪七扭八的脸，蠢得刚刚好，存下来当头像或群聊表情",
+    "en": "A lopsided face every click — just silly enough to work as an avatar or a chat reaction"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "media",
+  "aliases": ["头像", "捏脸", "表情"],
+  "size": { "width": 250, "height": 300, "minWidth": 190, "minHeight": 240, "maxWidth": 560, "maxHeight": 640, "grow": 0.5 },
+  "permissions": ["clipboard"],
+  "settings": [
+    {
+      "key": "chaos",
+      "type": "slider",
+      "label": { "zh-TW": "歪斜程度", "zh-CN": "歪斜程度", "en": "Crookedness" },
+      "description": {
+        "zh-TW": "越大五官越不對稱，0 就正正經經",
+        "zh-CN": "越大五官越不对称，0 就正正经经",
+        "en": "Higher skews the features further apart; 0 keeps it tidy"
+      },
+      "default": 45,
+      "min": 0,
+      "max": 100,
+      "step": 5
+    },
+    {
+      "key": "backdrop",
+      "type": "toggle",
+      "label": { "zh-TW": "上底色", "zh-CN": "上底色", "en": "Background" },
+      "description": {
+        "zh-TW": "關掉就是透明底，方便疊在別的地方",
+        "zh-CN": "关掉就是透明底，方便叠在别的地方",
+        "en": "Off leaves it transparent, ready to be stacked elsewhere"
+      },
+      "default": true
+    },
+    {
+      "key": "sharp",
+      "type": "select",
+      "label": { "zh-TW": "存圖尺寸", "zh-CN": "存图尺寸", "en": "Export size" },
+      "description": {
+        "zh-TW": "複製到剪貼簿時的像素邊長",
+        "zh-CN": "复制到剪贴板时的像素边长",
+        "en": "Pixel side length when copied"
+      },
+      "default": "512",
+      "options": [
+        { "value": "256", "label": { "zh-TW": "256", "zh-CN": "256", "en": "256" } },
+        { "value": "512", "label": { "zh-TW": "512", "zh-CN": "512", "en": "512" } },
+        { "value": "1024", "label": { "zh-TW": "1024", "zh-CN": "1024", "en": "1024" } }
+      ]
+    }
+  ]
+}

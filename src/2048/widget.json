@@ -1,0 +1,47 @@
+{
+  "id": "2048",
+  "name": { "zh-TW": "數字方塊", "zh-CN": "数字方块", "en": "2048" },
+  "description": {
+    "zh-TW": "四乘四的方塊，方向鍵或滑動合併數字，最高分留在這張卡片上",
+    "zh-CN": "四乘四的方块，方向键或滑动合并数字，最高分留在这张卡片上",
+    "en": "A 4×4 grid; arrow keys or swipes merge the tiles. Your best score stays on the card"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": [],
+  "size": { "width": 260, "height": 300, "minWidth": 200, "minHeight": 240, "maxWidth": 560, "maxHeight": 640, "grow": 0.5 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "size",
+      "type": "select",
+      "label": { "zh-TW": "格數", "zh-CN": "格数", "en": "Grid" },
+      "description": {
+        "zh-TW": "經典是 4×4；3×3 更快結束，5×5 更寬鬆",
+        "zh-CN": "经典是 4×4；3×3 更快结束，5×5 更宽松",
+        "en": "Classic is 4×4; 3×3 ends sooner, 5×5 leaves more room"
+      },
+      "default": "4",
+      "options": [
+        { "value": "3", "label": { "zh-TW": "3×3", "zh-CN": "3×3", "en": "3×3" } },
+        { "value": "4", "label": { "zh-TW": "4×4", "zh-CN": "4×4", "en": "4×4" } },
+        { "value": "5", "label": { "zh-TW": "5×5", "zh-CN": "5×5", "en": "5×5" } }
+      ]
+    },
+    {
+      "key": "keepBest",
+      "type": "toggle",
+      "label": { "zh-TW": "記住最高分", "zh-CN": "记住最高分", "en": "Remember the best score" },
+      "description": {
+        "zh-TW": "只存在本機這張卡片的存儲裡",
+        "zh-CN": "只存在本机这张卡片的存储里",
+        "en": "Stored locally, in this card's own storage"
+      },
+      "default": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "fake-data",
+  "name": { "zh-TW": "假資料", "zh-CN": "假数据", "en": "Fake data" },
+  "description": {
+    "zh-TW": "姓名、身分證號、手機號、銀行卡號一次生成，點一下就複製；號碼按國標校驗位算好，只在本地產生",
+    "zh-CN": "姓名、身份证号、手机号、银行卡号一次生成，点一下就复制；号码按国标校验位算好，只在本地产生",
+    "en": "A name, ID number, phone number and bank card at once — tap to copy. Check digits follow the real rules; nothing leaves the machine"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": [],
+  "size": { "width": 290, "height": 250, "minWidth": 220, "minHeight": 190, "maxWidth": 640, "maxHeight": 640, "grow": 0.5 },
+  "permissions": ["clipboard"],
+  "settings": [
+    {
+      "key": "gender",
+      "type": "select",
+      "label": { "zh-TW": "性別", "zh-CN": "性别", "en": "Gender" },
+      "description": {
+        "zh-TW": "影響姓名的用字和身分證號第 17 位",
+        "zh-CN": "影响姓名的用字和身份证号第 17 位",
+        "en": "Decides the given-name characters and the 17th digit of the ID"
+      },
+      "default": "any",
+      "options": [
+        { "value": "any", "label": { "zh-TW": "隨機", "zh-CN": "随机", "en": "Any" } },
+        { "value": "male", "label": { "zh-TW": "男", "zh-CN": "男", "en": "Male" } },
+        { "value": "female", "label": { "zh-TW": "女", "zh-CN": "女", "en": "Female" } }
+      ]
+    }
+  ]
+}

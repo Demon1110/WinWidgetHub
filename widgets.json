@@ -2,9 +2,64 @@
   "schema": 1,
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
-  "updated": "2026-11-20",
-  "count": 55,
+  "updated": "2026-11-21",
+  "count": 58,
   "widgets": [
+    {
+      "id": "2048",
+      "name": "数字方块",
+      "description": "四乘四的方块，方向键或滑动合并数字，最高分留在这张卡片上",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "other",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/2048/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 6274,
+      "sha256": "bf6bafb20c59b35df6c184092e8a3523f5fb9e709258c622b9b332b4c05b1053",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/2048-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/2048"
+    },
+    {
+      "id": "avatar",
+      "name": "丑丑头像",
+      "description": "每次生成一张歪七扭八的脸，蠢得刚刚好，存下来当头像或群聊表情",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "media",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/avatar/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard"
+      ],
+      "bytes": 6707,
+      "sha256": "d42f9e93aa30c1c884fa6b3253adabe70f2f49520444e50f4217d7889e014b41",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/avatar-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/avatar"
+    },
+    {
+      "id": "fake-data",
+      "name": "假数据",
+      "description": "姓名、身份证号、手机号、银行卡号一次生成，点一下就复制；号码按国标校验位算好，只在本地产生",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/fake-data/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "clipboard"
+      ],
+      "bytes": 5440,
+      "sha256": "bc387c54a1f9b93bad465c72d69f7d85669e66211dfb2968398186094c01fa82",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/fake-data-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/fake-data"
+    },
     {
       "id": "ledger",
       "name": "记账速记",

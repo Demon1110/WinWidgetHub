@@ -1,0 +1,58 @@
+body { display: flex; flex-direction: column; gap: 4px; }
+
+.rows {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 一行一个人造字段：整行都是一个按钮，点哪儿都能复制。 */
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+  width: 100%;
+  padding: 0.4em 0.45em;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--w-fg);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.row:hover { background: var(--w-hover); }
+.row:active { background: color-mix(in srgb, var(--w-accent) 18%, transparent); }
+
+.row .w-label {
+  flex: 0 0 auto;
+  min-width: 4.6em;
+  font-size: 0.74rem;
+}
+
+.value {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+.foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 1.4em; }
+.toast { font-size: 0.72rem; color: var(--w-accent); overflow: hidden; white-space: nowrap; }
+
+/* ── 档 案 卡: 每格一条下划线，像窗口里的资料行 ── */
+html[data-theme="paper"] .row {
+  border-radius: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--w-fg) 10%, transparent);
+  padding-left: 0.2em;
+}
+html[data-theme="paper"] .value { font-family: var(--w-font-title); }
+html[data-theme="paper"] .row:hover { background: color-mix(in srgb, var(--w-accent) 10%, transparent); }
+
+/* ── 印 刷: 数值走等宽感，行距收紧一层 ── */
+html[data-theme="type"] .value { letter-spacing: 0.04em; }
+html[data-theme="type"] .row .w-label { text-transform: uppercase; letter-spacing: 0.08em; }
