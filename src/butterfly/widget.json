@@ -1,0 +1,34 @@
+{
+  "id": "butterfly",
+  "name": { "zh-TW": "蝴蝶飛舞", "zh-CN": "蝴蝶飞舞", "en": "Butterflies" },
+  "description": {
+    "zh-TW": "幾隻蝴蝶繞著卡片慢慢飛，點一下牠們會散開再聚回來",
+    "zh-CN": "几只蝴蝶绕着卡片慢慢飞，点一下它们会散开再聚回来",
+    "en": "A few butterflies drift around the card; tap and they scatter, then settle again"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 300, "height": 220, "minWidth": 160, "minHeight": 120, "maxWidth": 1200, "maxHeight": 900, "grow": 1 },
+  "permissions": [],
+  "settings": [
+    { "key": "count", "type": "select", "label": { "zh-TW": "蝴蝶數量", "zh-CN": "蝴蝶数量", "en": "How many" }, "default": 6,
+      "options": [
+        { "value": 3, "label": { "zh-TW": "3 隻", "zh-CN": "3 只", "en": "3" } },
+        { "value": 6, "label": { "zh-TW": "6 隻", "zh-CN": "6 只", "en": "6" } },
+        { "value": 12, "label": { "zh-TW": "12 隻", "zh-CN": "12 只", "en": "12" } },
+        { "value": 20, "label": { "zh-TW": "20 隻", "zh-CN": "20 只", "en": "20" } }
+      ] },
+    { "key": "pace", "type": "select", "label": { "zh-TW": "飛行節奏", "zh-CN": "飞行节奏", "en": "Pace" }, "default": "gentle",
+      "options": [
+        { "value": "slow", "label": { "zh-TW": "很慢", "zh-CN": "很慢", "en": "Lazy" } },
+        { "value": "gentle", "label": { "zh-TW": "悠然", "zh-CN": "悠然", "en": "Gentle" } },
+        { "value": "busy", "label": { "zh-TW": "熱鬧", "zh-CN": "热闹", "en": "Busy" } }
+      ] },
+    { "key": "glow", "type": "toggle", "label": { "zh-TW": "翅膀微光", "zh-CN": "翅膀微光", "en": "Soft glow" }, "default": true }
+  ]
+}

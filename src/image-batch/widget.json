@@ -1,0 +1,56 @@
+{
+  "id": "image-batch",
+  "name": { "zh-TW": "圖片批量處理", "zh-CN": "图片批量处理", "en": "Batch image resize" },
+  "description": {
+    "zh-TW": "整個資料夾一次縮到指定寬度，可順手轉格式、壓體積，輸出成新副本",
+    "zh-CN": "整个文件夹一次缩到指定宽度，可顺手转格式、压体积，输出成新副本",
+    "en": "Resize a whole folder to one width, optionally convert format and squeeze size — new copies only"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "media",
+  "aliases": [],
+  "size": { "width": 400, "height": 360, "minWidth": 300, "minHeight": 280, "maxWidth": 1400, "maxHeight": 1200, "grow": 0.8 },
+  "permissions": ["file.read", "file.write"],
+  "settings": [
+    {
+      "key": "folder",
+      "type": "folder",
+      "label": { "zh-TW": "圖片資料夾", "zh-CN": "图片文件夹", "en": "Image folder" },
+      "default": "%USERPROFILE%\\Pictures"
+    },
+    {
+      "key": "width",
+      "type": "number",
+      "label": { "zh-TW": "目標寬度（px）", "zh-CN": "目标宽度（px）", "en": "Target width (px)" },
+      "default": 1600, "min": 120, "max": 8000, "step": 10
+    },
+    {
+      "key": "format",
+      "type": "select",
+      "label": { "zh-TW": "輸出格式", "zh-CN": "输出格式", "en": "Output format" },
+      "default": "keep",
+      "options": [
+        { "value": "keep", "label": { "zh-TW": "保持原樣", "zh-CN": "保持原样", "en": "Keep" } },
+        { "value": "jpeg", "label": { "zh-TW": "JPEG", "zh-CN": "JPEG", "en": "JPEG" } },
+        { "value": "webp", "label": { "zh-TW": "WebP", "zh-CN": "WebP", "en": "WebP" } },
+        { "value": "png", "label": { "zh-TW": "PNG", "zh-CN": "PNG", "en": "PNG" } }
+      ]
+    },
+    {
+      "key": "quality",
+      "type": "slider",
+      "label": { "zh-TW": "JPEG / WebP 品質", "zh-CN": "JPEG / WebP 质量", "en": "JPEG / WebP quality" },
+      "default": 82, "min": 40, "max": 100, "step": 2
+    },
+    {
+      "key": "sharpen",
+      "type": "toggle",
+      "label": { "zh-TW": "縮圖後輕微銳化", "zh-CN": "缩图后轻微锐化", "en": "Light sharpen after resize" },
+      "default": true
+    }
+  ]
+}

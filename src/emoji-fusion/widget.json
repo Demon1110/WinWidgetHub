@@ -1,0 +1,27 @@
+{
+  "id": "emoji-fusion",
+  "name": { "zh-TW": "表情合成", "zh-CN": "表情合成", "en": "Emoji fusion" },
+  "description": {
+    "zh-TW": "把兩三個表情疊在一起，縮放、旋轉、混合都由你調，合成一張 PNG",
+    "zh-CN": "把两三个表情叠在一起，缩放、旋转、混合都由你调，合成一张 PNG",
+    "en": "Stack two or three emoji, dial scale, angle and blend, and export one PNG"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 340, "height": 380, "minWidth": 280, "minHeight": 320, "maxWidth": 760, "maxHeight": 800, "grow": 0.6 },
+  "permissions": ["clipboard", "file.write", "shell.launch"],
+  "settings": [
+    { "key": "exportSize", "type": "select", "label": { "zh-TW": "匯出尺寸", "zh-CN": "导出尺寸", "en": "Export size" }, "default": 512,
+      "options": [
+        { "value": 256, "label": { "zh-TW": "256 px", "zh-CN": "256 px", "en": "256 px" } },
+        { "value": 512, "label": { "zh-TW": "512 px", "zh-CN": "512 px", "en": "512 px" } },
+        { "value": 1024, "label": { "zh-TW": "1024 px", "zh-CN": "1024 px", "en": "1024 px" } }
+      ] },
+    { "key": "background", "type": "toggle", "label": { "zh-TW": "透明背景", "zh-CN": "透明背景", "en": "Transparent background" }, "default": true }
+  ]
+}

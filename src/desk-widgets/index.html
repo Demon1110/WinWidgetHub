@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="board" id="board">
+    <section class="panel clock" data-panel="clock">
+      <div class="time" id="time">00:00</div>
+      <div class="sec" id="sec"></div>
+    </section>
+    <section class="panel date" data-panel="date">
+      <div class="day" id="day">1</div>
+      <div class="detail" id="detail"></div>
+    </section>
+    <section class="panel count" data-panel="count">
+      <div class="hint" id="countLabel"></div>
+      <div class="num" id="countNum">—</div>
+      <div class="sub" id="countSub"></div>
+    </section>
+    <section class="panel note" data-panel="note">
+      <textarea id="noteText" placeholder="随手记一句…" spellcheck="false"></textarea>
+      <span class="saved" id="saved"></span>
+    </section>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

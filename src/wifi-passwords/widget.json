@@ -1,0 +1,37 @@
+{
+  "id": "wifi-passwords",
+  "name": { "zh-TW": "WIFI 密碼簿", "zh-CN": "WIFI 密码簿", "en": "WiFi passwords" },
+  "description": {
+    "zh-TW": "列出這台電腦記住的無線網路，密碼預設打碼，點一下才露出，順手複製",
+    "zh-CN": "列出这台电脑记住的无线网络，密码默认打码，点一下才露出，顺手复制",
+    "en": "Every wireless network this PC remembers — keys masked until you tap, and one tap to copy"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "aliases": [],
+  "size": { "width": 380, "height": 360, "minWidth": 280, "minHeight": 220, "maxWidth": 1200, "maxHeight": 1200, "grow": 0.8 },
+  "permissions": ["system.read", "system.write", "clipboard"],
+  "settings": [
+    {
+      "key": "revealAll",
+      "type": "toggle",
+      "label": { "zh-TW": "預設顯示密碼", "zh-CN": "默认显示密码", "en": "Show keys by default" },
+      "description": { "zh-TW": "關掉時只有點過的那一條會露出來", "zh-CN": "关掉时只有点过的那一条会露出来", "en": "When off, only the row you tapped shows its key" },
+      "default": false
+    },
+    {
+      "key": "sort",
+      "type": "select",
+      "label": { "zh-TW": "排序", "zh-CN": "排序", "en": "Order" },
+      "default": "name",
+      "options": [
+        { "value": "name", "label": { "zh-TW": "按名稱", "zh-CN": "按名称", "en": "By name" } },
+        { "value": "auth", "label": { "zh-TW": "按加密方式", "zh-CN": "按加密方式", "en": "By encryption" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "tap-tonic",
+  "name": { "zh-TW": "琴鍵音效", "zh-CN": "琴键音效", "en": "Tap tonic" },
+  "description": {
+    "zh-TW": "按鍵時給點聲音：機械鍵盤、打字機或木魚，全部在本機合成，不需要音檔",
+    "zh-CN": "按键时给点声音：机械键盘、打字机或木鱼，全部在本机合成，不需要音频文件",
+    "en": "A little sound on every keypress — mechanical, typewriter or wooden block, synthesised locally"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "media",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 300, "height": 240, "minWidth": 220, "minHeight": 180, "maxWidth": 640, "maxHeight": 640, "grow": 0.5 },
+  "permissions": ["input.read"],
+  "settings": [
+    { "key": "voice", "type": "select", "label": { "zh-TW": "音色", "zh-CN": "音色", "en": "Voice" }, "default": "mech",
+      "options": [
+        { "value": "mech", "label": { "zh-TW": "機械鍵盤", "zh-CN": "机械键盘", "en": "Mechanical" } },
+        { "value": "type", "label": { "zh-TW": "打字機", "zh-CN": "打字机", "en": "Typewriter" } },
+        { "value": "wood", "label": { "zh-TW": "木魚", "zh-CN": "木鱼", "en": "Wooden block" } },
+        { "value": "bubble", "label": { "zh-TW": "氣泡", "zh-CN": "气泡", "en": "Bubble" } }
+      ] },
+    { "key": "volume", "type": "select", "label": { "zh-TW": "音量", "zh-CN": "音量", "en": "Volume" }, "default": "mid",
+      "options": [
+        { "value": "low", "label": { "zh-TW": "輕", "zh-CN": "轻", "en": "Soft" } },
+        { "value": "mid", "label": { "zh-TW": "中", "zh-CN": "中", "en": "Medium" } },
+        { "value": "high", "label": { "zh-TW": "響", "zh-CN": "响", "en": "Loud" } }
+      ] },
+    { "key": "muteOnMouse", "type": "toggle", "label": { "zh-TW": "滑鼠不發聲", "zh-CN": "鼠标不发声", "en": "Mouse stays silent" }, "default": true }
+  ]
+}

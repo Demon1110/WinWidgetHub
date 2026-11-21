@@ -1,0 +1,40 @@
+{
+  "id": "luzhanqi",
+  "name": { "zh-TW": "陸戰棋·翻棋", "zh-CN": "陆战棋·翻棋", "en": "Military chess — flip" },
+  "description": {
+    "zh-TW": "四排棋子全扣著，翻開才見敵我；吃子看軍階，炸彈同歸，奪旗即勝，本機雙人或對電腦",
+    "zh-CN": "四排棋子全扣着，翻开才见敌我；吃子看军阶，炸弹同归，夺旗即胜，本机双人或对电脑",
+    "en": "All pieces start face down; ranks decide captures, bombs trade, take the flag to win — local two-player or vs the computer"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": [],
+  "size": { "width": 460, "height": 330, "minWidth": 320, "minHeight": 260, "maxWidth": 1200, "maxHeight": 900, "grow": 0.9 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "mode",
+      "type": "select",
+      "label": { "zh-TW": "對戰模式", "zh-CN": "对战模式", "en": "Opponent" },
+      "default": "ai",
+      "options": [
+        { "value": "ai", "label": { "zh-TW": "對電腦", "zh-CN": "对电脑", "en": "Computer" } },
+        { "value": "local", "label": { "zh-TW": "兩人同機", "zh-CN": "两人同机", "en": "Two players" } }
+      ]
+    },
+    {
+      "key": "sides",
+      "type": "select",
+      "label": { "zh-TW": "誰先手", "zh-CN": "谁先手", "en": "First move" },
+      "default": "red",
+      "options": [
+        { "value": "red", "label": { "zh-TW": "紅方", "zh-CN": "红方", "en": "Red" } },
+        { "value": "black", "label": { "zh-TW": "黑方", "zh-CN": "黑方", "en": "Black" } }
+      ]
+    }
+  ]
+}

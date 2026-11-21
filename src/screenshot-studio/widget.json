@@ -1,0 +1,42 @@
+{
+  "id": "screenshot-studio",
+  "name": { "zh-TW": "截圖工坊", "zh-CN": "截图工坊", "en": "Screenshot studio" },
+  "description": {
+    "zh-TW": "整屏或框選截一張，在卡上拉框裁切，按比例對齊，完成後複製或存檔",
+    "zh-CN": "整屏或框选截一张，在卡上拉框裁切，按比例对齐，完成后复制或存档",
+    "en": "Grab the screen, drag a crop box on the card with ratio presets, then copy or save"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": [],
+  "size": { "width": 460, "height": 340, "minWidth": 300, "minHeight": 240, "maxWidth": 1600, "maxHeight": 1200, "grow": 0.9 },
+  "permissions": ["screen", "clipboard", "file.write", "shell.launch"],
+  "settings": [
+    {
+      "key": "ratio",
+      "type": "select",
+      "label": { "zh-TW": "預設比例", "zh-CN": "默认比例", "en": "Default ratio" },
+      "default": "free",
+      "options": [
+        { "value": "free", "label": { "zh-TW": "自由", "zh-CN": "自由", "en": "Free" } },
+        { "value": "16:9", "label": { "zh-TW": "16:9", "zh-CN": "16:9", "en": "16:9" } },
+        { "value": "4:3", "label": { "zh-TW": "4:3", "zh-CN": "4:3", "en": "4:3" } },
+        { "value": "1:1", "label": { "zh-TW": "1:1", "zh-CN": "1:1", "en": "1:1" } }
+      ]
+    },
+    {
+      "key": "source",
+      "type": "select",
+      "label": { "zh-TW": "取圖方式", "zh-CN": "取图方式", "en": "Capture" },
+      "default": "display",
+      "options": [
+        { "value": "display", "label": { "zh-TW": "主屏整張", "zh-CN": "主屏整张", "en": "Primary display" } },
+        { "value": "interactive", "label": { "zh-TW": "系統框選", "zh-CN": "系统框选", "en": "Windows snip" } }
+      ]
+    }
+  ]
+}

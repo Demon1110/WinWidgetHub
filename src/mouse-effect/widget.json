@@ -1,0 +1,33 @@
+{
+  "id": "mouse-effect",
+  "name": { "zh-TW": "滑鼠軌跡", "zh-CN": "鼠标轨迹", "en": "Mouse trail" },
+  "description": {
+    "zh-TW": "滑鼠走過卡片時留下一道光：絲帶、星塵或水滴，點一下還會炸開",
+    "zh-CN": "鼠标走过卡片时留下一道光：丝带、星尘或水滴，点一下还会炸开",
+    "en": "The pointer leaves light on the card — ribbon, stardust or droplets — and clicks burst"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 360, "height": 260, "minWidth": 200, "minHeight": 160, "maxWidth": 2560, "maxHeight": 1440, "grow": 1 },
+  "permissions": ["input.read"],
+  "settings": [
+    { "key": "style", "type": "select", "label": { "zh-TW": "軌跡", "zh-CN": "轨迹", "en": "Trail" }, "default": "ribbon",
+      "options": [
+        { "value": "ribbon", "label": { "zh-TW": "絲帶", "zh-CN": "丝带", "en": "Ribbon" } },
+        { "value": "dust", "label": { "zh-TW": "星塵", "zh-CN": "星尘", "en": "Stardust" } },
+        { "value": "water", "label": { "zh-TW": "水滴", "zh-CN": "水滴", "en": "Droplets" } }
+      ] },
+    { "key": "fade", "type": "select", "label": { "zh-TW": "消散速度", "zh-CN": "消散速度", "en": "Fade" }, "default": "medium",
+      "options": [
+        { "value": "slow", "label": { "zh-TW": "慢", "zh-CN": "慢", "en": "Slow" } },
+        { "value": "medium", "label": { "zh-TW": "中", "zh-CN": "中", "en": "Medium" } },
+        { "value": "fast", "label": { "zh-TW": "快", "zh-CN": "快", "en": "Fast" } }
+      ] },
+    { "key": "burst", "type": "toggle", "label": { "zh-TW": "點擊時炸開", "zh-CN": "点击时炸开", "en": "Burst on click" }, "default": true }
+  ]
+}

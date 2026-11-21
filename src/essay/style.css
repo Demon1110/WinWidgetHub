@@ -1,0 +1,59 @@
+body {
+  --essay-size: 0.95rem;
+  --essay-line: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+body.size-small { --essay-size: 0.84rem; }
+body.size-large { --essay-size: 1.12rem; }
+body.leading-tight { --essay-line: 1.5; }
+body.leading-loose { --essay-line: 1.95; }
+
+.title {
+  flex: 0 0 auto;
+  font-family: var(--w-font-title);
+  font-size: calc(var(--essay-size) * 1.22);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.1rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--w-rule);
+  border-radius: 0;
+  background: transparent;
+}
+.title::placeholder { color: var(--w-fg-faint); font-weight: 400; }
+.title:focus { outline: none; border-bottom-color: color-mix(in srgb, var(--w-accent) 55%, transparent); }
+
+.body {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  resize: none;
+  border: 0;
+  outline: none;
+  padding: 0;
+  background: transparent;
+  font-size: var(--essay-size);
+  line-height: var(--essay-line);
+  text-shadow: inherit;
+  scrollbar-width: thin;
+  scrollbar-color: var(--w-fg-faint) transparent;
+}
+.body::placeholder { color: var(--w-fg-muted); }
+
+/* The ruled sheet: one hairline per line box, drawn with a repeating gradient so it stays in
+   step with the line height when the size setting changes. */
+body.paper .body {
+  background-image: linear-gradient(transparent calc(var(--essay-size) * var(--essay-line) - 1px), color-mix(in srgb, var(--w-fg) 10%, transparent) 0);
+  background-size: 100% calc(var(--essay-size) * var(--essay-line));
+  background-attachment: local;
+}
+
+.foot { display: flex; align-items: center; gap: 0.45rem; font-size: 0.68rem; color: var(--w-fg-muted); }
+.stat { font-variant-numeric: tabular-nums; }
+.saved { flex: 1; opacity: 0; transition: opacity 0.2s; text-align: right; }
+.saved.on { opacity: 1; }
+.foot .w-btn { font-size: 0.7rem; padding: 0.22rem 0.5rem; }
+
+html[data-theme="paper"] .title { font-family: var(--w-font-title); }

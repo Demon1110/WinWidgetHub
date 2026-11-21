@@ -1,0 +1,43 @@
+{
+  "id": "video-batch",
+  "name": { "zh-TW": "視頻分鏡圖", "zh-CN": "视频分镜图", "en": "Video storyboarder" },
+  "description": {
+    "zh-TW": "把資料夾裡的短片各抽六格，拼成一張分鏡圖，找素材時不用一個一個點開（單檔 64 MB 以內）",
+    "zh-CN": "把文件夹里的短片各抽六格，拼成一张分镜图，找素材时不用一个一个点开（单文件 64 MB 以内）",
+    "en": "Six frames from every short clip in a folder, tiled into one storyboard PNG (files under 64 MB)"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "media",
+  "aliases": [],
+  "size": { "width": 420, "height": 380, "minWidth": 300, "minHeight": 260, "maxWidth": 1500, "maxHeight": 1200, "grow": 0.9 },
+  "permissions": ["file.read", "file.write"],
+  "settings": [
+    {
+      "key": "folder",
+      "type": "folder",
+      "label": { "zh-TW": "視頻資料夾", "zh-CN": "视频文件夹", "en": "Video folder" },
+      "default": "%USERPROFILE%\\Videos"
+    },
+    {
+      "key": "cols",
+      "type": "select",
+      "label": { "zh-TW": "每張幾格", "zh-CN": "每张几格", "en": "Frames per sheet" },
+      "default": "6",
+      "options": [
+        { "value": "4", "label": { "zh-TW": "四格", "zh-CN": "四格", "en": "4" } },
+        { "value": "6", "label": { "zh-TW": "六格", "zh-CN": "六格", "en": "6" } },
+        { "value": "9", "label": { "zh-TW": "九格", "zh-CN": "九格", "en": "9" } }
+      ]
+    },
+    {
+      "key": "width",
+      "type": "number",
+      "label": { "zh-TW": "單格寬度（px）", "zh-CN": "单格宽度（px）", "en": "Frame width (px)" },
+      "default": 480, "min": 240, "max": 1280, "step": 20
+    }
+  ]
+}

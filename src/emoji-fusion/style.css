@@ -1,0 +1,79 @@
+body { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background:
+    repeating-conic-gradient(from 45deg, rgba(255, 255, 255, 0.045) 0% 25%, transparent 0% 50%) 0 0 / 16px 16px;
+  overflow: hidden;
+}
+canvas { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.stack { display: flex; flex-direction: column; gap: 0.32rem; }
+.layer {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 10px;
+  background: var(--w-control-bg);
+}
+.layer .glyph {
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.layer .glyph:hover { background: var(--w-hover); }
+.layer .sliders { display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 0.45rem; }
+.layer .sliders label { display: flex; align-items: center; gap: 0.28rem; font-size: 0.62rem; color: var(--w-fg-muted); }
+.layer input[type="range"] { flex: 1; min-width: 0; height: 12px; accent-color: var(--w-accent); }
+.layer select {
+  font: inherit;
+  font-size: 0.64rem;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.14rem 0.2rem;
+  color: var(--w-fg);
+  background: var(--w-bg-solid);
+}
+.layer .del {
+  border: 0;
+  background: transparent;
+  color: var(--w-fg-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0 0.15rem;
+}
+.layer .del:hover { color: var(--w-danger); }
+
+.bar { display: flex; gap: 0.35rem; }
+.bar .w-btn { flex: 1; font-size: 0.75rem; padding: 0.32rem 0; }
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 0.3rem;
+  transform: translateX(-50%) translateY(4px);
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: var(--w-bg-solid);
+  font-size: 0.7rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s, transform 0.16s;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }

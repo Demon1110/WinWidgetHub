@@ -1,0 +1,26 @@
+{
+  "id": "hdr-switch",
+  "name": { "zh-TW": "HDR 檢視", "zh-CN": "HDR 查看", "en": "HDR readout" },
+  "description": {
+    "zh-TW": "一眼看出每台螢幕的解析度、刷新率，以及 Windows 的 HDR 現在是開還是關；要改就去系統設定",
+    "zh-CN": "一眼看出每台屏幕的分辨率、刷新率，以及 Windows 的 HDR 现在是开还是关；要改就去系统设置",
+    "en": "Resolution, refresh rate and whether HDR is on for each display; the switch itself stays in Windows settings"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "aliases": [],
+  "size": { "width": 340, "height": 280, "minWidth": 240, "minHeight": 180, "maxWidth": 1000, "maxHeight": 1000, "grow": 0.8 },
+  "permissions": ["system.read", "shell.open"],
+  "settings": [
+    {
+      "key": "showBits",
+      "type": "toggle",
+      "label": { "zh-TW": "顯示色深", "zh-CN": "显示色深", "en": "Show colour depth" },
+      "default": true
+    }
+  ]
+}

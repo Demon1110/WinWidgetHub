@@ -1,0 +1,53 @@
+body { display: flex; flex-direction: column; gap: 0.45rem; }
+
+.screen {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--w-accent) 12%, transparent), transparent 70%);
+  overflow: hidden;
+}
+.pulse {
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--w-accent) 30%, transparent), transparent 62%);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.35s, transform 0.35s;
+  pointer-events: none;
+}
+.pulse.on { opacity: 0.5; transform: scale(1); transition: none; }
+
+.key {
+  font-family: var(--w-font-display);
+  font-size: 1.9rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--w-fg);
+  text-shadow: inherit;
+  transition: transform 0.08s;
+  user-select: none;
+}
+.key.hit { transform: scale(1.12); }
+
+.meta {
+  position: absolute;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.66rem;
+  color: var(--w-fg-muted);
+}
+.meta #taps { font-variant-numeric: tabular-nums; }
+
+.row { display: flex; gap: 0.35rem; }
+.row .w-btn { flex: 1; font-size: 0.74rem; padding: 0.28rem 0; }
+.row .w-btn.is-off { opacity: 0.6; }
+
+.hint { font-size: 0.66rem; color: var(--w-fg-muted); text-align: center; min-height: 1em; }

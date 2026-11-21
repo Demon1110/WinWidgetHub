@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <input id="q" type="search" placeholder="筛选端口 / 进程 / 地址" autocomplete="off">
+    <button id="refresh" class="icon" title="刷新">⟳</button>
+  </header>
+  <div id="meta" class="meta"></div>
+  <div class="head">
+    <span>协 议</span><span>本地地址</span><span class="num">端口</span><span>状态 / 远端</span><span class="num">PID</span>
+  </div>
+  <div id="list" class="list"></div>
+  <div id="toast" class="toast"></div>
+  <script src="main.js"></script>
+</body>
+</html>

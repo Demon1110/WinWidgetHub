@@ -1,0 +1,63 @@
+{
+  "id": "image-watermark",
+  "name": { "zh-TW": "圖片加水印", "zh-CN": "图片加水印", "en": "Image watermark" },
+  "description": {
+    "zh-TW": "挑一個資料夾，先預覽水印效果，再一次把所有圖存成 -watermarked 副本，原圖不動",
+    "zh-CN": "挑一个文件夹，先预览水印效果，再一次把所有图存成 -watermarked 副本，原图不动",
+    "en": "Pick a folder, preview the mark, then stamp every image into a -watermarked copy — originals untouched"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "media",
+  "aliases": [],
+  "size": { "width": 400, "height": 420, "minWidth": 300, "minHeight": 320, "maxWidth": 1400, "maxHeight": 1400, "grow": 0.9 },
+  "permissions": ["file.read", "file.write"],
+  "settings": [
+    {
+      "key": "folder",
+      "type": "folder",
+      "label": { "zh-TW": "圖片資料夾", "zh-CN": "图片文件夹", "en": "Image folder" },
+      "default": "%USERPROFILE%\\Pictures"
+    },
+    {
+      "key": "text",
+      "type": "text",
+      "label": { "zh-TW": "水印文字", "zh-CN": "水印文字", "en": "Mark text" },
+      "default": "WinWidget"
+    },
+    {
+      "key": "pos",
+      "type": "select",
+      "label": { "zh-TW": "位置", "zh-CN": "位置", "en": "Position" },
+      "default": "br",
+      "options": [
+        { "value": "tl", "label": { "zh-TW": "左上", "zh-CN": "左上", "en": "Top left" } },
+        { "value": "tr", "label": { "zh-TW": "右上", "zh-CN": "右上", "en": "Top right" } },
+        { "value": "bl", "label": { "zh-TW": "左下", "zh-CN": "左下", "en": "Bottom left" } },
+        { "value": "br", "label": { "zh-TW": "右下", "zh-CN": "右下", "en": "Bottom right" } },
+        { "value": "center", "label": { "zh-TW": "居中", "zh-CN": "居中", "en": "Centre" } }
+      ]
+    },
+    {
+      "key": "opacity",
+      "type": "slider",
+      "label": { "zh-TW": "不透明度", "zh-CN": "不透明度", "en": "Opacity" },
+      "default": 45, "min": 10, "max": 100, "step": 5
+    },
+    {
+      "key": "scale",
+      "type": "slider",
+      "label": { "zh-TW": "字号（相对短边）", "zh-CN": "字号（相对短边）", "en": "Size (% of short side)" },
+      "default": 4, "min": 2, "max": 12, "step": 1
+    },
+    {
+      "key": "color",
+      "type": "color",
+      "label": { "zh-TW": "顏色", "zh-CN": "颜色", "en": "Colour" },
+      "default": "#ffffff"
+    }
+  ]
+}

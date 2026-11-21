@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="title">批量缩图</div>
+    <div id="count" class="count"></div>
+  </header>
+  <div class="stats">
+    <div class="stat"><span class="k">原尺寸</span><span id="srcSize" class="v">—</span></div>
+    <div class="stat"><span class="k">输出</span><span id="outSize" class="v">—</span></div>
+    <div class="stat"><span class="k">预计</span><span id="estimate" class="v">—</span></div>
+  </div>
+  <div class="preview">
+    <img id="before" alt="">
+    <span class="arrow">→</span>
+    <img id="after" alt="">
+  </div>
+  <div class="progress"><div id="bar" class="bar"></div></div>
+  <div class="status" id="status">选好文件夹后按开始</div>
+  <footer>
+    <button id="run" class="primary">开始处理</button>
+  </footer>
+  <div id="toast" class="toast"></div>
+  <script src="main.js"></script>
+</body>
+</html>

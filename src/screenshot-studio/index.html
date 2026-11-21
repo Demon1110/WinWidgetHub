@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <button id="grab" class="primary">截一张</button>
+    <div class="ratios" id="ratios"></div>
+    <span id="size" class="size"></span>
+  </header>
+  <div class="stage" id="stage">
+    <img id="shot" alt="">
+    <div id="box" class="box" hidden>
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
+    </div>
+    <div id="placeholder" class="placeholder">点「截一张」开始</div>
+  </div>
+  <footer>
+    <button id="copy" class="ghost" disabled>复制</button>
+    <button id="save" class="ghost" disabled>存成 PNG</button>
+    <button id="full" class="ghost" disabled>整张</button>
+  </footer>
+  <div id="toast" class="toast"></div>
+  <script src="main.js"></script>
+</body>
+</html>

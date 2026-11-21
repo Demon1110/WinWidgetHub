@@ -1,0 +1,82 @@
+body { display: flex; flex-direction: column; gap: 0.55rem; }
+
+.tabs { display: flex; gap: 0.3rem; }
+.tabs button {
+  flex: 1;
+  border: 0;
+  border-radius: 9px;
+  padding: 0.32rem 0;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--w-fg-muted);
+  background: var(--w-control-bg);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.tabs button:hover { background: var(--w-hover); color: var(--w-fg); }
+.tabs button[aria-selected="true"] {
+  background: color-mix(in srgb, var(--w-accent) 20%, transparent);
+  color: var(--w-fg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--w-accent) 45%, transparent);
+}
+
+.families { display: flex; gap: 0.28rem; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+.families::-webkit-scrollbar { display: none; }
+.families button {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.76rem;
+  color: var(--w-fg-muted);
+  padding: 0.2rem 0.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.families button:hover { background: var(--w-hover); }
+.families button[aria-selected="true"] { color: var(--w-fg); background: var(--w-control-bg); }
+
+.stairs { display: flex; align-items: center; gap: 0.5rem; }
+.stairs .label { font-size: 0.7rem; color: var(--w-fg-muted); white-space: nowrap; }
+.steps { display: flex; gap: 2px; flex: 1; }
+.steps button {
+  flex: 1;
+  border: 0;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--w-control-bg);
+  color: var(--w-fg-muted);
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+.steps button[aria-pressed="true"] { background: color-mix(in srgb, var(--w-accent) 25%, transparent); color: var(--w-fg); }
+
+.swatches { flex: 1; display: flex; flex-direction: column; gap: 0.3rem; min-height: 0; }
+.chip {
+  flex: 1;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.6rem;
+  border-radius: 8px;
+  border: 0;
+  font: inherit;
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.12s;
+}
+.chip:hover { transform: translateX(2px); }
+.chip .v { font-family: var(--w-font-num); opacity: 0.85; }
+.chip.is-dark { color: #f7f8fb; }
+.chip.is-light { color: #0d0f14; }
+.chip .n { opacity: 0.6; font-size: 0.68rem; }
+
+.foot { display: flex; align-items: center; gap: 0.4rem; min-height: 26px; }
+.foot .toast { flex: 1; font-size: 0.7rem; color: var(--w-fg-muted); opacity: 0; transition: opacity 0.2s; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.foot .toast.on { opacity: 1; }
+.acts { display: flex; gap: 0.3rem; flex: 0 0 auto; }
+.acts .w-btn { font-size: 0.72rem; padding: 0.24rem 0.5rem; }

@@ -1,0 +1,28 @@
+{
+  "id": "keys-visual-multi",
+  "name": { "zh-TW": "按鍵可視化・多屏版", "zh-CN": "按键可视化·多屏版", "en": "Key visualiser (wide)" },
+  "description": {
+    "zh-TW": "給鋪滿整塊螢幕的卡片用：F 鍵列、數字鍵台一起顯示，字跟著卡片放大",
+    "zh-CN": "给铺满整块屏幕的卡片用：F 键列、数字键台一起显示，字跟着卡片放大",
+    "en": "Built for a card that covers a whole screen: the F row and the number pad join in, and the type scales with the card"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 720, "height": 300, "minWidth": 360, "minHeight": 200, "maxWidth": 2560, "maxHeight": 1440, "grow": 1 },
+  "permissions": ["input.read"],
+  "settings": [
+    { "key": "numpad", "type": "toggle", "label": { "zh-TW": "顯示數字鍵台", "zh-CN": "显示数字键台", "en": "Show number pad" }, "default": true },
+    { "key": "frow", "type": "toggle", "label": { "zh-TW": "顯示 F 鍵列", "zh-CN": "显示 F 键列", "en": "Show F row" }, "default": true },
+    { "key": "trail", "type": "select", "label": { "zh-TW": "殘影長度", "zh-CN": "残影长度", "en": "Afterglow" }, "default": "short",
+      "options": [
+        { "value": "none", "label": { "zh-TW": "不留殘影", "zh-CN": "不留残影", "en": "None" } },
+        { "value": "short", "label": { "zh-TW": "短", "zh-CN": "短", "en": "Short" } },
+        { "value": "long", "label": { "zh-TW": "長", "zh-CN": "长", "en": "Long" } }
+      ] }
+  ]
+}

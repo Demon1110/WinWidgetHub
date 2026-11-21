@@ -1,0 +1,32 @@
+{
+  "id": "keys-visual",
+  "name": { "zh-TW": "按鍵可視化", "zh-CN": "按键可视化", "en": "Key visualiser" },
+  "description": {
+    "zh-TW": "你按下的每個鍵都會在鍵盤上亮起來，順便記下按得最多的那幾個",
+    "zh-CN": "你按下的每个键都会在键盘上亮起来，顺便记下按得最多的那几个",
+    "en": "Every key you press lights up on this keyboard, and the busiest keys get counted"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 440, "height": 220, "minWidth": 300, "minHeight": 170, "maxWidth": 1200, "maxHeight": 720, "grow": 0.9 },
+  "permissions": ["input.read"],
+  "settings": [
+    { "key": "layout", "type": "select", "label": { "zh-TW": "鍵位", "zh-CN": "键位", "en": "Layout" }, "default": "tkl",
+      "options": [
+        { "value": "main", "label": { "zh-TW": "主鍵區", "zh-CN": "主键区", "en": "Main block" } },
+        { "value": "tkl", "label": { "zh-TW": "主鍵區 + 方向鍵", "zh-CN": "主键区 + 方向键", "en": "Main + arrows" } }
+      ] },
+    { "key": "streaks", "type": "toggle", "label": { "zh-TW": "顯示連按與計數", "zh-CN": "显示连按与计数", "en": "Show repeats and counts" }, "default": true },
+    { "key": "dim", "type": "select", "label": { "zh-TW": "未按鍵的亮度", "zh-CN": "未按键的亮度", "en": "Idle brightness" }, "default": "soft",
+      "options": [
+        { "value": "faint", "label": { "zh-TW": "很淡", "zh-CN": "很淡", "en": "Faint" } },
+        { "value": "soft", "label": { "zh-TW": "淡", "zh-CN": "淡", "en": "Soft" } },
+        { "value": "clear", "label": { "zh-TW": "清楚", "zh-CN": "清楚", "en": "Clear" } }
+      ] }
+  ]
+}

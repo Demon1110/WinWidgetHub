@@ -1,0 +1,56 @@
+body { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.6rem; height: 100%; overflow: hidden; }
+header { display: flex; gap: 0.4rem; align-items: center; flex: none; }
+input[type="search"] {
+  flex: 1; min-width: 0;
+  padding: 0.32rem 0.5rem;
+  font: inherit; font-size: 0.76rem;
+  color: var(--w-fg);
+  background: var(--w-surface-2);
+  border: 1px solid var(--w-border);
+  border-radius: var(--w-radius-sm);
+  outline: none;
+}
+input[type="search"]:focus { border-color: var(--w-accent); }
+.icon {
+  flex: none; width: 1.9rem; height: 1.9rem;
+  display: grid; place-items: center;
+  font-size: 0.95rem; line-height: 1;
+  color: var(--w-fg-muted);
+  background: var(--w-surface-2);
+  border: 1px solid var(--w-border);
+  border-radius: var(--w-radius-sm);
+  cursor: pointer;
+}
+.icon:hover { color: var(--w-fg); border-color: var(--w-accent); }
+.meta { flex: none; font-size: 0.64rem; color: var(--w-fg-muted); }
+.head, .row {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr) 3.6rem minmax(0, 5.5rem) 3.2rem;
+  gap: 0.35rem;
+  align-items: center;
+}
+.head { flex: none; font-size: 0.6rem; color: var(--w-fg-muted); padding: 0 0.35rem; }
+.head .num { text-align: right; }
+.list { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 0.15rem; }
+.row {
+  padding: 0.24rem 0.35rem;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  border-radius: var(--w-radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.row:hover { background: var(--w-surface-2); }
+.row .num { text-align: right; font-weight: 600; }
+.row .muted { color: var(--w-fg-muted); overflow: hidden; text-overflow: ellipsis; }
+.proto { color: var(--w-fg-muted); font-size: 0.6rem; text-transform: uppercase; }
+.listen { color: var(--w-accent); }
+.empty { padding: 1rem 0.4rem; font-size: 0.72rem; color: var(--w-fg-muted); }
+.toast {
+  position: absolute; left: 50%; bottom: 0.6rem; transform: translate(-50%, 0.4rem);
+  padding: 0.28rem 0.6rem; font-size: 0.68rem;
+  background: var(--w-fg); color: var(--w-bg);
+  border-radius: 999px; opacity: 0; pointer-events: none;
+  transition: opacity 0.18s, transform 0.18s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }

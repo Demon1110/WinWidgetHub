@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="turn"><span id="dot" class="dot"></span><span id="who">红方先手</span></div>
+    <div id="score" class="score"></div>
+    <button id="reset" class="ghost">重开</button>
+  </header>
+  <div class="board" id="board"></div>
+  <footer>
+    <span id="tip" class="tip">点一枚扣着的棋子翻开它</span>
+  </footer>
+  <div id="over" class="over" hidden><div class="over-card"><div id="overText"></div><button id="again" class="primary">再来一局</button></div></div>
+  <script src="main.js"></script>
+</body>
+</html>

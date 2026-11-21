@@ -1,0 +1,38 @@
+{
+  "id": "essay",
+  "name": { "zh-TW": "隨筆", "zh-CN": "随笔", "en": "Essay pad" },
+  "description": {
+    "zh-TW": "一張長文用的稿紙：標題、正文、字數與閱讀時間，隨手寫、隨手存成 Markdown",
+    "zh-CN": "一张长文用的稿纸：标题、正文、字数与阅读时间，随手写、随手存成 Markdown",
+    "en": "A sheet for long writing: title, body, word count and reading time — write, then save as Markdown"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 360, "height": 380, "minWidth": 260, "minHeight": 240, "maxWidth": 900, "maxHeight": 900, "grow": 0.7 },
+  "permissions": ["file.write", "shell.launch"],
+  "settings": [
+    { "key": "fontSize", "type": "select", "label": { "zh-TW": "字號", "zh-CN": "字号", "en": "Text size" }, "default": "medium",
+      "options": [
+        { "value": "small", "label": { "zh-TW": "小", "zh-CN": "小", "en": "Small" } },
+        { "value": "medium", "label": { "zh-TW": "中", "zh-CN": "中", "en": "Medium" } },
+        { "value": "large", "label": { "zh-TW": "大", "zh-CN": "大", "en": "Large" } }
+      ] },
+    { "key": "leading", "type": "select", "label": { "zh-TW": "行距", "zh-CN": "行距", "en": "Line spacing" }, "default": "normal",
+      "options": [
+        { "value": "tight", "label": { "zh-TW": "緊", "zh-CN": "紧", "en": "Tight" } },
+        { "value": "normal", "label": { "zh-TW": "正常", "zh-CN": "正常", "en": "Normal" } },
+        { "value": "loose", "label": { "zh-TW": "鬆", "zh-CN": "松", "en": "Loose" } }
+      ] },
+    { "key": "paper", "type": "toggle", "label": { "zh-TW": "稿紙橫線", "zh-CN": "稿纸横线", "en": "Ruled lines" }, "default": true },
+    { "key": "exportTitle", "type": "select", "label": { "zh-TW": "匯出時加標題", "zh-CN": "导出时加标题", "en": "Title in export" }, "default": "h1",
+      "options": [
+        { "value": "h1", "label": { "zh-TW": "當一級標題", "zh-CN": "当一级标题", "en": "As an H1" } },
+        { "value": "none", "label": { "zh-TW": "不加", "zh-CN": "不加", "en": "Leave it out" } }
+      ] }
+  ]
+}

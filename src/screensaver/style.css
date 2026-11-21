@@ -1,0 +1,53 @@
+body {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.55rem; padding: 0.7rem; height: 100%; overflow: hidden;
+}
+.dial {
+  position: relative;
+  flex: none;
+  width: min(58%, 7.4rem);
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  color: var(--w-fg);
+  background: radial-gradient(circle at 50% 34%, var(--w-surface-2), var(--w-surface));
+  border: 1px solid var(--w-border);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.dial:hover { border-color: var(--w-accent); }
+.dial:active { transform: scale(0.97); }
+.ring {
+  position: absolute; inset: -1px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0 var(--w-accent);
+  opacity: 0.55;
+  transition: box-shadow 1.6s ease-out;
+}
+.dial:hover .ring { box-shadow: inset 0 0 0 6px var(--w-accent); }
+.glyph { font-size: clamp(1.4rem, 9cqw, 2.6rem); line-height: 1; opacity: 0.9; }
+.label {
+  position: absolute; bottom: 18%;
+  font-size: 0.68rem;
+  color: var(--w-fg-muted);
+  letter-spacing: 0.06em;
+}
+.hold {
+  position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 3px;
+  background: var(--w-accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.8s linear;
+}
+.dial.holding .hold { transform: scaleX(1); }
+.row { flex: none; display: flex; align-items: center; gap: 0.5rem; }
+.link {
+  font: inherit; font-size: 0.68rem;
+  color: var(--w-fg-muted);
+  background: none; border: 0;
+  border-bottom: 1px dashed var(--w-border);
+  padding: 0 0 1px; cursor: pointer;
+}
+.link:hover { color: var(--w-fg); border-color: var(--w-accent); }
+.status { font-size: 0.64rem; color: var(--w-fg-muted); }

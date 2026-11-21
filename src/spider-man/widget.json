@@ -1,0 +1,28 @@
+{
+  "id": "spider-man",
+  "name": { "zh-TW": "屏幕蜘蛛俠", "zh-CN": "屏幕蜘蛛侠", "en": "Screen Spidey" },
+  "description": {
+    "zh-TW": "一個小蜘蛛俠掛在絲上頭，跟著你的滑鼠左右晃，點一下他會掉下去再爬回來",
+    "zh-CN": "一个小蜘蛛侠挂在丝上，跟着你的鼠标左右晃，点一下他会掉下去再爬回来",
+    "en": "A tiny Spidey hangs from a thread, sways after your pointer, and drops when you tap him"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 320, "height": 260, "minWidth": 200, "minHeight": 160, "maxWidth": 2560, "maxHeight": 1440, "grow": 1 },
+  "permissions": ["input.read"],
+  "settings": [
+    { "key": "size", "type": "select", "label": { "zh-TW": "體型", "zh-CN": "体型", "en": "Size" }, "default": "m",
+      "options": [
+        { "value": "s", "label": { "zh-TW": "小", "zh-CN": "小", "en": "Small" } },
+        { "value": "m", "label": { "zh-TW": "中", "zh-CN": "中", "en": "Medium" } },
+        { "value": "l", "label": { "zh-TW": "大", "zh-CN": "大", "en": "Large" } }
+      ] },
+    { "key": "follow", "type": "toggle", "label": { "zh-TW": "跟著滑鼠晃", "zh-CN": "跟着鼠标晃", "en": "Follow the pointer" }, "default": true },
+    { "key": "web", "type": "toggle", "label": { "zh-TW": "畫出蛛絲", "zh-CN": "画出蛛丝", "en": "Draw the thread" }, "default": true }
+  ]
+}

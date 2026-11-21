@@ -1,0 +1,27 @@
+{
+  "id": "port-monitor",
+  "name": { "zh-TW": "埠口監看", "zh-CN": "端口监控", "en": "Port monitor" },
+  "description": {
+    "zh-TW": "看看誰在監聽、誰連出去了，TCP／UDP 一起列，點一下就複製",
+    "zh-CN": "看看谁在监听、谁连出去了，TCP／UDP 一起列，点一下就复制",
+    "en": "Who is listening and who is connected, TCP and UDP together, one tap to copy"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "size": { "width": 420, "height": 420, "minWidth": 300, "minHeight": 220, "maxWidth": 1400, "maxHeight": 1400, "grow": 1 },
+  "permissions": ["system.read"],
+  "settings": [
+    { "key": "listening", "type": "toggle", "label": { "zh-TW": "只看監聽中", "zh-CN": "只看监听中", "en": "Listening only" }, "default": true },
+    { "key": "protocol", "type": "select", "label": { "zh-TW": "協定", "zh-CN": "协议", "en": "Protocol" }, "default": "all",
+      "options": [
+        { "value": "all", "label": { "zh-TW": "全部", "zh-CN": "全部", "en": "All" } },
+        { "value": "tcp", "label": { "zh-TW": "TCP", "zh-CN": "TCP", "en": "TCP" } },
+        { "value": "udp", "label": { "zh-TW": "UDP", "zh-CN": "UDP", "en": "UDP" } }
+      ] },
+    { "key": "auto", "type": "toggle", "label": { "zh-TW": "每 3 秒刷新", "zh-CN": "每 3 秒刷新", "en": "Refresh every 3s" }, "default": true }
+  ]
+}

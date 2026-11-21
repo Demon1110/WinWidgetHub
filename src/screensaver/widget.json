@@ -1,0 +1,27 @@
+{
+  "id": "screensaver",
+  "name": { "zh-TW": "一鍵屏保", "zh-CN": "一键屏保", "en": "One-tap screensaver" },
+  "description": {
+    "zh-TW": "按一下就進螢幕保護，離開座位前不用等；旁邊還能直接打開屏保設定",
+    "zh-CN": "按一下就进屏幕保护，离开座位前不用等；旁边还能直接打开屏保设置",
+    "en": "Start the screensaver immediately instead of waiting for the idle timer; settings one tap away"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "aliases": [],
+  "size": { "width": 260, "height": 240, "minWidth": 180, "minHeight": 160, "maxWidth": 800, "maxHeight": 800, "grow": 0.6 },
+  "permissions": ["system.write"],
+  "settings": [
+    {
+      "key": "confirm",
+      "type": "toggle",
+      "label": { "zh-TW": "長按才啟動", "zh-CN": "长按才启动", "en": "Hold to start" },
+      "description": { "zh-TW": "避免手滑誤觸，按住 0.8 秒才生效", "zh-CN": "避免手滑误触，按住 0.8 秒才生效", "en": "Keeps a stray click from blanking the screen" },
+      "default": false
+    }
+  ]
+}

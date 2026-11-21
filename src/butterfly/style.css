@@ -1,0 +1,18 @@
+body { position: relative; overflow: hidden; padding: 0; }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.55rem;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--w-fg-muted);
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+body:hover .hint { opacity: 1; }
+body.is-touched .hint { opacity: 0; }

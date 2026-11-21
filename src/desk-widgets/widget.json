@@ -1,0 +1,49 @@
+{
+  "id": "desk-widgets",
+  "name": { "zh-TW": "桌面小工具板", "zh-CN": "桌面小工具板", "en": "Desk widget board" },
+  "description": {
+    "zh-TW": "時鐘、日期、倒數和便籤四塊小面板掛在同一張卡上，哪塊要留自己挑",
+    "zh-CN": "时钟、日期、倒数和便签四块小面板挂在同一张卡上，哪块要留自己挑",
+    "en": "Clock, date, countdown and a sticky note on one card — keep the panels you want"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "time",
+  "aliases": [],
+  "size": { "width": 340, "height": 300, "minWidth": 220, "minHeight": 200, "maxWidth": 1000, "maxHeight": 1000, "grow": 0.8 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "panels",
+      "type": "select",
+      "label": { "zh-TW": "面板組合", "zh-CN": "面板组合", "en": "Panels" },
+      "default": "all",
+      "options": [
+        { "value": "all", "label": { "zh-TW": "四塊全上", "zh-CN": "四块全上", "en": "All four" } },
+        { "value": "time", "label": { "zh-TW": "時鐘 + 日期", "zh-CN": "时钟 + 日期", "en": "Clock + date" } },
+        { "value": "focus", "label": { "zh-TW": "倒數 + 便籤", "zh-CN": "倒数 + 便签", "en": "Countdown + note" } }
+      ]
+    },
+    {
+      "key": "hour12",
+      "type": "toggle",
+      "label": { "zh-TW": "12 小時制", "zh-CN": "12 小时制", "en": "12-hour clock" },
+      "default": false
+    },
+    {
+      "key": "target",
+      "type": "text",
+      "label": { "zh-TW": "倒數目標（YYYY-MM-DD）", "zh-CN": "倒数目标（YYYY-MM-DD）", "en": "Countdown target (YYYY-MM-DD)" },
+      "default": ""
+    },
+    {
+      "key": "label",
+      "type": "text",
+      "label": { "zh-TW": "倒數標題", "zh-CN": "倒数标题", "en": "Countdown label" },
+      "default": ""
+    }
+  ]
+}

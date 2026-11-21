@@ -1,0 +1,26 @@
+{
+  "id": "chart-colors",
+  "name": { "zh-TW": "製圖配色", "zh-CN": "制图配色", "en": "Chart colours" },
+  "description": {
+    "zh-TW": "順色、對照、分類三種資料色板，等距取色、即時換階，一鍵匯出 CSS 或 JSON",
+    "zh-CN": "顺色、对照、分类三种数据色板，等距取色、即时换阶，一键导出 CSS 或 JSON",
+    "en": "Sequential, diverging and categorical palettes for charts — even steps, live counts, export to CSS or JSON"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "preview": "preview/{theme}.{lang}.webp",
+  "size": { "width": 340, "height": 320, "minWidth": 260, "minHeight": 260, "maxWidth": 720, "maxHeight": 760, "grow": 0.6 },
+  "permissions": ["clipboard", "file.write", "shell.launch"],
+  "settings": [
+    { "key": "format", "type": "select", "label": { "zh-TW": "色值寫法", "zh-CN": "色值写法", "en": "Colour format" }, "default": "hex",
+      "options": [
+        { "value": "hex", "label": { "zh-TW": "十六進位 #4CC9F0", "zh-CN": "十六进制 #4CC9F0", "en": "Hex" } },
+        { "value": "rgb", "label": { "zh-TW": "rgb(76, 201, 240)", "zh-CN": "rgb(76, 201, 240)", "en": "rgb()" } },
+        { "value": "hsl", "label": { "zh-TW": "hsl(189, 84%, 62%)", "zh-CN": "hsl(189, 84%, 62%)", "en": "hsl()" } }
+      ] }
+  ]
+}

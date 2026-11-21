@@ -1,0 +1,70 @@
+body { display: flex; flex-direction: column; gap: 0.45rem; }
+body.size-s .grid { --cell: 30px; font-size: 16px; }
+body.size-m .grid { --cell: 38px; font-size: 21px; }
+body.size-l .grid { --cell: 48px; font-size: 27px; }
+
+.bar { display: flex; align-items: center; gap: 0.45rem; }
+.w-input { flex: 1; font-size: 0.8rem; padding: 0.3rem 0.55rem; }
+.count { font-size: 0.68rem; color: var(--w-fg-muted); font-variant-numeric: tabular-nums; }
+
+.cats { display: flex; gap: 0.25rem; overflow-x: auto; scrollbar-width: none; }
+.cats::-webkit-scrollbar { display: none; }
+.cats button {
+  flex: 0 0 auto;
+  border: 0;
+  font: inherit;
+  font-size: 0.72rem;
+  padding: 0.18rem 0.45rem;
+  border-radius: 999px;
+  color: var(--w-fg-muted);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cats button:hover { background: var(--w-hover); color: var(--w-fg); }
+.cats button[aria-selected="true"] { background: var(--w-control-bg); color: var(--w-fg); }
+
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--cell));
+  gap: 3px;
+  align-content: start;
+  justify-content: center;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  min-height: 0;
+}
+.grid button {
+  width: var(--cell);
+  height: var(--cell);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-size: inherit;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+}
+.grid button:hover { background: var(--w-control-bg); transform: translateY(-1px); }
+.grid button:active { transform: scale(0.92); }
+.empty { grid-column: 1 / -1; text-align: center; padding: 1rem 0; font-size: 0.76rem; color: var(--w-fg-muted); }
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 0.4rem;
+  transform: translateX(-50%) translateY(4px);
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: var(--w-bg-solid);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  font-size: 0.72rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s, transform 0.16s;
+  white-space: nowrap;
+}
+.toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
