@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:root, body {
+  --grid-line: color-mix(in srgb, var(--w-fg) 26%, transparent);
+  --trace: color-mix(in srgb, var(--w-fg) 34%, transparent);
+  --red: color-mix(in srgb, #d1495b 82%, var(--w-fg) 0%);
+}
+
+.bar { display: flex; align-items: center; gap: 0.4rem; }
+#text { flex: 1; min-width: 0; }
+
+.sheet {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  gap: 0.45rem;
+  align-content: start;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--w-fg-faint) transparent;
+}
+
+.cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--grid-line);
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--w-bg-solid) 92%, transparent);
+}
+
+/* 米字格: the cross plus both diagonals; 田字格: the cross; blank: just the frame. */
+.cell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  --cross-h: linear-gradient(to right, transparent calc(50% - 0.5px), var(--grid-line) calc(50% - 0.5px), var(--grid-line) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  --cross-v: linear-gradient(to bottom, transparent calc(50% - 0.5px), var(--grid-line) calc(50% - 0.5px), var(--grid-line) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  --diag-a: linear-gradient(45deg, transparent calc(50% - 0.5px), var(--grid-line) calc(50% - 0.5px), var(--grid-line) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  --diag-b: linear-gradient(-45deg, transparent calc(50% - 0.5px), var(--grid-line) calc(50% - 0.5px), var(--grid-line) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  opacity: 0.75;
+}
+
+.cell.grid-mi::before { background-image: var(--cross-h), var(--cross-v), var(--diag-a), var(--diag-b); }
+.cell.grid-tian::before { background-image: var(--cross-h), var(--cross-v); }
+.cell.grid-blank::before { background-image: none; }
+
+.cell svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 8%;
+  box-sizing: border-box;
+}
+
+.stroke { fill: var(--trace); }
+.stroke.first { fill: var(--red); }
+.glyph-font {
+  fill: var(--trace);
+  font-family: "KaiTi", "STKaiti", "Kaiti SC", "楷体", var(--w-font-title);
+}
+
+.foot { font-size: 0.68rem; color: var(--w-fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.foot.warn { color: var(--w-fg-faint); }
+
+html[data-theme="paper"] .cell { border-radius: 0; }
+html[data-theme="paper"] .cell::before { opacity: 0.6; }

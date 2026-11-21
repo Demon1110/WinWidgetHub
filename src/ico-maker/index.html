@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bar">
+    <button id="pick" class="w-btn is-primary" type="button">选图</button>
+    <span id="name" class="file w-label">还没有图</span>
+  </div>
+
+  <div class="stage" id="stage">
+    <img id="source" alt="" hidden>
+    <div class="empty" id="empty">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="5" width="16" height="14" rx="2" />
+        <path d="M7 15.5l3-4 2.6 2.7 2-2 2.4 3.3" />
+        <circle cx="15.6" cy="9.2" r="1.2" />
+      </svg>
+      <span id="hint">点上面选一张图</span>
+    </div>
+  </div>
+
+  <div class="sizes" id="sizes"></div>
+
+  <div class="foot">
+    <button id="make" class="w-btn is-primary" type="button" disabled>生成 .ico</button>
+    <span id="status" class="w-label"></span>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

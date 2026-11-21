@@ -3,7 +3,7 @@
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-21",
-  "count": 69,
+  "count": 72,
   "widgets": [
     {
       "id": "2048",
@@ -114,6 +114,25 @@
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/code-card"
     },
     {
+      "id": "copybook",
+      "name": "字帖",
+      "description": "打几个字就排成一张米字格字帖，笔顺按真笔画画出来，第一笔描红；断网时退回系统楷体",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/copybook/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "network:cdn.jsdelivr.net"
+      ],
+      "bytes": 5561,
+      "sha256": "44e986cfdaa38ab4d886526df0d8bccae4666de005049542457f6f00473d6e16",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/copybook-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/copybook"
+    },
+    {
       "id": "fake-data",
       "name": "假数据",
       "description": "姓名、身份证号、手机号、银行卡号一次生成，点一下就复制；号码按国标校验位算好，只在本地产生",
@@ -150,6 +169,44 @@
       "sha256": "efa8f9699b300f2257a3a14c55762ad9b8d67032dff418989431aec51156b75d",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/greeting-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/greeting"
+    },
+    {
+      "id": "guandan",
+      "name": "掼蛋",
+      "description": "一副牌两副叠着打，你和对家一队：单张、对子、顺子、炸弹，打完一局就升几级，级牌比 A 大",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "other",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/guandan/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [],
+      "bytes": 9448,
+      "sha256": "f367d042b883a6027155be72b8c5d7d69867d91b62115046aa3baa24ebc0e8d8",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/guandan-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/guandan"
+    },
+    {
+      "id": "ico-maker",
+      "name": "ICO 匠",
+      "description": "把一张图转成多尺寸 .ico：16 到 256 一次写完，每个尺寸都是原图重绘而不是缩放，全部在本机算",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "productivity",
+      "updated": "2026-11-21",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/ico-maker/icon.svg",
+      "preview": null,
+      "previews": [],
+      "permissions": [
+        "file.read",
+        "file.write",
+        "shell.launch"
+      ],
+      "bytes": 6965,
+      "sha256": "0a4aa50e55d7bd097aa5a0ca1e0987360d579aa9b17d5b5fa6400e68f82614ea",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/ico-maker-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ico-maker"
     },
     {
       "id": "json-edit",

@@ -1,0 +1,41 @@
+{
+  "id": "guandan",
+  "name": { "zh-TW": "掼蛋", "zh-CN": "掼蛋", "en": "Guandan" },
+  "description": {
+    "zh-TW": "一副牌兩副疊著打，你和對家一隊：單張、對子、順子、炸彈，打完一局就升幾級，級牌比 A 大",
+    "zh-CN": "一副牌两副叠着打，你和对家一队：单张、对子、顺子、炸弹，打完一局就升几级，级牌比 A 大",
+    "en": "Two decks, four seats, you and your partner on one team. Singles, pairs, straights, bombs; the level card outranks the aces"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "other",
+  "aliases": ["掼蛋", "guandan", "打牌"],
+  "size": { "width": 340, "height": 380, "minWidth": 300, "minHeight": 320, "maxWidth": 900, "maxHeight": 1000, "grow": 0.5 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "ai",
+      "type": "select",
+      "label": { "zh-TW": "電腦牌力", "zh-CN": "电脑牌力", "en": "Computer skill" },
+      "default": "normal",
+      "options": [
+        { "value": "easy", "label": { "zh-TW": "讓著你", "zh-CN": "让着你", "en": "Gentle" } },
+        { "value": "normal", "label": { "zh-TW": "正常", "zh-CN": "正常", "en": "Normal" } }
+      ]
+    },
+    {
+      "key": "restart",
+      "type": "toggle",
+      "label": { "zh-TW": "重開即從 2 打起", "zh-CN": "重开即从 2 打起", "en": "Start again at 2" },
+      "description": {
+        "zh-TW": "關掉就接著上次的級別打",
+        "zh-CN": "关掉就接着上次的级别打",
+        "en": "Off means it carries on from the level you left"
+      },
+      "default": false
+    }
+  ]
+}

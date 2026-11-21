@@ -1,0 +1,51 @@
+{
+  "id": "ico-maker",
+  "name": { "zh-TW": "ICO 匠", "zh-CN": "ICO 匠", "en": "ICO maker" },
+  "description": {
+    "zh-TW": "把一張圖轉成多尺寸 .ico：16 到 256 一次寫完，每個尺寸都是原圖重繪而不是縮放，全部在本機算",
+    "zh-CN": "把一张图转成多尺寸 .ico：16 到 256 一次写完，每个尺寸都是原图重绘而不是缩放，全部在本机算",
+    "en": "One picture into a multi-size .ico: 16 through 256 drawn from the original, never upscaled, all done locally"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": ["ico", "favicon", "图标生成", "icon"],
+  "size": { "width": 300, "height": 300, "minWidth": 260, "minHeight": 250, "maxWidth": 700, "maxHeight": 780, "grow": 0.5 },
+  "permissions": ["file.read", "file.write", "shell.launch"],
+  "settings": [
+    {
+      "key": "set",
+      "type": "select",
+      "label": { "zh-TW": "尺寸組", "zh-CN": "尺寸组", "en": "Size set" },
+      "description": {
+        "zh-TW": "ICO 裏放哪幾個尺寸；Windows 會依顯示場合自己挑最合適的一張",
+        "zh-CN": "ICO 里放哪几个尺寸；Windows 会按显示场合自己挑最合适的一张",
+        "en": "Which sizes go inside the .ico; Windows picks whichever fits the place it draws it"
+      },
+      "default": "all",
+      "options": [
+        { "value": "all", "label": { "zh-TW": "全部 16–256", "zh-CN": "全部 16–256", "en": "All 16–256" } },
+        { "value": "web", "label": { "zh-TW": "網站 16/32/48", "zh-CN": "网站 16/32/48", "en": "Web 16/32/48" } },
+        { "value": "desktop", "label": { "zh-TW": "桌面 32–256", "zh-CN": "桌面 32–256", "en": "Desktop 32–256" } },
+        { "value": "single", "label": { "zh-TW": "只 256", "zh-CN": "只 256", "en": "256 only" } }
+      ]
+    },
+    {
+      "key": "padding",
+      "type": "slider",
+      "label": { "zh-TW": "四周留白", "zh-CN": "四周留白", "en": "Padding" },
+      "description": {
+        "zh-TW": "每個尺寸留出的空白百分比，圓角圖示通常留 4–10%",
+        "zh-CN": "每个尺寸留出的空白百分比，圆角图标通常留 4–10%",
+        "en": "Blank margin as a percentage of each size; rounded icons usually want 4–10%"
+      },
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 6
+    }
+  ]
+}

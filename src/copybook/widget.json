@@ -1,0 +1,57 @@
+{
+  "id": "copybook",
+  "name": { "zh-TW": "字帖", "zh-CN": "字帖", "en": "Copybook" },
+  "description": {
+    "zh-TW": "打幾個字就排成一張米字格字帖，筆順按真筆畫畫出來，第一筆描紅；斷網時退回系統楷體",
+    "zh-CN": "打几个字就排成一张米字格字帖，笔顺按真笔画画出来，第一笔描红；断网时退回系统楷体",
+    "en": "Type a few characters and get a copybook sheet: real stroke paths on a mi-grid, first stroke in red, system Kai font when offline"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-21",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "productivity",
+  "aliases": ["字帖", "练字", "copybook", "hanzi"],
+  "size": { "width": 340, "height": 330, "minWidth": 260, "minHeight": 260, "maxWidth": 760, "maxHeight": 800, "grow": 0.5 },
+  "permissions": ["network:cdn.jsdelivr.net"],
+  "settings": [
+    {
+      "key": "grid",
+      "type": "select",
+      "label": { "zh-TW": "格線", "zh-CN": "格线", "en": "Grid" },
+      "description": {
+        "zh-TW": "米字格練結構，田字格看重心，空白只留邊框",
+        "zh-CN": "米字格练结构，田字格看重心，空白只留边框",
+        "en": "Mi-grid for structure, tian-grid for balance, blank for the frame alone"
+      },
+      "default": "mi",
+      "options": [
+        { "value": "mi", "label": { "zh-TW": "米字格", "zh-CN": "米字格", "en": "Mi-grid" } },
+        { "value": "tian", "label": { "zh-TW": "田字格", "zh-CN": "田字格", "en": "Tian-grid" } },
+        { "value": "blank", "label": { "zh-TW": "空白", "zh-CN": "空白", "en": "Blank" } }
+      ]
+    },
+    {
+      "key": "cols",
+      "type": "select",
+      "label": { "zh-TW": "每排字數", "zh-CN": "每排字数", "en": "Per row" },
+      "default": "2",
+      "options": [
+        { "value": "2", "label": { "zh-TW": "2 字", "zh-CN": "2 字", "en": "2" } },
+        { "value": "3", "label": { "zh-TW": "3 字", "zh-CN": "3 字", "en": "3" } }
+      ]
+    },
+    {
+      "key": "first",
+      "type": "toggle",
+      "label": { "zh-TW": "首筆描紅", "zh-CN": "首笔描红", "en": "First stroke in red" },
+      "description": {
+        "zh-TW": "第一筆換成紅色，其餘留在淡灰，方便照著寫",
+        "zh-CN": "第一笔换成红色，其余留在淡灰，方便照着写",
+        "en": "Paint the first stroke red and leave the rest faint, so it can be traced"
+      },
+      "default": true
+    }
+  ]
+}

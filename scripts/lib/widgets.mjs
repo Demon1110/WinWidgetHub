@@ -22,6 +22,8 @@ export const KNOWN_PERMISSIONS = [
   "shell.launch",
   "shell.drop",
   "tool.exec",
+  "file.read",
+  "file.write",
 ];
 
 /** 客户端会把不认识的分类归到 other，这里只允许它认识的六个加上 other。 */
