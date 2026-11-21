@@ -3,7 +3,7 @@
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
   "updated": "2026-11-21",
-  "count": 72,
+  "count": 73,
   "widgets": [
     {
       "id": "2048",
@@ -401,6 +401,35 @@
       "sha256": "2befb8b63351e95e1d71fe25df713b9f4dbcada8f0db431cd64645cb70741cd9",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/batch-rename-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/batch-rename"
+    },
+    {
+      "id": "bloom",
+      "name": "玩出花",
+      "description": "让屏幕开出赛博时代的浪漫：39 款全屏特效，穿透执行，工作解压两不误。",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "media",
+      "updated": "2026-11-19",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/bloom/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/{theme}.{lang}.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/instrument.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/instrument.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/instrument.zh-TW.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/paper.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/paper.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/paper.zh-TW.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/type.en.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/type.zh-CN.webp",
+        "https://demon1110.github.io/WinWidgetHub/src/bloom/preview/type.zh-TW.webp"
+      ],
+      "permissions": [
+        "screen"
+      ],
+      "bytes": 588592,
+      "sha256": "0cd404bb1f2b2381bfcef4952015edd8b63f69d8e1fc2bc01d71dccbfe1ec1bb",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/bloom-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/bloom"
     },
     {
       "id": "bluetooth",
