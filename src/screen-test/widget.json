@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "system",
-  "aliases": ["坏点", "测屏", "色彩测试"],
+  "aliases": [],
   "size": { "width": 300, "height": 280, "minWidth": 220, "minHeight": 210, "maxWidth": 900, "maxHeight": 900, "grow": 0.7 },
   "permissions": [],
   "settings": [

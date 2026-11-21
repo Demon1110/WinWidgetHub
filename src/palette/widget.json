@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "productivity",
-  "aliases": ["取色", "配色", "色值"],
+  "aliases": [],
   "size": { "width": 300, "height": 300, "minWidth": 220, "minHeight": 230, "maxWidth": 640, "maxHeight": 640, "grow": 0.5 },
   "permissions": ["clipboard", "screen"],
   "settings": [

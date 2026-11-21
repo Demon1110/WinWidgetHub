@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "other",
-  "aliases": ["掼蛋", "guandan", "打牌"],
+  "aliases": [],
   "size": { "width": 340, "height": 380, "minWidth": 300, "minHeight": 320, "maxWidth": 900, "maxHeight": 1000, "grow": 0.5 },
   "permissions": [],
   "settings": [

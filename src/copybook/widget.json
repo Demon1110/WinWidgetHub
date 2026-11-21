@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "productivity",
-  "aliases": ["字帖", "练字", "copybook", "hanzi"],
+  "aliases": ["hanzi"],
   "size": { "width": 340, "height": 330, "minWidth": 260, "minHeight": 260, "maxWidth": 760, "maxHeight": 800, "grow": 0.5 },
   "permissions": ["network:cdn.jsdelivr.net"],
   "settings": [

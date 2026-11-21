@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "time",
-  "aliases": ["下班", "倒计时", "工时"],
+  "aliases": [],
   "size": { "width": 260, "height": 185, "minWidth": 200, "minHeight": 150, "maxWidth": 560, "maxHeight": 560, "grow": 0.5 },
   "permissions": [],
   "settings": [

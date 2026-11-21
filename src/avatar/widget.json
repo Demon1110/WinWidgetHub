@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "media",
-  "aliases": ["头像", "捏脸", "表情"],
+  "aliases": [],
   "size": { "width": 250, "height": 300, "minWidth": 190, "minHeight": 240, "maxWidth": 560, "maxHeight": 640, "grow": 0.5 },
   "permissions": ["clipboard"],
   "settings": [

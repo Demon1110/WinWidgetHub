@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "productivity",
-  "aliases": ["ico", "favicon", "图标生成", "icon"],
+  "aliases": ["ico", "favicon", "icon"],
   "size": { "width": 300, "height": 300, "minWidth": 260, "minHeight": 250, "maxWidth": 700, "maxHeight": 780, "grow": 0.5 },
   "permissions": ["file.read", "file.write", "shell.launch"],
   "settings": [

@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "time",
-  "aliases": ["节假日", "调休", "工作日"],
+  "aliases": [],
   "size": { "width": 320, "height": 300, "minWidth": 240, "minHeight": 220, "maxWidth": 700, "maxHeight": 700, "grow": 0.6 },
   "permissions": ["clipboard", "network:raw.githubusercontent.com"],
   "settings": [

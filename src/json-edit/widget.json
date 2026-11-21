@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "productivity",
-  "aliases": ["json", "格式化", "压缩"],
+  "aliases": ["json"],
   "size": { "width": 330, "height": 320, "minWidth": 240, "minHeight": 220, "maxWidth": 720, "maxHeight": 720, "grow": 0.6 },
   "permissions": ["clipboard"],
   "settings": [

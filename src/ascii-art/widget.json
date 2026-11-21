@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "other",
-  "aliases": ["ascii", "字符画", "艺术字"],
+  "aliases": ["ascii"],
   "size": { "width": 340, "height": 280, "minWidth": 250, "minHeight": 210, "maxWidth": 760, "maxHeight": 640, "grow": 0.6 },
   "permissions": ["clipboard"],
   "settings": [

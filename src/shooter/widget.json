@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "other",
-  "aliases": ["射击", "小游戏", "打飞机"],
+  "aliases": [],
   "size": { "width": 280, "height": 320, "minWidth": 220, "minHeight": 260, "maxWidth": 640, "maxHeight": 720, "grow": 0.6 },
   "permissions": [],
   "settings": []

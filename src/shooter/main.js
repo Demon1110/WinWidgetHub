@@ -32,7 +32,7 @@ function fit() {
   cv.style.height = `${side}px`;
 }
 
-function start() {
+function start(wait = true) {
   fit();
   state = {
     ship: { x: 0.5, w: 0.14 },
@@ -43,6 +43,9 @@ function start() {
     t: 0,
     gap: 0.34,
     dead: false,
+    // A desktop card is looked at before it is played: hold the first enemy back until the
+    // player does something, or the ship is shot to pieces while nobody is watching.
+    waiting: wait,
     keys: { left: false, right: false },
   };
   scoreEl.textContent = "0";
@@ -51,10 +54,26 @@ function start() {
   last = 0;
   cancelAnimationFrame(rafId);
   rafId = requestAnimationFrame(frame);
+  hintEl.textContent = wait
+    ? t({ "zh-TW": "按空白鍵或點一下開始", "zh-CN": "按空格或点一下开始", en: "Press space or tap to start" })
+    : playHint;
+}
+
+function wake() {
+  if (!state || !state.waiting) return;
+  state.waiting = false;
+  last = 0;
+  hintEl.textContent = playHint;
 }
 
 function frame(ts) {
   if (!state || state.dead) return;
+  if (state.waiting) {
+    draw();
+    last = 0;
+    rafId = requestAnimationFrame(frame);
+    return;
+  }
   const dt = last ? Math.min(34, ts - last) : 16;
   last = ts;
   const s = state;
@@ -72,7 +91,9 @@ function frame(ts) {
   for (const b of s.bullets) b.y -= dt * 0.0011;
   s.bullets = s.bullets.filter((b) => b.y > -0.05);
 
-  for (const f of s.foes) f.y += f.v * dt * 8;
+  // Speed is per millisecond, so one crossing takes about three seconds — the earlier ×8 made
+  // an enemy fall the whole field in 0.4 s, which nobody can answer.
+  for (const f of s.foes) f.y += f.v * dt;
   s.foes = s.foes.filter((f) => {
     for (const b of s.bullets) {
       if (Math.abs(b.x - f.x) < f.r && Math.abs(b.y - f.y) < f.r) {
@@ -157,6 +178,7 @@ function shoot() {
 
 document.addEventListener("keydown", (e) => {
   if (!state) return;
+  wake();
   if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") state.keys.left = true;
   else if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") state.keys.right = true;
   else if (e.key === " " || e.key === "ArrowUp") {
@@ -172,6 +194,7 @@ document.addEventListener("keyup", (e) => {
 
 stageEl.addEventListener("pointerdown", (e) => {
   if (!state || state.dead) return;
+  wake();
   const rect = cv.getBoundingClientRect();
   state.ship.x = Math.min(1 - state.ship.w / 2, Math.max(state.ship.w / 2, (e.clientX - rect.left) / rect.width));
   shoot();
@@ -182,9 +205,9 @@ stageEl.addEventListener("pointermove", (e) => {
   state.ship.x = Math.min(1 - state.ship.w / 2, Math.max(state.ship.w / 2, (e.clientX - rect.left) / rect.width));
 });
 
-document.getElementById("again").onclick = start;
+const playHint = t({ "zh-TW": "← → 移動，空格或點擊開火", "zh-CN": "← → 移动，空格或点击开火", en: "Move with arrows, fire with space or a tap" });
+document.getElementById("again").onclick = () => start(false);
 document.getElementById("again").textContent = t({ "zh-TW": "再來一次", "zh-CN": "再来一次", en: "Again" });
-hintEl.textContent = t({ "zh-TW": "← → 移動，空格或點擊開火", "zh-CN": "← → 移动，空格或点击开火", en: "Move with arrows, fire with space or a tap" });
 
 widget.on("resize", () => requestAnimationFrame(() => {
   fit();

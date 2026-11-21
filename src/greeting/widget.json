@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "productivity",
-  "aliases": ["问候", "祝福语", "开场白"],
+  "aliases": [],
   "size": { "width": 300, "height": 250, "minWidth": 230, "minHeight": 190, "maxWidth": 620, "maxHeight": 620, "grow": 0.5 },
   "permissions": ["clipboard"],
   "settings": [

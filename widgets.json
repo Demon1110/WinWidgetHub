@@ -34,8 +34,8 @@
       "preview": null,
       "previews": [],
       "permissions": [],
-      "bytes": 6722,
-      "sha256": "82a7336b71b5116c8c3670ae4f1dc3b3045275dca7fe59bb9b2f94003e842521",
+      "bytes": 7153,
+      "sha256": "9aed305e23906835335885e49a86a29c4ac67f14ed3c1e98432da42179c62a20",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/arcade-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/arcade"
     },
@@ -53,8 +53,8 @@
       "permissions": [
         "clipboard"
       ],
-      "bytes": 4358,
-      "sha256": "2f9263331abc079aa56f48a371a93bc11b84d440d7fffd08f52a10f6a0760dfd",
+      "bytes": 4346,
+      "sha256": "5e44ee7319637047656d428e7139cba4cb5fa16e66e4ce1807b32f052810552e",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/ascii-art-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ascii-art"
     },
@@ -72,8 +72,8 @@
       "permissions": [
         "clipboard"
       ],
-      "bytes": 6707,
-      "sha256": "d42f9e93aa30c1c884fa6b3253adabe70f2f49520444e50f4217d7889e014b41",
+      "bytes": 6695,
+      "sha256": "403194daa2997ca65bbeb3cf3305b4f6c064be1e9665e8544cb3c4979585e4f8",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/avatar-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/avatar"
     },
@@ -89,8 +89,8 @@
       "preview": null,
       "previews": [],
       "permissions": [],
-      "bytes": 4524,
-      "sha256": "75fe1d96d78fc088e7fdd107986e3a3d133bedaf2bd72ca042345a6559fbdf65",
+      "bytes": 4505,
+      "sha256": "d7d26918839b0a17f16bf287a0678bcb439d461a7ecfe62e4e166aa8966b4d58",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/benchmark-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/benchmark"
     },
@@ -108,8 +108,8 @@
       "permissions": [
         "clipboard"
       ],
-      "bytes": 5131,
-      "sha256": "26fcb7b769b04876b976deefe6a95ebfc2e1f29eb35ed60a1a47fc8896c7f5a4",
+      "bytes": 5110,
+      "sha256": "31fdfa21db45fd4a645f8f56c11146088cc00d3853903eb30db8da0e80749ff1",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/code-card-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/code-card"
     },
@@ -127,8 +127,8 @@
       "permissions": [
         "network:cdn.jsdelivr.net"
       ],
-      "bytes": 5561,
-      "sha256": "44e986cfdaa38ab4d886526df0d8bccae4666de005049542457f6f00473d6e16",
+      "bytes": 5551,
+      "sha256": "132be5fa97307536445bd701978a49198399564b7d22182bbad825991e31449b",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/copybook-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/copybook"
     },
@@ -165,8 +165,8 @@
       "permissions": [
         "clipboard"
       ],
-      "bytes": 6029,
-      "sha256": "efa8f9699b300f2257a3a14c55762ad9b8d67032dff418989431aec51156b75d",
+      "bytes": 6010,
+      "sha256": "9fd28058cc8fb151c324af7432ab560c1b5449e9e0eee5bc1f3e2be17522496f",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/greeting-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/greeting"
     },
@@ -182,8 +182,8 @@
       "preview": null,
       "previews": [],
       "permissions": [],
-      "bytes": 9448,
-      "sha256": "f367d042b883a6027155be72b8c5d7d69867d91b62115046aa3baa24ebc0e8d8",
+      "bytes": 9434,
+      "sha256": "582dc288c737a48c088e5c9964dac1046655ffe5a27ade3854c5b2b00b85461d",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/guandan-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/guandan"
     },
@@ -203,8 +203,8 @@
         "file.write",
         "shell.launch"
       ],
-      "bytes": 6965,
-      "sha256": "0a4aa50e55d7bd097aa5a0ca1e0987360d579aa9b17d5b5fa6400e68f82614ea",
+      "bytes": 6953,
+      "sha256": "7e09ae4bccb880e01a2f24f8650e0033e2e6e6727356af945ee2a3b567356f16",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/ico-maker-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ico-maker"
     },
@@ -222,8 +222,8 @@
       "permissions": [
         "clipboard"
       ],
-      "bytes": 4401,
-      "sha256": "19a96cc65d6233ce6cec554d2dcdb163f50a7c76259a64bbd25ac877c5679c39",
+      "bytes": 4388,
+      "sha256": "0cdec61733cd63f6f51911a55831af018361012e46ada8871e4eb21b4c6f67a0",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/json-edit-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/json-edit"
     },
@@ -239,8 +239,8 @@
       "preview": null,
       "previews": [],
       "permissions": [],
-      "bytes": 3257,
-      "sha256": "3d89f4203958741f7c040867471dea8fd95a9b1a3d5b47fc7a4f9ef5c4fe2de4",
+      "bytes": 3235,
+      "sha256": "36d03fb071c3b3923e9c2b3f820af325948fa2eab2d04fcffe1e9a7cdb93668e",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/offwork"
     },
@@ -259,8 +259,8 @@
         "clipboard",
         "screen"
       ],
-      "bytes": 4783,
-      "sha256": "5cc5635e1f30b6df2fb5907b6c128c3046f550e1e0311aef1caf22b9c89d6d66",
+      "bytes": 4771,
+      "sha256": "b1215cbfe3a30f14545719ba69b484fe72444c288836bb84775446d699702f9d",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/palette-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/palette"
     },
@@ -276,8 +276,8 @@
       "preview": null,
       "previews": [],
       "permissions": [],
-      "bytes": 4260,
-      "sha256": "d1453c2dce2f8a54dc2c9b3ca16d1fe36c1f89f270b72e2460be053c183303d8",
+      "bytes": 4230,
+      "sha256": "ca71f68527f65db59d3067b363bb912f6f72913d44bdee5d2b61f4c39268d5ce",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/screen-test-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/screen-test"
     },
@@ -293,8 +293,8 @@
       "preview": null,
       "previews": [],
       "permissions": [],
-      "bytes": 4188,
-      "sha256": "ec78ee49e28076e2192e58bb48aa8a842976ad12f0e8f4d41b9a8fad4c613174",
+      "bytes": 4529,
+      "sha256": "61d33e4ae06d63980cf73387ee575005151a0734737e43dc865e3387339f0763",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/shooter-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/shooter"
     },
@@ -313,8 +313,8 @@
         "clipboard",
         "network:raw.githubusercontent.com"
       ],
-      "bytes": 4671,
-      "sha256": "7579216accbc8740e3b1f340c72bc0d0927bdfcc2842a0aeaf23c5b93176f020",
+      "bytes": 4655,
+      "sha256": "bbc740428d213f5dc8d31a6da8233f8dfda317d0dcb0d65973a6c658b32528d7",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/worktime-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/worktime"
     },

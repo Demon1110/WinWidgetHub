@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "media",
-  "aliases": ["代码图片", "carbon", "分享图"],
+  "aliases": ["carbon"],
   "size": { "width": 330, "height": 320, "minWidth": 240, "minHeight": 230, "maxWidth": 760, "maxHeight": 760, "grow": 0.6 },
   "permissions": ["clipboard"],
   "settings": [

@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "other",
-  "aliases": ["反应测试", "记忆测试", "手速"],
+  "aliases": [],
   "size": { "width": 300, "height": 300, "minWidth": 220, "minHeight": 230, "maxWidth": 640, "maxHeight": 640, "grow": 0.5 },
   "permissions": [],
   "settings": []

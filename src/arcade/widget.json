@@ -12,7 +12,7 @@
   "entry": "index.html",
   "icon": "icon.svg",
   "category": "other",
-  "aliases": ["小游戏", "贪吃蛇", "扫雷", "打砖块"],
+  "aliases": [],
   "size": { "width": 300, "height": 330, "minWidth": 230, "minHeight": 260, "maxWidth": 720, "maxHeight": 720, "grow": 0.6 },
   "permissions": [],
   "settings": []

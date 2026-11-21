@@ -65,6 +65,12 @@ let want;
 let food;
 let snakeDead;
 let snakeLoop = 130;
+// A card is opened to look at, not always to play: the snake waits for the first arrow key,
+// otherwise it runs straight into the wall while nobody is watching.
+let snakeWaiting = true;
+
+const SNAKE_HINT = t({ "zh-TW": "方向鍵或 WASD，吃一個加十分", "zh-CN": "方向键或 WASD，吃一个加十分", en: "Arrow keys or WASD; each bite is ten points" });
+const SNAKE_START_HINT = t({ "zh-TW": "按方向鍵開始", "zh-CN": "按方向键开始", en: "Press an arrow key to start" });
 
 function placeFood() {
   const free = [];
@@ -86,7 +92,8 @@ function snakeStart() {
   scoreEl.textContent = "0";
   hideOver();
   snakeDraw();
-  timer = setInterval(snakeTick, snakeLoop);
+  snakeWaiting = true;
+  hintEl.textContent = SNAKE_START_HINT;
 }
 
 function snakeTick() {
@@ -154,6 +161,8 @@ function snakeDraw() {
 
 // ── 打砖块 ────────────────────────────────────────────────────────────
 const BR = { cols: 7, rows: 4, padW: 0.24, ballR: 0.028 };
+const BREAKOUT_HINT = t({ "zh-TW": "左右拖動或方向鍵接球", "zh-CN": "左右拖动或方向键接球", en: "Drag or use arrow keys to catch" });
+const BREAKOUT_START_HINT = t({ "zh-TW": "動一下滑鼠開始", "zh-CN": "动一下鼠标开始", en: "Move the mouse to start" });
 let br;
 
 function breakoutStart() {
@@ -164,6 +173,8 @@ function breakoutStart() {
     left: 0,
     bricks: [],
     paused: false,
+    // Still until the pointer moves, so the card shows the board instead of losing the ball.
+    waiting: true,
   };
   for (let r = 0; r < BR.rows; r += 1) {
     for (let c = 0; c < BR.cols; c += 1) br.bricks.push({ c, r, alive: true, hp: r === 0 ? 2 : 1 });
@@ -172,11 +183,13 @@ function breakoutStart() {
   hideOver();
   lastTs = 0;
   cancelAnimationFrame(rafId);
-  rafId = requestAnimationFrame(breakoutFrame);
+  breakoutDraw();
+  hintEl.textContent = BREAKOUT_START_HINT;
 }
 
 function breakoutFrame(ts) {
   if (game !== "breakout") return;
+  if (br.waiting) return;
   const dt = lastTs ? Math.min(32, ts - lastTs) : 16;
   lastTs = ts;
   const W = side;
@@ -402,17 +415,35 @@ document.addEventListener("keydown", (e) => {
   if (!vec) return;
   e.preventDefault();
   if (game === "snake") {
+    if (snakeWaiting) {
+      snakeWaiting = false;
+      hintEl.textContent = SNAKE_HINT;
+      clearInterval(timer);
+      timer = setInterval(snakeTick, snakeLoop);
+    }
     if (want.length < 3) want.push(vec);
   } else if (game === "breakout") {
+    breakoutWake();
     br.paddle = Math.min(1, Math.max(0, br.paddle + (vec.x ? vec.x * 0.09 : 0)));
   }
 });
 
 stageEl.addEventListener("pointermove", (e) => {
   if (game !== "breakout" || !br) return;
+  breakoutWake();
   const rect = stageEl.getBoundingClientRect();
   br.paddle = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
 });
+
+/** Starts the ball once someone touches the card; before that it hangs still under the bricks. */
+function breakoutWake() {
+  if (!br || !br.waiting) return;
+  br.waiting = false;
+  lastTs = 0;
+  hintEl.textContent = BREAKOUT_HINT;
+  cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(breakoutFrame);
+}
 
 document.getElementById("over-again").onclick = () => setGame(game);
 for (const tab of document.querySelectorAll(".tab")) {

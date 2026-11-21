@@ -253,6 +253,26 @@ export function discover(root) {
     if (typeof manifest.version !== "string" || !VERSION_RE.test(manifest.version.trim())) {
       errors.push(`「${id}」的 version 要写成 1.0.0 这样的三段数字`);
     }
+    // aliases 是给客户端做迁移用的「旧 id」：它会变成数据库和卡片的命名空间，所以必须是合法的
+    // 小写 id，不能等于自己的 id，也不能两个别名撞成同一个名字。中文关键词不能放这里。
+    const aliases = Array.isArray(manifest.aliases) ? manifest.aliases : [];
+    const seenAlias = new Set();
+    for (const alias of aliases) {
+      const value = typeof alias === "string" ? alias.trim() : "";
+      if (!value) {
+        errors.push(`「${id}」的 aliases 里有空项，删掉它`);
+        continue;
+      }
+      if (!ID_RE.test(value)) {
+        errors.push(`「${id}」的别名「${value}」不合规则：别名是旧组件的 id，只能用小写字母、数字、点、横线和下划线`);
+      } else if (value.toLowerCase() === id.toLowerCase()) {
+        errors.push(`「${id}」的别名不能和自己的 id 相同，直接删掉这一项`);
+      }
+      if (!seenAlias.add(value.toLowerCase())) {
+        errors.push(`「${id}」有两个别名都叫「${value}」`);
+      }
+    }
+
     const name0 = pickText(manifest.name);
     if (!name0) problems.push(`「${id}」缺少 name`);
 
