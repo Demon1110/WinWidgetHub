@@ -84,10 +84,7 @@ function paintSizes() {
     const canvas = squareCanvas(size, state.image);
     const cell = document.createElement("div");
     cell.className = "cell";
-    // A 16 px tile is barely visible, so small sizes are shown at 2× with crisp pixels.
-    const zoom = size <= 32 ? 2 : 1;
-    canvas.style.width = `${size * zoom}px`;
-    canvas.style.height = `${size * zoom}px`;
+    cell.title = `${size}×${size}`;
     const label = document.createElement("span");
     label.textContent = String(size);
     cell.append(canvas, label);

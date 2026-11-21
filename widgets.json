@@ -14,11 +14,13 @@
       "category": "other",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/2048/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/2048/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/2048/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 6274,
-      "sha256": "bf6bafb20c59b35df6c184092e8a3523f5fb9e709258c622b9b332b4c05b1053",
+      "bytes": 12653,
+      "sha256": "83b17c0f9f3cad97828acbd61a3375c9d4cf79c0085df60acc299650818337d4",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/2048-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/2048"
     },
@@ -31,11 +33,13 @@
       "category": "other",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/arcade/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/arcade/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/arcade/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 7153,
-      "sha256": "9aed305e23906835335885e49a86a29c4ac67f14ed3c1e98432da42179c62a20",
+      "bytes": 14683,
+      "sha256": "35c7b0e4d864e7ca96773355c0f032e426ce77913d29f734417385d2e8f40854",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/arcade-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/arcade"
     },
@@ -48,13 +52,15 @@
       "category": "other",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/ascii-art/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/ascii-art/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/ascii-art/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard"
       ],
-      "bytes": 4346,
-      "sha256": "5e44ee7319637047656d428e7139cba4cb5fa16e66e4ce1807b32f052810552e",
+      "bytes": 19635,
+      "sha256": "6415d80d544c13cb319fbbad0102e260d8ed1cad0b9d01f9d558078ea299a149",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/ascii-art-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ascii-art"
     },
@@ -67,13 +73,15 @@
       "category": "media",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/avatar/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/avatar/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/avatar/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard"
       ],
-      "bytes": 6695,
-      "sha256": "403194daa2997ca65bbeb3cf3305b4f6c064be1e9665e8544cb3c4979585e4f8",
+      "bytes": 16796,
+      "sha256": "739b2d0367251867c6bea89033e660bccdf44eae693705d1ddfd869e14e81c38",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/avatar-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/avatar"
     },
@@ -86,11 +94,13 @@
       "category": "other",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/benchmark/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/benchmark/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/benchmark/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 4505,
-      "sha256": "d7d26918839b0a17f16bf287a0678bcb439d461a7ecfe62e4e166aa8966b4d58",
+      "bytes": 14881,
+      "sha256": "d1b6eaf45a3129f91baf539cf477072694801f35e2e08f5061220f466cfe7705",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/benchmark-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/benchmark"
     },
@@ -103,13 +113,15 @@
       "category": "media",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/code-card/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/code-card/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/code-card/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard"
       ],
-      "bytes": 5110,
-      "sha256": "31fdfa21db45fd4a645f8f56c11146088cc00d3853903eb30db8da0e80749ff1",
+      "bytes": 32254,
+      "sha256": "a4bab2d36bac843ba8a659f7882cf0be0488e39807be87d3ee99a987bbd65f8d",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/code-card-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/code-card"
     },
@@ -122,13 +134,15 @@
       "category": "productivity",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/copybook/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/copybook/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/copybook/preview/preview.webp"
+      ],
       "permissions": [
         "network:cdn.jsdelivr.net"
       ],
-      "bytes": 5551,
-      "sha256": "132be5fa97307536445bd701978a49198399564b7d22182bbad825991e31449b",
+      "bytes": 15197,
+      "sha256": "7cd0cc7b08ecfa6f7ca61e5dc42e19b8655951d408f43ff10f44bbe5377a83df",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/copybook-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/copybook"
     },
@@ -141,13 +155,15 @@
       "category": "productivity",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/fake-data/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/fake-data/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/fake-data/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard"
       ],
-      "bytes": 5440,
-      "sha256": "bc387c54a1f9b93bad465c72d69f7d85669e66211dfb2968398186094c01fa82",
+      "bytes": 22053,
+      "sha256": "1c22816583a50fe3531d09e84d00b1f8aa19538efc981e5e3e2022a10b102d3d",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/fake-data-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/fake-data"
     },
@@ -160,13 +176,15 @@
       "category": "productivity",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/greeting/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/greeting/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/greeting/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard"
       ],
-      "bytes": 6010,
-      "sha256": "9fd28058cc8fb151c324af7432ab560c1b5449e9e0eee5bc1f3e2be17522496f",
+      "bytes": 30981,
+      "sha256": "ae15b8be10d69e0201baf3fa2b3f15b4de65abce9ef5bb6d07f4721abc070306",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/greeting-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/greeting"
     },
@@ -179,11 +197,13 @@
       "category": "other",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/guandan/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/guandan/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/guandan/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 9434,
-      "sha256": "582dc288c737a48c088e5c9964dac1046655ffe5a27ade3854c5b2b00b85461d",
+      "bytes": 24384,
+      "sha256": "20016c9ed61d8d22b3519d695593ea7367682e323468556a7596458ab0ec87b2",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/guandan-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/guandan"
     },
@@ -196,15 +216,17 @@
       "category": "productivity",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/ico-maker/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/ico-maker/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/ico-maker/preview/preview.webp"
+      ],
       "permissions": [
         "file.read",
         "file.write",
         "shell.launch"
       ],
-      "bytes": 6953,
-      "sha256": "7e09ae4bccb880e01a2f24f8650e0033e2e6e6727356af945ee2a3b567356f16",
+      "bytes": 26702,
+      "sha256": "a463c0a43587a5968388704df279f3d305a980535a788acda50d4bf623f14e27",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/ico-maker-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/ico-maker"
     },
@@ -217,13 +239,15 @@
       "category": "productivity",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/json-edit/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/json-edit/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/json-edit/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard"
       ],
-      "bytes": 4388,
-      "sha256": "0cdec61733cd63f6f51911a55831af018361012e46ada8871e4eb21b4c6f67a0",
+      "bytes": 26503,
+      "sha256": "f96618e075f3a38e34659d59cc5cad975499b103320889c64fa73ccc017a060f",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/json-edit-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/json-edit"
     },
@@ -236,11 +260,13 @@
       "category": "time",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/offwork/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/offwork/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/offwork/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 3235,
-      "sha256": "36d03fb071c3b3923e9c2b3f820af325948fa2eab2d04fcffe1e9a7cdb93668e",
+      "bytes": 8711,
+      "sha256": "308809774949b566a62854766c40f8a26ecaefac4d943acf8fd11df2addef516",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/offwork-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/offwork"
     },
@@ -253,14 +279,16 @@
       "category": "productivity",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/palette/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/palette/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/palette/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard",
         "screen"
       ],
-      "bytes": 4771,
-      "sha256": "b1215cbfe3a30f14545719ba69b484fe72444c288836bb84775446d699702f9d",
+      "bytes": 15800,
+      "sha256": "102c5b795a9e46b69fce5ab8cc27a1490268cc6d1f39fe496c8ee41e88eb55fc",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/palette-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/palette"
     },
@@ -273,11 +301,13 @@
       "category": "system",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/screen-test/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/screen-test/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/screen-test/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 4230,
-      "sha256": "ca71f68527f65db59d3067b363bb912f6f72913d44bdee5d2b61f4c39268d5ce",
+      "bytes": 12492,
+      "sha256": "f0aa8bb2d868cdacf3867f7efee9fbd1c5ee0e299f659087bc90cc0e9bc5ece7",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/screen-test-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/screen-test"
     },
@@ -290,11 +320,13 @@
       "category": "other",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/shooter/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/shooter/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/shooter/preview/preview.webp"
+      ],
       "permissions": [],
-      "bytes": 4529,
-      "sha256": "61d33e4ae06d63980cf73387ee575005151a0734737e43dc865e3387339f0763",
+      "bytes": 9431,
+      "sha256": "8ac4dbc17c10ec1f7e334bb1e6cfef52a525826aac43fb67b9ab5641ac2906e3",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/shooter-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/shooter"
     },
@@ -307,14 +339,16 @@
       "category": "time",
       "updated": "2026-11-21",
       "icon": "https://demon1110.github.io/WinWidgetHub/src/worktime/icon.svg",
-      "preview": null,
-      "previews": [],
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/worktime/preview/preview.webp",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/worktime/preview/preview.webp"
+      ],
       "permissions": [
         "clipboard",
         "network:raw.githubusercontent.com"
       ],
-      "bytes": 4655,
-      "sha256": "bbc740428d213f5dc8d31a6da8233f8dfda317d0dcb0d65973a6c658b32528d7",
+      "bytes": 17725,
+      "sha256": "13c27154bba3f9a156e14c95f6b47a31469fff6660fb13189847dec3dc16777e",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/worktime-1.0.0.fwz",
       "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/worktime"
     },
