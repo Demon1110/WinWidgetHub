@@ -37,7 +37,6 @@ const el = {
 let reminders = [];
 let floatVisible = false;
 let floatWinId = null;
-const alertWins = new Map();
 let busy = false;
 
 const pad = widget.util.pad;
@@ -341,76 +340,56 @@ async function addReminder(ev) {
 }
 
 // ── 到点提醒 ───────────────────────────────────────────────────────
+// 弹框交给宿主画：主题变量、圆角、高度跟着内容、Esc 关闭都是 dialog 的事，
+// 这里只管文案、落点，以及「完成」之后的状态。
 const ALERT_WIDTH = 380;
-const ALERT_HEIGHT = 300;
-const ALERT_MIN_WIDTH = 200;
-const ALERT_MIN_HEIGHT = 300;
-const ALERT_MAX_WIDTH = 560;
-const ALERT_MAX_HEIGHT = 820;
+const ALERT_SLOT = 168; // 弹框高度随内容变，叠放时按固定槽位往下排
+const alertWins = new Set();
 
-async function closeAlert(id) {
-  const winId = alertWins.get(id);
-  if (winId === undefined) return;
-  alertWins.delete(id);
-  await widget.call("win.destroy", { win: winId }).catch(() => {});
+function alertContent(doc) {
+  const note = String(doc.note || "").trim();
+  const when = fmtTime(Number(doc.dueAt) || Date.now());
+  const repeat = doc.repeat && doc.repeat !== "none" ? ` · ${repeatLabel(doc.repeat)}` : "";
+  return (note ? `${note}\n\n` : "") + when + repeat;
 }
 
 async function showReminderAlert(doc, code) {
   if (alertWins.has(doc._id)) return;
   const display = await primaryDisplay();
   const area = (display && (display.workArea || display.bounds)) || null;
-  const offset = alertWins.size * (ALERT_HEIGHT + 12);
+  const offset = alertWins.size * (ALERT_SLOT + 12);
   const x = area ? Math.round(area.x + area.width - ALERT_WIDTH - 16) : undefined;
   const y = area ? Math.round(area.y + 16 + offset) : undefined;
-  const payload = {
-    id: doc._id,
-    title: String(doc.title || ""),
-    note: String(doc.note || ""),
-    dueAt: Number(doc.dueAt) || 0,
-    repeat: doc.repeat || "none",
-  };
-  const file = `alert.html?data=${encodeURIComponent(JSON.stringify(payload))}`;
-  const reply = await widget.call("win.create", {
-    file,
-    options: {
-      title: t("提醒", "提醒", "Reminder"),
+  const title = String(doc.title || "").trim() || t("未命名提醒", "未命名提醒", "Untitled reminder");
+  alertWins.add(doc._id);
+  // 不抢焦点：提醒出现时不该打断用户正在打的字。
+  widget.dialog
+    .confirm({
+      title,
+      content: alertContent(doc),
+      icon: "info",
+      okText: t("完成", "完成", "Done"),
+      cancelText: t("知道了", "知道了", "Dismiss"),
       width: ALERT_WIDTH,
-      height: ALERT_HEIGHT,
-      minWidth: ALERT_MIN_WIDTH,
-      minHeight: ALERT_MIN_HEIGHT,
-      maxWidth: ALERT_MAX_WIDTH,
-      maxHeight: ALERT_MAX_HEIGHT,
       x,
       y,
-      frame: false,
-      transparent: true,
-      seeThrough: true,
-      alwaysOnTop: true,
-      skipTaskbar: true,
-      resizable: false,
-      movable: false,
-      minimizable: false,
-      maximizable: false,
-      closable: true,
       focusable: false,
-      show: false,
-      hasShadow: false,
-      roundedCorners: false,
-      backgroundColor: "#00000000",
-    },
-  });
-  const winId = reply && reply.id;
-  if (winId === undefined || winId === null) throw new Error("提醒弹窗没有创建成功");
-  alertWins.set(doc._id, winId);
-  await widget.call("win.setAlwaysOnTop", { win: winId, flag: true, level: "screen-saver" }).catch(() => {});
-  await widget.call("win.showInactive", { win: winId }).catch(async () => {
-    await widget.call("win.show", { win: winId }).catch(() => {});
-  });
+      draggable: true,
+    })
+    .then((res) => {
+      alertWins.delete(doc._id);
+      if (res && res.confirmed) return completeReminder(doc._id);
+      return undefined;
+    })
+    .catch((err) => {
+      alertWins.delete(doc._id);
+      console.error(err);
+    });
   // 系统通知作为声音/横幅兜底；提醒弹窗才是主提醒。
   await widget
     .notify({
-      title: `${t("提醒", "提醒", "Reminder")}：${payload.title || t("未命名提醒", "未命名提醒", "Untitled")}`,
-      body: payload.note || t("时间到了。", "時間到了。", "It is time."),
+      title: `${t("提醒", "提醒", "Reminder")}：${title}`,
+      body: String(doc.note || t("时间到了。", "時間到了。", "It is time.")),
       tag: code,
     })
     .catch(() => {});
@@ -422,7 +401,6 @@ async function completeReminder(id) {
     await saveDoc({ ...doc, done: true, completedAt: Date.now(), updatedAt: Date.now() }).catch(() => {});
   }
   await widget.schedule.remove(PREFIX + id).catch(() => {});
-  await closeAlert(id);
   await loadReminders().catch(() => {});
   await syncSchedules().catch(() => {});
   sendFloatUpdate();
@@ -504,7 +482,7 @@ function sendFloatUpdate() {
   widget.call("win.send", { win: floatWinId, channel: "reminders-updated", args: [] }).catch(() => {});
 }
 
-// The floating window and the reminder alert send actions back through utools.sendToParent.
+// The floating window sends actions back through utools.sendToParent.
 ipcRenderer.on("reminder-action", async (_, action) => {
   const a = action || {};
   if (a.type === "toggle") {
@@ -512,10 +490,6 @@ ipcRenderer.on("reminder-action", async (_, action) => {
     if (r) await toggleDone(r, typeof a.done === "boolean" ? a.done : !r.done);
   } else if (a.type === "hide-float") {
     await setFloatVisible(false);
-  } else if (a.type === "alert-done") {
-    await completeReminder(String(a.id || ""));
-  } else if (a.type === "alert-dismiss") {
-    await closeAlert(String(a.id || ""));
   }
 });
 
@@ -591,8 +565,5 @@ window.addEventListener("beforeunload", () => {
     widget.call("win.destroy", { win: floatWinId }).catch(() => {});
     floatWinId = null;
   }
-  for (const [id, winId] of alertWins) {
-    widget.call("win.destroy", { win: winId }).catch(() => {});
-    alertWins.delete(id);
-  }
+  widget.windows.closeAll({ kind: "confirm" }).catch(() => {});
 });
