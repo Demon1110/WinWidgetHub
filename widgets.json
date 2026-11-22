@@ -275,10 +275,14 @@
       "permissions": [
         "clipboard"
       ],
-      "bytes": 29776,
-      "sha256": "d04b3726b29caa0bc81d3ea0d80af366c3708edd9ccbf0bd2a084b0c7e266809",
+      "bytes": 30003,
+      "sha256": "cf4050e3e6f67419f8eab31b769d912b3d3f0328814f50ab5bbb147bbf3b1988",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/emoji-search-1.0.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/emoji-search"
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/emoji-search",
+      "surfaces": [
+        "window"
+      ],
+      "defaultSurface": "window"
     },
     {
       "id": "essay",
@@ -425,10 +429,14 @@
         "file.read",
         "file.write"
       ],
-      "bytes": 25503,
-      "sha256": "d0d45601c93a440a63798540b15428bc4acd670ec20348d9a995af78523006b4",
+      "bytes": 25769,
+      "sha256": "072177d2f5784ad573eb3ee8c35d660ff9b463529668bd2d73d1af60d2a7e266",
       "download": "https://demon1110.github.io/WinWidgetHub/widgets/image-batch-1.0.0.fwz",
-      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/image-batch"
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/image-batch",
+      "surfaces": [
+        "window"
+      ],
+      "defaultSurface": "window"
     },
     {
       "id": "image-watermark",

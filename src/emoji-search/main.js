@@ -323,6 +323,17 @@ q.addEventListener("input", () => {
 });
 q.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
+    // In a tool window Esc is "done here": clear a search first, close on the second press.
+    if (term && widget.surface === "window") {
+      q.value = "";
+      term = "";
+      render();
+      return;
+    }
+    if (widget.surface === "window") {
+      widget.call("window.main.close");
+      return;
+    }
     q.value = "";
     term = "";
     render();
@@ -343,6 +354,11 @@ if (widget.settings.onChange) widget.settings.onChange(applySettings);
 
 renderCats();
 render();
+// A tool window opens ready to type; a card waits for the user to click or summon it.
+if (widget.surface === "window") {
+  q.focus();
+  q.select();
+}
 widget.on("summon", () => {
   q.focus();
   q.select();

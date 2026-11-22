@@ -14,6 +14,9 @@
   "category": "other",
   "preview": "preview/{theme}.{lang}.webp",
   "size": { "width": 320, "height": 300, "minWidth": 240, "minHeight": 220, "maxWidth": 760, "maxHeight": 800, "grow": 0.6 },
+  "surfaces": ["window"],
+  "defaultSurface": "window",
+  "window": { "width": 560, "height": 640, "minWidth": 380, "minHeight": 360, "singleInstance": true },
   "permissions": ["clipboard"],
   "settings": [
     { "key": "size", "type": "select", "label": { "zh-TW": "格子大小", "zh-CN": "格子大小", "en": "Cell size" }, "default": "m",

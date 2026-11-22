@@ -44,3 +44,14 @@ footer { flex: none; display: flex; justify-content: flex-end; }
   transition: opacity 0.18s, transform 0.18s;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* A tool window is much larger than the card this page started as: give the header and numbers
+   room to breathe instead of stretching one 12px row across 900px. */
+html[data-surface="window"] body { padding: 14px 18px; gap: 0.6rem; }
+html[data-surface="window"] .title { font-size: 1rem; }
+html[data-surface="window"] .stat { padding: 0.5rem 0.65rem; }
+html[data-surface="window"] .stat .k { font-size: 0.68rem; }
+html[data-surface="window"] .stat .v { font-size: 0.9rem; }
+html[data-surface="window"] .status { font-size: 0.72rem; }
+html[data-surface="window"] .primary { font-size: 0.78rem; padding: 0.36rem 1rem; }
+html[data-surface="window"] .preview img { max-width: 44%; }

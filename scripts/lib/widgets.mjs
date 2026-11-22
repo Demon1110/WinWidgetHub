@@ -321,6 +321,24 @@ export function discover(root) {
       warnings.push(`「${id}」的 category「${category}」客户端不认识，会归到 other`);
     }
 
+    // 承载面：省略即只放桌面。声明 window 的组件必须给出窗口尺寸，否则宿主只能按卡片尺寸开。
+    const surfaces = Array.isArray(manifest.surfaces) && manifest.surfaces.length ? manifest.surfaces : ["desktop"];
+    for (const s of surfaces) {
+      if (s !== "desktop" && s !== "window") problems.push(`「${id}」的 surfaces 里有未知的「${s}」：只能是 desktop 或 window`);
+    }
+    if (new Set(surfaces).size !== surfaces.length) problems.push(`「${id}」的 surfaces 里有重复项`);
+    const def = typeof manifest.defaultSurface === "string" ? manifest.defaultSurface.trim() : surfaces[0];
+    if (!surfaces.includes(def)) problems.push(`「${id}」的 defaultSurface「${def}」不在 surfaces 里`);
+    if (surfaces.includes("window")) {
+      const win = manifest.window;
+      if (!win || typeof win !== "object") {
+        problems.push(`「${id}」声明了 window 承载面，但没有写 window 尺寸`);
+      } else {
+        const num = (k) => (typeof win[k] === "number" && win[k] > 0 ? win[k] : 0);
+        if (!num("width") || !num("height")) problems.push(`「${id}」的 window 缺少 width 或 height`);
+      }
+    }
+
     // 日期：widget.json 里写了就用它（构建结果稳定，CI 也不会因为提交时间不同而对不上）；
     // 没写就取组件文件夹最后一次 git 提交的日期，还没提交过就用文件时间。
     const declared = typeof manifest.date === "string" ? manifest.date.trim() : "";

@@ -76,6 +76,14 @@ function buildOne(item, previousVersion) {
     download: url(`widgets/${file}`),
     page: `${REPO}/tree/main/src/${item.folder}`,
   };
+  // 只有声明了非默认承载面才写这两个字段：桌面包保持旧清单形状，市场清单的 diff 只落在试点上。
+  if (Array.isArray(item.manifest.surfaces) && item.manifest.surfaces.length) {
+    entry.surfaces = item.manifest.surfaces;
+    entry.defaultSurface =
+      typeof item.manifest.defaultSurface === "string"
+        ? item.manifest.defaultSurface
+        : item.manifest.surfaces[0];
+  }
 
   if (previousVersion && compareVersions(version, previousVersion) < 0) {
     throw new Error(`「${item.id}」的版本从 ${previousVersion} 退回到 ${version}：市场里的版本只能往上加`);

@@ -14,6 +14,9 @@
   "category": "media",
   "aliases": [],
   "size": { "width": 400, "height": 360, "minWidth": 300, "minHeight": 280, "maxWidth": 1400, "maxHeight": 1200, "grow": 0.8 },
+  "surfaces": ["window"],
+  "defaultSurface": "window",
+  "window": { "width": 900, "height": 680, "minWidth": 640, "minHeight": 460, "singleInstance": true },
   "permissions": ["file.read", "file.write"],
   "settings": [
     {
