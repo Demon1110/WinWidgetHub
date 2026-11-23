@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <circle cx="48" cy="48" r="30" fill="#FFF8ED" stroke="#D8D0C4" stroke-width="4"/>
+  <path d="M48 18a30 30 0 0 1 26 44" fill="none" stroke="#3A7AF3" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="48" cy="48" r="12" fill="none" stroke="#2B241D" stroke-width="2.5"/>
+  <text x="48" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2B241D">Life</text>
+  <circle cx="72" cy="72" r="4" fill="#F4C542"/>
+</svg>

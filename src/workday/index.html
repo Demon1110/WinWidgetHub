@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>打工人倒计时</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="skin.css">
+</head>
+<body>
+  <div class="card" id="card">
+    <main class="content">
+      <header class="top">
+        <span class="brand" id="title">打工人倒计时</span>
+        <span class="week-tag" id="weekTag">双休</span>
+      </header>
+
+      <section class="panel">
+        <div class="copy">
+          <div class="quote" id="quote">周日计划：<br>假装还是周六</div>
+          <div class="countdown">
+            <span id="modeLabel">距离上班剩</span>
+            <b id="hours">18</b><small>小时</small>
+            <b id="minutes">8</b><small>分</small>
+          </div>
+        </div>
+
+        <svg class="art" viewBox="0 0 170 140" fill="none" aria-hidden="true">
+          <g class="line">
+            <path d="M7 112c0-6 4-10 10-10h136c6 0 10 4 10 10v12H7Z" class="bed" stroke-width="2.8" stroke-linejoin="round"/>
+            <path d="M14 124v13M156 124v13" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="120" cy="94" rx="31" ry="12" class="pillow" stroke-width="2.4"/>
+            <path class="blanket" d="M22 115c-3-19 8-38 29-47 20-8 49-9 68 1 14 7 21 24 19 46-18 7-38 9-58 6-19-3-39-5-58-6Z" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M28 105c20-8 39-9 57-5 17 4 33 6 48 4M31 113c20-6 39-6 58-3 16 2 31 3 45 2" class="fold" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M91 78c-2-14 7-25 21-26 14-1 24 9 24 22" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M97 55c1-10 9-17 19-17 12 0 20 8 21 19-8-4-17-5-28-2-5 1-9 2-12 4Z" class="hair" stroke-width="2.6" stroke-linejoin="round"/>
+            <path d="M105 66c2 1 4 1 6 0M121 66c2 1 4 1 6 0" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M114 74c3 2 7 2 9-1" stroke-width="2.1" stroke-linecap="round"/>
+            <path d="M95 52c-4-4-9-4-12 0M136 49c5-2 8 1 8 5" stroke-width="2.4" stroke-linecap="round"/>
+            <ellipse cx="88" cy="94" rx="6" ry="4" class="hand" stroke-width="2.2"/>
+            <path d="M83 94l-3 4M91 94l3 4" stroke-width="2" stroke-linecap="round"/>
+            <path d="M42 49l3-7M35 59l-7 1M52 39l-1-5" class="spark" stroke-width="2.6" stroke-linecap="round"/>
+            <circle cx="151" cy="44" r="3" class="spark" stroke-width="1.8"/>
+          </g>
+        </svg>
+      </section>
+
+      <section class="stats" id="stats">
+        <div class="stat"><span>上班</span><b id="startText">09:00</b></div>
+        <div class="stat"><span>下班</span><b id="endText">18:00</b></div>
+        <div class="stat"><span>休息</span><b id="restText">双休</b></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    window.SKIN_DEFAULTS = { skin: "paper", backgroundOpacity: 100, accent: "#5B7CFA", radius: 24, fontFamily: null };
+  </script>
+  <script src="main.js"></script>
+  <script src="skin.js"></script>
+</body>
+</html>

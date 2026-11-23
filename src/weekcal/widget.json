@@ -1,0 +1,144 @@
+{
+  "id": "weekcal",
+  "name": { "zh-TW": "工作日曆", "zh-CN": "工作日历", "en": "Work calendar" },
+  "description": {
+    "zh-TW": "一眼看完本週的工作日、週末倒數與進度，主題、背景、字體與邊框都能單獨換",
+    "zh-CN": "一眼看完本周的工作日、周末倒数和进度，主题、背景、字体与边框都能单独换",
+    "en": "This week at a glance, with your own theme, background, font and frame"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-22",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "time",
+  "preview": "preview/preview.png",
+  "size": { "width": 360, "height": 480, "minWidth": 300, "minHeight": 360, "maxWidth": 560, "maxHeight": 760, "grow": 0.6 },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "theme",
+      "type": "select",
+      "label": { "zh-TW": "主題", "zh-CN": "主题", "en": "Theme" },
+      "default": "dough",
+      "options": [
+        { "value": "dough", "label": { "zh-TW": "糰子", "zh-CN": "团子", "en": "Dough" } },
+        { "value": "student", "label": { "zh-TW": "學生黨", "zh-CN": "学生党", "en": "Student" } },
+        { "value": "worker", "label": { "zh-TW": "打工人", "zh-CN": "打工人", "en": "Worker" } },
+        { "value": "cat", "label": { "zh-TW": "摸魚貓", "zh-CN": "摸鱼猫", "en": "Cat" } }
+      ]
+    },
+    {
+      "key": "backgroundMode",
+      "type": "select",
+      "label": { "zh-TW": "背景方式", "zh-CN": "背景方式", "en": "Background" },
+      "description": {
+        "zh-TW": "純色、漸層或相簿裏的一張照片",
+        "zh-CN": "纯色、渐变或相册里的一张照片",
+        "en": "A colour, a gradient, or a photo from your album"
+      },
+      "default": "solid",
+      "options": [
+        { "value": "solid", "label": { "zh-TW": "純色", "zh-CN": "纯色", "en": "Colour" } },
+        { "value": "gradient", "label": { "zh-TW": "漸層", "zh-CN": "渐变", "en": "Gradient" } },
+        { "value": "album", "label": { "zh-TW": "相簿", "zh-CN": "相册", "en": "Album" } }
+      ]
+    },
+    {
+      "key": "backgroundColor",
+      "type": "color",
+      "label": { "zh-TW": "背景顏色", "zh-CN": "背景颜色", "en": "Background colour" },
+      "default": "#FFF8ED"
+    },
+    {
+      "key": "gradient",
+      "type": "select",
+      "label": { "zh-TW": "漸層", "zh-CN": "渐变", "en": "Gradient" },
+      "default": "sunrise",
+      "options": [
+        { "value": "sunrise", "label": { "zh-TW": "日出", "zh-CN": "日出", "en": "Sunrise" } },
+        { "value": "candy", "label": { "zh-TW": "糖果", "zh-CN": "糖果", "en": "Candy" } },
+        { "value": "mint", "label": { "zh-TW": "薄荷", "zh-CN": "薄荷", "en": "Mint" } },
+        { "value": "ocean", "label": { "zh-TW": "海風", "zh-CN": "海风", "en": "Ocean" } },
+        { "value": "aurora", "label": { "zh-TW": "極光", "zh-CN": "极光", "en": "Aurora" } },
+        { "value": "peach", "label": { "zh-TW": "蜜桃", "zh-CN": "蜜桃", "en": "Peach" } }
+      ]
+    },
+    {
+      "key": "animatedBackground",
+      "type": "toggle",
+      "label": { "zh-TW": "漸層流動", "zh-CN": "渐变流动", "en": "Animate the gradient" },
+      "default": false
+    },
+    {
+      "key": "backgroundFolder",
+      "type": "folder",
+      "label": { "zh-TW": "背景相簿", "zh-CN": "背景相册", "en": "Background album" },
+      "description": {
+        "zh-TW": "從這個資料夾挑一張照片當背景",
+        "zh-CN": "从这个文件夹挑一张照片当背景",
+        "en": "Pick one photo from this folder"
+      },
+      "default": "%USERPROFILE%\\Pictures"
+    },
+    {
+      "key": "backgroundImage",
+      "type": "text",
+      "label": { "zh-TW": "背景照片", "zh-CN": "背景照片", "en": "Background photo" },
+      "description": {
+        "zh-TW": "在元件裏的相簿中選擇；一般不需要手動填寫",
+        "zh-CN": "在组件里的相册中选择；一般不需要手动填写",
+        "en": "Choose it in the widget's album; normally no need to type"
+      },
+      "default": ""
+    },
+    {
+      "key": "backgroundOpacity",
+      "type": "slider",
+      "label": { "zh-TW": "背景不透明度", "zh-CN": "背景不透明度", "en": "Background opacity" },
+      "description": {
+        "zh-TW": "0% 只剩文字，100% 完全擋住桌面",
+        "zh-CN": "0% 只剩文字，100% 完全挡住桌面",
+        "en": "0% leaves only the text, 100% covers the desktop"
+      },
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "key": "fontFamily",
+      "type": "font",
+      "label": { "zh-TW": "字體", "zh-CN": "字体", "en": "Font" },
+      "default": null
+    },
+    {
+      "key": "textColor",
+      "type": "color",
+      "label": { "zh-TW": "文字顏色", "zh-CN": "文字颜色", "en": "Text colour" },
+      "default": "#2B241D"
+    },
+    {
+      "key": "showBorder",
+      "type": "toggle",
+      "label": { "zh-TW": "顯示邊框", "zh-CN": "显示边框", "en": "Show a frame" },
+      "default": true
+    },
+    {
+      "key": "borderStyle",
+      "type": "select",
+      "label": { "zh-TW": "邊框樣式", "zh-CN": "边框样式", "en": "Frame style" },
+      "default": "hairline",
+      "options": [
+        { "value": "hairline", "label": { "zh-TW": "細線", "zh-CN": "细线", "en": "Hairline" } },
+        { "value": "cream", "label": { "zh-TW": "奶油", "zh-CN": "奶油", "en": "Cream" } },
+        { "value": "dash", "label": { "zh-TW": "虛線", "zh-CN": "虚线", "en": "Dashed" } },
+        { "value": "double", "label": { "zh-TW": "雙線", "zh-CN": "双线", "en": "Double" } },
+        { "value": "sticker", "label": { "zh-TW": "貼紙", "zh-CN": "贴纸", "en": "Sticker" } },
+        { "value": "neon", "label": { "zh-TW": "霓虹", "zh-CN": "霓虹", "en": "Neon" } },
+        { "value": "rainbow", "label": { "zh-TW": "彩虹", "zh-CN": "彩虹", "en": "Rainbow" } },
+        { "value": "dots", "label": { "zh-TW": "圓點", "zh-CN": "圆点", "en": "Dotted" } }
+      ]
+    }
+  ]
+}

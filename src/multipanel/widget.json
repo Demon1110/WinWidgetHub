@@ -1,0 +1,47 @@
+{
+  "id": "multipanel",
+  "name": { "zh-TW": "多彩面板", "zh-CN": "多彩面板", "en": "Color panel" },
+  "description": {
+    "zh-TW": "時間、容量、電量與天氣排成一組彩色卡片，透明皮膚可直接疊在桌面上",
+    "zh-CN": "时间、容量、电量与天气排成一组彩色卡片，透明皮肤可直接叠在桌面上",
+    "en": "Clock, disk, battery and weather in one colourful panel, with a clear skin"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-22",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "system",
+  "preview": "preview/preview.png",
+  "size": { "width": 380, "height": 280, "minWidth": 320, "minHeight": 240, "maxWidth": 560, "maxHeight": 420, "grow": 0.7 },
+  "permissions": ["system"],
+  "settings": [
+    { "key": "showStorage", "type": "toggle", "label": { "zh-TW": "顯示容量卡", "zh-CN": "显示容量卡", "en": "Show storage card" }, "default": true },
+    { "key": "showBattery", "type": "toggle", "label": { "zh-TW": "顯示電量卡", "zh-CN": "显示电量卡", "en": "Show battery card" }, "default": true },
+    { "key": "showWeather", "type": "toggle", "label": { "zh-TW": "顯示天氣條", "zh-CN": "显示天气条", "en": "Show weather strip" }, "default": true },
+    { "key": "storageValue", "type": "number", "label": { "zh-TW": "容量回退值（GB）", "zh-CN": "容量回退值（GB）", "en": "Storage fallback (GB)" }, "description": { "zh-TW": "沒有系統權限時顯示這個數字", "zh-CN": "没有系统权限时显示这个数字", "en": "Used when the system permission is unavailable" }, "default": 101.2, "min": 0, "max": 9999, "step": 0.1 },
+    { "key": "batteryValue", "type": "slider", "label": { "zh-TW": "電量回退值", "zh-CN": "电量回退值", "en": "Battery fallback" }, "description": { "zh-TW": "沒有系統權限時顯示這個百分比", "zh-CN": "没有系统权限时显示这个百分比", "en": "Used when the system permission is unavailable" }, "default": 20, "min": 0, "max": 100, "step": 1 },
+    { "key": "storageLabel", "type": "text", "label": { "zh-TW": "容量卡文案", "zh-CN": "容量卡文案", "en": "Storage caption" }, "default": "剩余容量" },
+    { "key": "batteryLabel", "type": "text", "label": { "zh-TW": "電量卡文案", "zh-CN": "电量卡文案", "en": "Battery caption" }, "default": "剩余电量" },
+    { "key": "storageColor", "type": "color", "label": { "zh-TW": "容量卡顏色", "zh-CN": "容量卡颜色", "en": "Storage colour" }, "default": "#7E8CE0" },
+    { "key": "clockColor", "type": "color", "label": { "zh-TW": "時鐘卡顏色", "zh-CN": "时钟卡颜色", "en": "Clock colour" }, "default": "#FFB02E" },
+    { "key": "batteryColor", "type": "color", "label": { "zh-TW": "電量卡顏色", "zh-CN": "电量卡颜色", "en": "Battery colour" }, "default": "#35D6B2" },
+    { "key": "weatherCity", "type": "text", "label": { "zh-TW": "天氣條標題", "zh-CN": "天气条标题", "en": "Weather caption" }, "default": "本地天气" },
+    { "key": "weatherText", "type": "text", "label": { "zh-TW": "天氣", "zh-CN": "天气", "en": "Weather" }, "default": "阴天" },
+    { "key": "weatherTemp", "type": "number", "label": { "zh-TW": "目前溫度", "zh-CN": "当前温度", "en": "Temperature" }, "default": 30, "min": -50, "max": 60, "step": 1 },
+    { "key": "weatherMeta", "type": "text", "label": { "zh-TW": "濕度與空氣", "zh-CN": "湿度与空气", "en": "Humidity and air" }, "default": "湿度 54% · 空气 优质" },
+    { "key": "weatherForecast", "type": "textarea", "label": { "zh-TW": "天氣預報（一行一天）", "zh-CN": "天气预报（一行一天）", "en": "Forecast (one per line)" }, "default": "今天 25°/31°\n明天 24°/32°" },
+    { "key": "skin", "type": "select", "label": { "zh-TW": "皮膚", "zh-CN": "皮肤", "en": "Skin" }, "default": "paper", "options": [
+      { "value": "clear", "label": { "zh-TW": "透明", "zh-CN": "透明", "en": "Clear" } },
+      { "value": "clearLight", "label": { "zh-TW": "透明淺字", "zh-CN": "透明浅字", "en": "Clear, light text" } },
+      { "value": "paper", "label": { "zh-TW": "紙感", "zh-CN": "纸感", "en": "Paper" } },
+      { "value": "glass", "label": { "zh-TW": "玻璃", "zh-CN": "玻璃", "en": "Glass" } },
+      { "value": "ink", "label": { "zh-TW": "墨黑", "zh-CN": "墨黑", "en": "Ink" } },
+      { "value": "tint", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Tint" } }
+    ] },
+    { "key": "backgroundOpacity", "type": "slider", "label": { "zh-TW": "背景不透明度", "zh-CN": "背景不透明度", "en": "Background opacity" }, "default": 100, "min": 0, "max": 100, "step": 1 },
+    { "key": "accent", "type": "color", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Accent" }, "default": "#F4C542" },
+    { "key": "radius", "type": "slider", "label": { "zh-TW": "圓角", "zh-CN": "圆角", "en": "Corner radius" }, "default": 24, "min": 0, "max": 32, "step": 1 },
+    { "key": "fontFamily", "type": "font", "label": { "zh-TW": "字體", "zh-CN": "字体", "en": "Font" }, "default": null }
+  ]
+}

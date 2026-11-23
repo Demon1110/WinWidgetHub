@@ -1,0 +1,266 @@
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: hidden;
+}
+body {
+  container-type: size;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--skin-radius, 24px);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--skin-fg);
+  font-family: var(--skin-font);
+  text-shadow: var(--skin-halo);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 14px 12px;
+}
+
+/* ── three tilted info cards ── */
+.panels {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.tile {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: clamp(8px, 3.1cqw, 14px);
+  border-radius: clamp(14px, 4.4cqw, 21px);
+  color: #FFFDF8;
+  box-shadow: 0 10px 24px rgba(24, 20, 15, .16);
+  isolation: isolate;
+}
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(145deg, var(--tile), color-mix(in srgb, var(--tile) 42%, #FFFFFF));
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 55%;
+  right: -18%;
+  top: -22%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .24);
+  filter: blur(8px);
+}
+.tile-icon {
+  width: clamp(20px, 6.2cqw, 28px);
+  height: clamp(20px, 6.2cqw, 28px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .22);
+  color: rgba(255, 255, 255, .92);
+}
+.tile-icon svg { width: 68%; height: 68%; }
+.tile-value {
+  margin-top: 2px;
+  font-size: clamp(1.05rem, 5.6cqw, 1.75rem);
+  font-weight: 760;
+  line-height: 1;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tile-label {
+  max-width: 100%;
+  font-size: clamp(.52rem, 2.2cqw, .66rem);
+  font-weight: 560;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, .74);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.storage {
+  --tile: var(--storage, #7E8CE0);
+  left: -1%;
+  top: 9%;
+  width: 41%;
+  height: 82%;
+  transform: rotate(-8deg);
+  z-index: 1;
+}
+.battery {
+  --tile: var(--battery, #35D6B2);
+  right: -1%;
+  top: 9%;
+  width: 41%;
+  height: 82%;
+  transform: rotate(8deg);
+  z-index: 1;
+  align-items: flex-end;
+  text-align: right;
+}
+.battery .tile-value,
+.battery .tile-label { align-self: flex-end; max-width: calc(100% - 4px); }
+.battery .tile-icon { align-self: flex-start; }
+.clock {
+  --tile: var(--clock, #FFB02E);
+  left: 26%;
+  top: 0;
+  width: 48%;
+  height: 100%;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-1.2deg);
+  box-shadow: 0 14px 28px rgba(24, 20, 15, .22);
+}
+.clock-kicker {
+  font-size: clamp(.44rem, 1.8cqw, .56rem);
+  font-weight: 720;
+  letter-spacing: .26em;
+  color: rgba(255, 255, 255, .62);
+}
+.clock-value {
+  margin-top: 4px;
+  font-size: clamp(1.8rem, 10.4cqw, 3.1rem);
+  font-weight: 800;
+  line-height: .98;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+  color: #FFFDF8;
+}
+.clock-date {
+  margin-top: 5px;
+  font-size: clamp(.55rem, 2.3cqw, .7rem);
+  font-weight: 600;
+  color: rgba(255, 253, 248, .80);
+  white-space: nowrap;
+}
+
+/* ── glass weather strip ── */
+.weather {
+  position: relative;
+  z-index: 5;
+  flex: none;
+  min-height: 74px;
+  margin-top: -14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 44px 10px 14px;
+  border-radius: 17px;
+  background: rgba(19, 17, 14, .80);
+  color: #F8F3E8;
+  box-shadow: 0 10px 22px rgba(24, 20, 15, .16), inset 0 0 0 1px rgba(255, 255, 255, .06);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.weather-main { min-width: 0; }
+.weather-city {
+  display: block;
+  font-size: clamp(.44rem, 1.8cqw, .56rem);
+  font-weight: 650;
+  letter-spacing: .13em;
+  color: rgba(248, 243, 232, .46);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.weather-now { display: flex; align-items: baseline; gap: 7px; margin-top: 1px; }
+.weather-now b {
+  font-size: clamp(1.25rem, 5.6cqw, 1.7rem);
+  font-weight: 760;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.weather-now span {
+  font-size: clamp(.58rem, 2.3cqw, .72rem);
+  font-weight: 600;
+  color: rgba(248, 243, 232, .80);
+  white-space: nowrap;
+}
+.weather-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: clamp(.45rem, 1.9cqw, .58rem);
+  color: rgba(248, 243, 232, .55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.weather-forecast {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 2px 12px;
+  justify-content: end;
+  text-align: right;
+}
+.forecast-item { min-width: 0; }
+.forecast-item b {
+  display: block;
+  font-size: clamp(.46rem, 1.8cqw, .57rem);
+  font-weight: 600;
+  color: rgba(248, 243, 232, .52);
+  white-space: nowrap;
+}
+.forecast-item span {
+  display: block;
+  margin-top: 1px;
+  font-size: clamp(.54rem, 2.2cqw, .67rem);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: rgba(248, 243, 232, .86);
+  white-space: nowrap;
+}
+
+.card.no-weather .weather { display: none; }
+.card.no-weather .panels { flex: 1; }
+.card.no-storage .storage { display: none; }
+.card.no-battery .battery { display: none; }
+
+/* 窄尺寸：把天气条收成一行，优先保住时钟与两张信息卡 */
+@container (max-width: 350px) {
+  .content { padding: 11px 11px 10px; gap: 6px; }
+  .weather { padding-left: 11px; padding-right: 40px; min-height: 68px; }
+  .weather-meta { display: none; }
+  .weather-forecast { gap: 1px 8px; }
+  .tile-label { font-size: .5rem; }
+  .clock-kicker { letter-spacing: .18em; }
+}
+
+/* 拉大后让内容跟着长，不靠等比放大整张图 */
+@container (min-width: 460px) {
+  .content { padding: 18px 18px 15px; gap: 10px; }
+  .tile { gap: 4px; }
+  .weather { padding-left: 17px; min-height: 82px; }
+  .weather-meta { font-size: .62rem; }
+  .forecast-item b { font-size: .61rem; }
+  .forecast-item span { font-size: .72rem; }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "life",
+  "name": { "zh-TW": "人生進度", "zh-CN": "人生进度", "en": "Life progress" },
+  "description": {
+    "zh-TW": "用圓環或一百個點看見人生走了多少，出生日期與預期壽命都能改",
+    "zh-CN": "用圆环或一百个点看见人生走了多少，出生日期与预期寿命都能改",
+    "en": "See how far you have come with a ring or a hundred dots"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-22",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "info",
+  "preview": "preview/preview.png",
+  "size": { "width": 340, "height": 360, "minWidth": 280, "minHeight": 300, "maxWidth": 520, "maxHeight": 520, "grow": 0.7 },
+  "permissions": [],
+  "settings": [
+    { "key": "title", "type": "text", "label": { "zh-TW": "卡片標題", "zh-CN": "卡片标题", "en": "Title" }, "default": "人生进度" },
+    { "key": "mode", "type": "select", "label": { "zh-TW": "顯示方式", "zh-CN": "显示方式", "en": "Display" }, "default": "ring", "options": [
+      { "value": "ring", "label": { "zh-TW": "圓環", "zh-CN": "圆环", "en": "Ring" } },
+      { "value": "dots", "label": { "zh-TW": "一百個點", "zh-CN": "一百个点", "en": "Hundred dots" } }
+    ] },
+    { "key": "birthDate", "type": "text", "label": { "zh-TW": "出生日期", "zh-CN": "出生日期", "en": "Birth date" }, "description": { "zh-TW": "格式 2000-06-06", "zh-CN": "格式 2000-06-06", "en": "Format 2000-06-06" }, "default": "2000-06-06" },
+    { "key": "lifeExpectancy", "type": "slider", "label": { "zh-TW": "預期壽命", "zh-CN": "预期寿命", "en": "Life expectancy" }, "default": 100, "min": 50, "max": 120, "step": 1 },
+    { "key": "quote", "type": "text", "label": { "zh-TW": "點陣文案", "zh-CN": "点阵文案", "en": "Dots caption" }, "default": "人活一天就不要白活" },
+    { "key": "showFooter", "type": "toggle", "label": { "zh-TW": "顯示底部說明", "zh-CN": "显示底部说明", "en": "Show footer" }, "default": true },
+    { "key": "skin", "type": "select", "label": { "zh-TW": "皮膚", "zh-CN": "皮肤", "en": "Skin" }, "default": "paper", "options": [
+      { "value": "clear", "label": { "zh-TW": "透明", "zh-CN": "透明", "en": "Clear" } },
+      { "value": "clearLight", "label": { "zh-TW": "透明淺字", "zh-CN": "透明浅字", "en": "Clear, light text" } },
+      { "value": "paper", "label": { "zh-TW": "紙感", "zh-CN": "纸感", "en": "Paper" } },
+      { "value": "glass", "label": { "zh-TW": "玻璃", "zh-CN": "玻璃", "en": "Glass" } },
+      { "value": "ink", "label": { "zh-TW": "墨黑", "zh-CN": "墨黑", "en": "Ink" } },
+      { "value": "tint", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Tint" } }
+    ] },
+    { "key": "backgroundOpacity", "type": "slider", "label": { "zh-TW": "背景不透明度", "zh-CN": "背景不透明度", "en": "Background opacity" }, "default": 100, "min": 0, "max": 100, "step": 1 },
+    { "key": "accent", "type": "color", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Accent" }, "default": "#3A7AF3" },
+    { "key": "radius", "type": "slider", "label": { "zh-TW": "圓角", "zh-CN": "圆角", "en": "Corner radius" }, "default": 24, "min": 0, "max": 32, "step": 1 },
+    { "key": "fontFamily", "type": "font", "label": { "zh-TW": "字體", "zh-CN": "字体", "en": "Font" }, "default": null }
+  ]
+}

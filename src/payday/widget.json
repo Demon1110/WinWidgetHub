@@ -1,0 +1,39 @@
+{
+  "id": "payday",
+  "name": { "zh-TW": "工資倒數", "zh-CN": "工资倒计时", "en": "Payday countdown" },
+  "description": {
+    "zh-TW": "距離發薪日還有幾天，日期、進度與皮膚都能自己換",
+    "zh-CN": "距离发薪日还有几天，日期、进度与皮肤都能自己换",
+    "en": "Days until payday, with your own date, progress and skin"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-22",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "time",
+  "preview": "preview/preview.png",
+  "size": { "width": 340, "height": 360, "minWidth": 280, "minHeight": 300, "maxWidth": 520, "maxHeight": 520, "grow": 0.7 },
+  "permissions": [],
+  "settings": [
+    { "key": "title", "type": "text", "label": { "zh-TW": "卡片標題", "zh-CN": "卡片标题", "en": "Title" }, "default": "工资倒计时" },
+    { "key": "payLabel", "type": "text", "label": { "zh-TW": "發薪日文案", "zh-CN": "发薪日文案", "en": "Payday caption" }, "default": "发薪日" },
+    { "key": "payday", "type": "number", "label": { "zh-TW": "每月發薪日", "zh-CN": "每月发薪日", "en": "Payday of month" }, "description": { "zh-TW": "1–31；遇到小月自動用月底", "zh-CN": "1–31；遇到小月自动用月底", "en": "1–31; short months use the last day" }, "default": 15, "min": 1, "max": 31, "step": 1 },
+    { "key": "payTime", "type": "text", "label": { "zh-TW": "發薪時間", "zh-CN": "发薪时间", "en": "Payday time" }, "description": { "zh-TW": "24 小時制，例如 10:00", "zh-CN": "24 小时制，例如 10:00", "en": "24-hour time, e.g. 10:00" }, "default": "10:00" },
+    { "key": "subLabel", "type": "text", "label": { "zh-TW": "副標題", "zh-CN": "副标题", "en": "Sub caption" }, "default": "距离下次发薪" },
+    { "key": "showProgress", "type": "toggle", "label": { "zh-TW": "顯示本期進度", "zh-CN": "显示本期进度", "en": "Show period progress" }, "default": true },
+    { "key": "progressLabel", "type": "text", "label": { "zh-TW": "進度文案", "zh-CN": "进度文案", "en": "Progress caption" }, "default": "本期已过" },
+    { "key": "skin", "type": "select", "label": { "zh-TW": "皮膚", "zh-CN": "皮肤", "en": "Skin" }, "default": "paper", "options": [
+      { "value": "clear", "label": { "zh-TW": "透明", "zh-CN": "透明", "en": "Clear" } },
+      { "value": "clearLight", "label": { "zh-TW": "透明淺字", "zh-CN": "透明浅字", "en": "Clear, light text" } },
+      { "value": "paper", "label": { "zh-TW": "紙感", "zh-CN": "纸感", "en": "Paper" } },
+      { "value": "glass", "label": { "zh-TW": "玻璃", "zh-CN": "玻璃", "en": "Glass" } },
+      { "value": "ink", "label": { "zh-TW": "墨黑", "zh-CN": "墨黑", "en": "Ink" } },
+      { "value": "tint", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Tint" } }
+    ] },
+    { "key": "backgroundOpacity", "type": "slider", "label": { "zh-TW": "背景不透明度", "zh-CN": "背景不透明度", "en": "Background opacity" }, "default": 100, "min": 0, "max": 100, "step": 1 },
+    { "key": "accent", "type": "color", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Accent" }, "default": "#3A7AF3" },
+    { "key": "radius", "type": "slider", "label": { "zh-TW": "圓角", "zh-CN": "圆角", "en": "Corner radius" }, "default": 26, "min": 0, "max": 32, "step": 1 },
+    { "key": "fontFamily", "type": "font", "label": { "zh-TW": "字體", "zh-CN": "字体", "en": "Font" }, "default": null }
+  ]
+}

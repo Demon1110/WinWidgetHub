@@ -1,0 +1,42 @@
+{
+  "id": "workday",
+  "name": { "zh-TW": "打工人倒數", "zh-CN": "打工人倒计时", "en": "Workday countdown" },
+  "description": {
+    "zh-TW": "距離上班或下班還有多久，班次、雙休、文案與皮膚都能自己調",
+    "zh-CN": "距离上班或下班还有多久，班次、双休、文案与皮肤都能自己调",
+    "en": "Count down to work or off work, with your own shift, copy and skin"
+  },
+  "version": "1.0.0",
+  "date": "2026-11-22",
+  "author": "WinWidget",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "category": "time",
+  "preview": "preview/preview.png",
+  "size": { "width": 360, "height": 420, "minWidth": 300, "minHeight": 340, "maxWidth": 520, "maxHeight": 560, "grow": 0.65 },
+  "permissions": [],
+  "settings": [
+    { "key": "title", "type": "text", "label": { "zh-TW": "卡片標題", "zh-CN": "卡片标题", "en": "Title" }, "default": "打工人倒计时" },
+    { "key": "quote", "type": "textarea", "label": { "zh-TW": "主文案（一行一句）", "zh-CN": "主文案（一行一句）", "en": "Quote (one line per row)" }, "default": "周日计划：\n假装还是周六" },
+    { "key": "workStart", "type": "text", "label": { "zh-TW": "上班時間", "zh-CN": "上班时间", "en": "Work starts" }, "description": { "zh-TW": "24 小時制，例如 09:00", "zh-CN": "24 小时制，例如 09:00", "en": "24-hour time, e.g. 09:00" }, "default": "09:00" },
+    { "key": "workEnd", "type": "text", "label": { "zh-TW": "下班時間", "zh-CN": "下班时间", "en": "Work ends" }, "description": { "zh-TW": "24 小時制，例如 18:00", "zh-CN": "24 小时制，例如 18:00", "en": "24-hour time, e.g. 18:00" }, "default": "18:00" },
+    { "key": "workWeek", "type": "select", "label": { "zh-TW": "休息制度", "zh-CN": "休息制度", "en": "Work week" }, "default": "five", "options": [
+      { "value": "five", "label": { "zh-TW": "雙休", "zh-CN": "双休", "en": "Two days off" } },
+      { "value": "six", "label": { "zh-TW": "單休", "zh-CN": "单休", "en": "One day off" } }
+    ] },
+    { "key": "restLabel", "type": "text", "label": { "zh-TW": "休息文案", "zh-CN": "休息文案", "en": "Rest caption" }, "description": { "zh-TW": "留空就按雙休／單休顯示", "zh-CN": "留空就按双休/单休显示", "en": "Leave blank to follow the work week" }, "default": "" },
+    { "key": "showStats", "type": "toggle", "label": { "zh-TW": "顯示班次資訊", "zh-CN": "显示班次信息", "en": "Show shift details" }, "default": true },
+    { "key": "skin", "type": "select", "label": { "zh-TW": "皮膚", "zh-CN": "皮肤", "en": "Skin" }, "default": "paper", "options": [
+      { "value": "clear", "label": { "zh-TW": "透明", "zh-CN": "透明", "en": "Clear" } },
+      { "value": "clearLight", "label": { "zh-TW": "透明淺字", "zh-CN": "透明浅字", "en": "Clear, light text" } },
+      { "value": "paper", "label": { "zh-TW": "紙感", "zh-CN": "纸感", "en": "Paper" } },
+      { "value": "glass", "label": { "zh-TW": "玻璃", "zh-CN": "玻璃", "en": "Glass" } },
+      { "value": "ink", "label": { "zh-TW": "墨黑", "zh-CN": "墨黑", "en": "Ink" } },
+      { "value": "tint", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Tint" } }
+    ] },
+    { "key": "backgroundOpacity", "type": "slider", "label": { "zh-TW": "背景不透明度", "zh-CN": "背景不透明度", "en": "Background opacity" }, "default": 100, "min": 0, "max": 100, "step": 1 },
+    { "key": "accent", "type": "color", "label": { "zh-TW": "主色", "zh-CN": "主色", "en": "Accent" }, "default": "#5B7CFA" },
+    { "key": "radius", "type": "slider", "label": { "zh-TW": "圓角", "zh-CN": "圆角", "en": "Corner radius" }, "default": 24, "min": 0, "max": 32, "step": 1 },
+    { "key": "fontFamily", "type": "font", "label": { "zh-TW": "字體", "zh-CN": "字体", "en": "Font" }, "default": null }
+  ]
+}

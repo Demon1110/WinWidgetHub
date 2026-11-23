@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人生进度</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="skin.css">
+</head>
+<body>
+  <div class="card" id="card">
+    <main class="content">
+      <header class="top">
+        <span class="brand" id="title">人生进度</span>
+        <span class="expect-tag" id="expectTag">100 年</span>
+      </header>
+
+      <section class="stage">
+        <div class="ring-view" id="ringView">
+          <div class="ring">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle class="ring-track" cx="100" cy="100" r="82" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0"/>
+              <circle class="ring-fill" id="ringFill" cx="100" cy="100" r="82" pathLength="100" stroke-dasharray="100" stroke-dashoffset="74"/>
+            </svg>
+            <div class="ring-center">
+              <span class="life">Life</span>
+              <b id="percent">26.48%</b>
+              <span class="age" id="ageText">26 岁</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dots-view" id="dotsView" hidden>
+          <div class="dots-head">
+            <span id="quote">人活一天就不要白活</span>
+            <b id="dotCount">26 / 100</b>
+          </div>
+          <div class="dots" id="dotsGrid" aria-hidden="true"></div>
+          <div class="dots-date">
+            <span id="dotDate">11 / 22</span>
+            <span id="dotWeek">周日</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" id="footer">
+        <span>出生 <b id="birthFooter">2000.06.06</b></span>
+        <span>已走过 <b id="yearsFooter">26</b> 年</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    window.SKIN_DEFAULTS = { skin: "paper", backgroundOpacity: 100, accent: "#3A7AF3", radius: 24, fontFamily: null };
+  </script>
+  <script src="main.js"></script>
+  <script src="skin.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: hidden;
+}
+body {
+  container-type: size;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--skin-radius, 26px);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--skin-fg);
+  font-family: var(--skin-font);
+  text-shadow: var(--skin-halo);
+}
+
+.halo {
+  position: absolute;
+  z-index: 0;
+  width: 72%;
+  aspect-ratio: 1;
+  left: 14%;
+  top: 17%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--skin-accent) 16%, transparent) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 18px;
+}
+
+.top {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.brand {
+  min-width: 0;
+  font-size: clamp(.66rem, 2.5cqw, .8rem);
+  font-weight: 720;
+  letter-spacing: .06em;
+  color: var(--skin-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rule-tag {
+  flex: none;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--skin-fg) 7%, transparent);
+  color: var(--skin-muted);
+  font-size: clamp(.5rem, 1.9cqw, .6rem);
+  font-weight: 560;
+  white-space: nowrap;
+}
+
+.hero {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+.pay-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--skin-muted);
+  font-size: clamp(.66rem, 2.6cqw, .82rem);
+  font-weight: 620;
+}
+.pay-label svg { width: 1.15em; height: 1.15em; color: var(--skin-accent); }
+.number-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+  min-height: 1.05em;
+}
+.number {
+  font-size: clamp(3.3rem, 16.8cqw, 5.9rem);
+  font-weight: 800;
+  line-height: .94;
+  letter-spacing: -.07em;
+  font-variant-numeric: tabular-nums;
+  color: var(--skin-fg);
+}
+.number.today { font-size: clamp(2.4rem, 11.5cqw, 3.7rem); letter-spacing: .02em; }
+.unit {
+  font-size: clamp(.58rem, 2.3cqw, .72rem);
+  font-weight: 620;
+  color: var(--skin-muted);
+  transform: translateY(-.1em);
+}
+.pay-date {
+  margin-top: 7px;
+  font-size: clamp(.72rem, 2.8cqw, .88rem);
+  font-weight: 560;
+  letter-spacing: .08em;
+  font-variant-numeric: tabular-nums;
+  color: var(--skin-fg);
+}
+.sub {
+  margin-top: 4px;
+  font-size: clamp(.53rem, 2.1cqw, .64rem);
+  color: var(--skin-muted);
+  letter-spacing: .03em;
+}
+
+.progress {
+  flex: none;
+  margin-top: 2px;
+  padding-right: 36px;
+}
+.progress-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: clamp(.52rem, 2.05cqw, .62rem);
+  color: var(--skin-muted);
+}
+.progress-head b {
+  color: var(--skin-fg);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+.track {
+  position: relative;
+  height: 4px;
+  margin-top: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--skin-fg) 10%, transparent);
+}
+.track i {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--skin-accent);
+  transition: width .3s ease;
+}
+.progress-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: clamp(.45rem, 1.8cqw, .54rem);
+  color: var(--skin-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.card.no-progress .progress { display: none; }
+
+@container (max-width: 320px) {
+  .content { padding: 14px 14px 12px; }
+  .number { font-size: 3rem; }
+  .number.today { font-size: 2.2rem; }
+  .progress { padding-right: 33px; }
+}
+
+@container (min-width: 440px) {
+  .content { padding: 24px 24px 20px; }
+  .pay-date { margin-top: 10px; }
+  .progress { margin-bottom: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track i { transition: none; }
+}

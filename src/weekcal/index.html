@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工作日历</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="m-dough" viewBox="0 0 240 150">
+        <ellipse cx="116" cy="132" rx="68" ry="7" fill="#2B241D" opacity=".10"/>
+        <path d="M45 118c-5-24 7-44 29-48 7-18 24-29 42-24 7-15 24-20 38-12 13-8 21 3 16 17 24 3 34 13 37 27 7 22-5 34-29 33H68c-12 0-21-7-23-17Z"
+              fill="#EFC46B" stroke="#2B241D" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M76 70c-2-2-4-1-6 1M96 64c2-2 4-1 6 1" stroke="#2B241D" stroke-width="3" stroke-linecap="round"/>
+        <path d="M81 81c6 5 14 4 18-2" stroke="#2B241D" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M54 116c10-6 19-3 23 4" stroke="#F8DA98" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M166 121c7 2 13 2 19-1M181 82c-1 5 0 9 3 12" stroke="#2B241D" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M45 62l4-7M38 52l7-3" stroke="#F4C542" stroke-width="4" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="m-student" viewBox="0 0 240 150">
+        <ellipse cx="124" cy="137" rx="84" ry="6" fill="#2B241D" opacity=".10"/>
+        <rect x="35" y="41" width="170" height="90" rx="9" fill="none" stroke="#2B241D" stroke-width="4.5"/>
+        <rect x="35" y="104" width="170" height="13" rx="6" fill="#D8A67E" stroke="#2B241D" stroke-width="4.5"/>
+        <line x1="44" y1="117" x2="44" y2="132" stroke="#2B241D" stroke-width="4.5" stroke-linecap="round"/>
+        <line x1="197" y1="117" x2="197" y2="132" stroke="#2B241D" stroke-width="4.5" stroke-linecap="round"/>
+        <rect x="48" y="82" width="142" height="27" rx="12" fill="#FFFDF6" stroke="#2B241D" stroke-width="3.5"/>
+        <path d="M90 82c2-16 11-25 26-25 16 0 27 10 30 25v24H90Z" fill="#F8CDB6" stroke="#2B241D" stroke-width="3.5"/>
+        <path d="M112 62c3-9 11-14 20-14 12 0 20 8 22 18-8 2-14 5-19 10" fill="#F8CDB6" stroke="#2B241D" stroke-width="3.5"/>
+        <circle cx="162" cy="81" r="15" fill="#FFE3CB" stroke="#2B241D" stroke-width="3.5"/>
+        <path d="M148 75c2-11 9-17 20-16 8 1 12 6 13 13-9-5-20-5-33 3Z" fill="#2B241D"/>
+        <path d="M157 82c2 1 4 1 6 0M171 82c2 1 4 1 6 0" stroke="#2B241D" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M163 89c3 2 7 1 8-2" stroke="#2B241D" stroke-width="2" stroke-linecap="round"/>
+        <path d="M66 96c9-3 16-1 21 4M70 107c11-3 21-1 27 3" stroke="#F2B69E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M85 66l4-5M78 58l6-1" stroke="#F7B7C8" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="m-worker" viewBox="0 0 240 150">
+        <ellipse cx="122" cy="132" rx="82" ry="7" fill="#2B241D" opacity=".10"/>
+        <path d="M25 132h190" stroke="#2B241D" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="57" cy="93" r="15" fill="#FFE0C7" stroke="#2B241D" stroke-width="4"/>
+        <path d="M42 88c1-12 8-19 19-19 10 0 16 6 17 15-8-5-18-4-36 4Z" fill="#2B241D"/>
+        <path d="M51 94c2 1 4 1 6 0M65 94c2 1 4 1 6 0" stroke="#2B241D" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M59 101c3 2 7 1 8-2" stroke="#2B241D" stroke-width="2" stroke-linecap="round"/>
+        <path d="M72 87h61c9 0 15 7 14 16l-2 14H75c-8 0-13-7-12-15Z" fill="#F4F1E8" stroke="#2B241D" stroke-width="4"/>
+        <path d="M100 87l6 13 7-13M106 100l-4 18 9 1-3-19Z" fill="#B33A3A" stroke="#2B241D" stroke-width="3"/>
+        <path d="M77 103h54M76 112h55" stroke="#CFD8E6" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M137 108c14 3 24 10 30 22M133 115c13 0 22 4 28 14" stroke="#2B241D" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M166 128c8-6 15-7 22-6M146 129c8 2 15 2 22 0" stroke="#2B241D" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M69 103c-9-3-16-1-21 5" stroke="#2B241D" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M199 58l4-7M207 67l7-1M193 70l-6 3" stroke="#8FA9E8" stroke-width="3.5" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="m-cat" viewBox="0 0 240 150">
+        <ellipse cx="124" cy="135" rx="70" ry="6" fill="#2B241D" opacity=".10"/>
+        <path d="M62 122c-18-5-25-21-14-35 8-11 23-9 31 2 6-22 23-37 44-35 14-10 32-11 45-2 19-2 33 11 35 27 2 14-8 24-22 27" fill="#F7F1E3" stroke="#2B241D" stroke-width="4.5" stroke-linejoin="round"/>
+        <path d="M102 53l5-15 12 10M154 51l8-13 10 11" fill="#F7F1E3" stroke="#2B241D" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M116 66c6 2 12 1 17-3M149 65c5 2 10 1 14-2" stroke="#2B241D" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M132 75c2 3 6 3 8 0M137 78l-1 5M124 84c6 4 13 5 20 2" stroke="#2B241D" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M68 116c-8-12-6-24 4-31M88 120c-5 3-10 4-15 3" stroke="#2B241D" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M188 111c17 3 29-4 34-14" stroke="#F7F1E3" stroke-width="14" stroke-linecap="round"/>
+        <path d="M188 111c17 3 29-4 34-14" stroke="#2B241D" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M76 92c-4 1-7 3-9 6M101 92c4 1 7 3 9 6" stroke="#F2C66B" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M196 72c8-4 13-1 15 3M203 79c7 4 8 8 4 12" stroke="#5BBE9D" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="card" id="card">
+    <div class="bg" id="bg" aria-hidden="true"></div>
+
+    <main class="content" id="calendar">
+      <header class="top">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">工作日历</span>
+        </div>
+        <div class="top-side">
+          <span class="week-no" id="weekNo">本周</span>
+          <button class="icon-btn" id="openSettings" type="button" aria-label="自定义工作日历" title="自定义">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 3.4v2.2M12 18.4v2.2M4.9 6.9l1.6 1.6M17.5 15.5l1.6 1.6M3.4 12h2.2M18.4 12h2.2M4.9 17.1l1.6-1.6M17.5 8.5l1.6-1.6" stroke="currentColor" stroke-width="1.7" fill="none"/>
+              <circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="hero" aria-label="本周提示">
+        <div class="hero-line">
+          <span class="hero-word">
+            <b id="leftWord">周末</b>
+            <i id="leftPy">zhou mo</i>
+          </span>
+          <span class="art-wrap" aria-hidden="true">
+            <span class="sign" id="sign">躺平快乐</span>
+            <svg class="art" viewBox="0 0 240 150">
+              <use id="heroUse" href="#m-dough"></use>
+            </svg>
+          </span>
+          <span class="hero-word right">
+            <b id="rightWord">到啦</b>
+            <i id="rightPy">dao la</i>
+          </span>
+        </div>
+      </section>
+
+      <section class="week-card" aria-label="本周日期">
+        <div class="range-row">
+          <span id="rangeLabel">本周</span>
+          <span class="week-kind" id="weekKind">工作日</span>
+        </div>
+        <ol class="days" id="days"></ol>
+      </section>
+
+      <footer class="foot">
+        <div class="progress-top">
+          <span id="progressLabel">本周已过 0/5 个工作日</span>
+          <strong id="progressPct">0%</strong>
+        </div>
+        <div class="progress" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="progressFill"></span>
+        </div>
+        <p class="foot-note" id="footNote">新的一周开始了</p>
+      </footer>
+    </main>
+
+    <div class="settings" id="settings" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" data-no-drag hidden>
+      <div class="sheet" id="sheet" tabindex="-1">
+        <header class="sheet-head">
+          <div>
+            <span class="eyebrow">预览与设置</span>
+            <h2 id="sheetTitle">自定义我的日历</h2>
+          </div>
+          <button class="close-btn" id="closeSettings" type="button" aria-label="关闭设置" title="关闭">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+          </button>
+        </header>
+
+        <div class="sheet-body" id="sheetBody">
+          <div class="mini" id="mini" aria-label="外观预览">
+            <div class="mini-bg" id="miniBg" aria-hidden="true"></div>
+            <div class="mini-inner">
+              <span class="mini-word" id="miniLeft">周末</span>
+              <span class="mini-art">
+                <span class="mini-sign" id="miniSign">躺平快乐</span>
+                <svg viewBox="0 0 240 150" aria-hidden="true"><use id="miniUse" href="#m-dough"></use></svg>
+              </span>
+              <span class="mini-word" id="miniRight">到啦</span>
+            </div>
+          </div>
+
+          <section class="section">
+            <div class="sec-head">
+              <h3>主题</h3>
+              <p>角色、口头禅和强调色一起换</p>
+            </div>
+            <div class="theme-grid" id="themeGrid" role="group" aria-label="主题"></div>
+          </section>
+
+          <section class="section">
+            <div class="sec-head">
+              <h3>背景</h3>
+              <p>纯色、渐变，或者相簿里的一张照片</p>
+            </div>
+            <div class="mode-tabs" id="modeTabs" role="group" aria-label="背景方式">
+              <button type="button" data-mode="solid" aria-pressed="true">纯色</button>
+              <button type="button" data-mode="gradient" aria-pressed="false">渐变</button>
+              <button type="button" data-mode="album" aria-pressed="false">相册</button>
+            </div>
+
+            <div class="bg-pane" id="paneSolid">
+              <div class="color-row">
+                <div class="swatches" id="colorSwatches" role="group" aria-label="背景颜色"></div>
+                <label class="custom-color" title="自定义背景颜色">
+                  <input type="color" id="customBgColor" value="#FFF8ED" aria-label="自定义背景颜色">
+                  <span aria-hidden="true">+</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="bg-pane" id="paneGradient" hidden>
+              <div class="gradient-grid" id="gradientGrid" role="group" aria-label="渐变背景"></div>
+              <button class="switch-row" id="animateToggle" type="button" role="switch" aria-checked="false">
+                <span><b>渐变流动</b><em>让颜色缓慢移开</em></span>
+                <i class="switch" aria-hidden="true"><u></u></i>
+              </button>
+            </div>
+
+            <div class="bg-pane" id="paneAlbum" hidden>
+              <div class="album-bar">
+                <div class="album-meta">
+                  <b id="albumCount">还没有选择相册</b>
+                  <span id="albumFolder">图片会从本机读取，不上传</span>
+                </div>
+                <button class="small-btn" id="pickFolder" type="button">选择相册</button>
+              </div>
+              <div class="album-grid" id="albumGrid"></div>
+              <p class="album-empty" id="albumEmpty" hidden>这里还没有图片。换一个文件夹，或直接放几张照片进去。</p>
+              <p class="album-loading" id="albumLoading" hidden>正在读取相簿…</p>
+            </div>
+
+            <div class="slider-block">
+              <div class="slider-top">
+                <label for="opacity">背景不透明度</label>
+                <output id="opacityValue" for="opacity">100%</output>
+              </div>
+              <input type="range" id="opacity" min="0" max="100" step="1" value="100" aria-label="背景不透明度">
+              <div class="slider-hint"><span>0% 只剩文字</span><span>100% 完全挡住桌面</span></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="sec-head">
+              <h3>字体</h3>
+              <p>只换这张卡上的字，不改系统字体</p>
+            </div>
+            <div class="font-list" id="fontList" role="group" aria-label="字体"></div>
+          </section>
+
+          <section class="section">
+            <div class="sec-head">
+              <h3>文字颜色</h3>
+              <p>深色背景请配浅色字</p>
+            </div>
+            <div class="color-row">
+              <div class="text-colors" id="textColors" role="group" aria-label="文字颜色"></div>
+              <label class="custom-color text-custom" title="自定义文字颜色">
+                <input type="color" id="customTextColor" value="#2B241D" aria-label="自定义文字颜色">
+                <span aria-hidden="true">+</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="sec-head">
+              <h3>边框</h3>
+              <p>不想要边框时直接关掉</p>
+            </div>
+            <button class="switch-row" id="borderToggle" type="button" role="switch" aria-checked="true">
+              <span><b>显示边框</b><em>在卡片四周加一圈</em></span>
+              <i class="switch" aria-hidden="true"><u></u></i>
+            </button>
+            <div class="border-grid" id="borderGrid" role="group" aria-label="边框样式"></div>
+          </section>
+        </div>
+
+        <footer class="sheet-foot">
+          <button class="reset-btn" id="resetBtn" type="button">恢复默认</button>
+          <button class="done-btn" id="doneBtn" type="button">完成</button>
+        </footer>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

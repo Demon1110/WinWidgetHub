@@ -1,0 +1,256 @@
+/* 共用外观层：只负责底色、文字色、圆角、字体和外观抽屉，不碰组件内容布局。 */
+
+body {
+  --skin-fg: #2B241D;
+  --skin-accent: #F4C542;
+  --skin-radius: 22px;
+  --skin-font: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", sans-serif;
+  --skin-halo: 0 0 transparent;
+  --skin-panel: rgba(255, 255, 255, .55);
+  --skin-line: rgba(43, 36, 29, .12);
+  font-family: var(--skin-font);
+  color: var(--skin-fg);
+}
+
+.skin-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: var(--skin-radius);
+  background: #FFF8ED;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity .16s ease, background-color .2s ease;
+}
+
+.skin-fab {
+  position: absolute;
+  z-index: 30;
+  right: 12px;
+  bottom: 12px;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(30, 27, 22, .14);
+  border-radius: 9px;
+  background: rgba(255, 253, 248, .88);
+  color: #2B241D;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(24, 20, 16, .10);
+  transition: transform .16s ease, background .16s ease;
+}
+.skin-fab:hover { background: #FFFDF8; transform: translateY(-1px); }
+.skin-fab:active { transform: scale(.94); }
+.skin-fab:focus-visible { outline: 2px solid var(--skin-accent); outline-offset: 2px; }
+.skin-fab svg { width: 16px; height: 16px; display: block; }
+
+.skin-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+}
+.skin-sheet[hidden] { display: none !important; }
+.skin-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 13, 11, .28);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.skin-panel {
+  position: relative;
+  width: 100%;
+  max-height: calc(100% - 12px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 253, 248, .97);
+  color: #2B241D;
+  box-shadow: 0 -6px 30px rgba(20, 17, 14, .18);
+  animation: skin-rise .2s ease both;
+}
+@keyframes skin-rise {
+  from { opacity: .4; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.skin-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 14px 9px;
+}
+.skin-head h3 {
+  margin: 0;
+  font-size: .78rem;
+  font-weight: 720;
+  letter-spacing: .03em;
+}
+.skin-close {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #F1ECE2;
+  color: #3A3127;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.skin-close:focus-visible { outline: 2px solid var(--skin-accent); outline-offset: 2px; }
+.skin-body {
+  min-height: 0;
+  overflow: auto;
+  padding: 0 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.skin-sec { display: flex; flex-direction: column; gap: 6px; }
+.skin-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: .65rem;
+  font-weight: 650;
+  color: #3A3127;
+}
+.skin-label span {
+  font-size: .55rem;
+  font-weight: 500;
+  color: #8D8273;
+  text-align: right;
+}
+.skin-chips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+.skin-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 5px 6px;
+  border: 1px solid #E4DDD1;
+  border-radius: 9px;
+  background: #FFFEFB;
+  color: #51473B;
+  font: inherit;
+  font-size: .57rem;
+  text-align: left;
+  cursor: pointer;
+}
+.skin-chip b {
+  width: 11px;
+  height: 11px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid rgba(30, 27, 22, .12);
+  background: var(--chip);
+}
+.skin-chip u { text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.skin-chip[aria-pressed="true"] {
+  border-color: var(--skin-accent);
+  background: color-mix(in srgb, var(--skin-accent) 14%, #FFFEFB);
+}
+.skin-range {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--skin-accent);
+  cursor: pointer;
+}
+.skin-range:focus-visible { outline: 2px solid var(--skin-accent); outline-offset: 2px; }
+.skin-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: .52rem;
+  color: #8D8273;
+}
+.skin-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+.skin-swatch {
+  width: 21px;
+  height: 21px;
+  padding: 0;
+  border: 2px solid #FFFEFB;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: 0 0 0 1px #D9D1C4;
+  cursor: pointer;
+}
+.skin-swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--skin-accent); }
+.skin-swatch:focus-visible { outline: 2px solid var(--skin-accent); outline-offset: 2px; }
+.skin-custom {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: conic-gradient(#F55, #FC3, #5C5, #3CF, #55F, #F5C, #F55);
+  box-shadow: 0 0 0 1px #D9D1C4;
+  color: #2B241D;
+  font-size: .7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.skin-custom input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.skin-custom:focus-within { outline: 2px solid var(--skin-accent); outline-offset: 2px; }
+.skin-select {
+  width: 100%;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid #E4DDD1;
+  border-radius: 8px;
+  background: #FFFEFB;
+  color: #3A3127;
+  font: inherit;
+  font-size: .62rem;
+  cursor: pointer;
+}
+.skin-select:focus-visible { outline: 2px solid var(--skin-accent); outline-offset: 2px; }
+.skin-foot {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 12px;
+  border-top: 1px solid #EEE7DB;
+}
+.skin-reset {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: #8D8273;
+  font: inherit;
+  font-size: .57rem;
+  cursor: pointer;
+}
+.skin-reset:hover { color: #3A3127; }
+.skin-hint { font-size: .52rem; color: #8D8273; text-align: right; }
+
+@media (prefers-reduced-motion: reduce) {
+  .skin-panel { animation: none; }
+}

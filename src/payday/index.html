@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工资倒计时</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="skin.css">
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="halo" aria-hidden="true"></div>
+    <main class="content">
+      <header class="top">
+        <span class="brand" id="title">工资倒计时</span>
+        <span class="rule-tag" id="ruleTag">每月 15 号</span>
+      </header>
+
+      <section class="hero">
+        <span class="pay-label">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 8.5h6M12 8.5v7M9 12h6M8.5 15.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span id="payLabel">发薪日</span>
+        </span>
+        <div class="number-row">
+          <b class="number" id="days">23</b>
+          <span class="unit" id="unit">天</span>
+        </div>
+        <span class="pay-date" id="payDate">2026.12.15</span>
+        <span class="sub" id="subLabel">距离下次发薪</span>
+      </section>
+
+      <section class="progress" id="progressBox">
+        <div class="progress-head">
+          <span id="progressLabel">本期已过</span>
+          <b id="progressPct">74%</b>
+        </div>
+        <div class="track" role="progressbar" aria-label="本期进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="74">
+          <i id="progressFill"></i>
+        </div>
+        <div class="progress-foot"><span id="progressFrom">10.15</span><span id="progressTo">12.15</span></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    window.SKIN_DEFAULTS = { skin: "paper", backgroundOpacity: 100, accent: "#3A7AF3", radius: 26, fontFamily: null };
+  </script>
+  <script src="main.js"></script>
+  <script src="skin.js"></script>
+</body>
+</html>
