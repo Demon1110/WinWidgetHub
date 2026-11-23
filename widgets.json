@@ -2,9 +2,110 @@
   "schema": 1,
   "repo": "https://github.com/Demon1110/WinWidgetHub",
   "base": "https://demon1110.github.io/WinWidgetHub/",
-  "updated": "2026-11-21",
-  "count": 93,
+  "updated": "2026-11-22",
+  "count": 98,
   "widgets": [
+    {
+      "id": "life",
+      "name": "人生进度",
+      "description": "用圆环或一百个点看见人生走了多少，出生日期与预期寿命都能改",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "info",
+      "updated": "2026-11-22",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/life/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/life/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/life/preview/preview.png",
+        "https://demon1110.github.io/WinWidgetHub/src/life/preview/preview.webp"
+      ],
+      "permissions": [],
+      "bytes": 39282,
+      "sha256": "06fd385531cada1d3079958796b3cce0c749333e00e34241890ff199464cd26d",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/life-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/life"
+    },
+    {
+      "id": "multipanel",
+      "name": "多彩面板",
+      "description": "时间、容量、电量与天气排成一组彩色卡片，透明皮肤可直接叠在桌面上",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "system",
+      "updated": "2026-11-22",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/multipanel/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/multipanel/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/multipanel/preview/preview.png",
+        "https://demon1110.github.io/WinWidgetHub/src/multipanel/preview/preview.webp"
+      ],
+      "permissions": [
+        "system"
+      ],
+      "bytes": 83353,
+      "sha256": "1e5f61b9c79514101b717a3ae306b4582b2b4be208b22b558f0ecc53c871ead4",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/multipanel-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/multipanel"
+    },
+    {
+      "id": "payday",
+      "name": "工资倒计时",
+      "description": "距离发薪日还有几天，日期、进度与皮肤都能自己换",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "time",
+      "updated": "2026-11-22",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/payday/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/payday/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/payday/preview/preview.png",
+        "https://demon1110.github.io/WinWidgetHub/src/payday/preview/preview.webp"
+      ],
+      "permissions": [],
+      "bytes": 52774,
+      "sha256": "fd056a4dd52414b0e6b924d49d8b2dc46d756bf941d3bbb165178260123f8f38",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/payday-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/payday"
+    },
+    {
+      "id": "weekcal",
+      "name": "工作日历",
+      "description": "一眼看完本周的工作日、周末倒数和进度，主题、背景、字体与边框都能单独换",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "time",
+      "updated": "2026-11-22",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/weekcal/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/weekcal/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/weekcal/preview/preview.png"
+      ],
+      "permissions": [],
+      "bytes": 43270,
+      "sha256": "fcf169a6237af4b8696cda48af9da53631a20272b6304ffa6fc7f42280030691",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/weekcal-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/weekcal"
+    },
+    {
+      "id": "workday",
+      "name": "打工人倒计时",
+      "description": "距离上班或下班还有多久，班次、双休、文案与皮肤都能自己调",
+      "version": "1.0.0",
+      "author": "WinWidget",
+      "category": "time",
+      "updated": "2026-11-22",
+      "icon": "https://demon1110.github.io/WinWidgetHub/src/workday/icon.svg",
+      "preview": "https://demon1110.github.io/WinWidgetHub/src/workday/preview/preview.png",
+      "previews": [
+        "https://demon1110.github.io/WinWidgetHub/src/workday/preview/preview.png",
+        "https://demon1110.github.io/WinWidgetHub/src/workday/preview/preview.webp"
+      ],
+      "permissions": [],
+      "bytes": 52596,
+      "sha256": "7f0fbf984c3a76ce1fba579a3a7606933da7353b2440e0150c26878ebb405e22",
+      "download": "https://demon1110.github.io/WinWidgetHub/widgets/workday-1.0.0.fwz",
+      "page": "https://github.com/Demon1110/WinWidgetHub/tree/main/src/workday"
+    },
     {
       "id": "2048",
       "name": "数字方块",
